@@ -5,7 +5,7 @@ var WALK_SPEED = 400
 var JUMPING_SPEED = Vector2(800,2000) # you can jump faster than you can walk
 var MAX_JUMP_TIME = 600 # long you need to hold for max jump, in millisecs
 var MIN_JUMP_TIME = 200
-enum {P_IDLE, P_WALKING, P_CHARGE_JUMP, P_JUMPING, P_FALLING, P_WALLCRASHING, P_ROOFCRASHING, P_WALKOFF} #PLAYER_STATE
+enum {P_FROZEN, P_IDLE, P_WALKING, P_CHARGE_JUMP, P_JUMPING, P_FALLING, P_WALLCRASHING, P_ROOFCRASHING, P_WALKOFF} #PLAYER_STATE
 var PLAYER_STATE = P_IDLE
 
 var on_floor = false
@@ -26,14 +26,20 @@ func _ready():
 
 
 func _physics_process(delta):
+	if PLAYER_STATE == P_FROZEN:
+		return
 	var direction = get_direction()
 	velocity = calculate_move_velocity(direction)
-	decide_player_state(velocity)
+	decide_player_state()
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 
 func _process(delta):
 	animate_player()
+
+
+func dialog_ended(_timeline_name):
+	PLAYER_STATE = P_IDLE
 
 
 func calculate_move_velocity(direction: Vector2) -> Vector2:
@@ -42,7 +48,7 @@ func calculate_move_velocity(direction: Vector2) -> Vector2:
 		new_velocity.y = calculate_jump_velocity()
 	elif on_floor:
 		new_velocity.x = WALK_SPEED * direction.x
-	elif PLAYER_STATE == P_JUMPING or PLAYER_STATE == P_FALLING:
+	if PLAYER_STATE == P_JUMPING or PLAYER_STATE == P_FALLING:
 		new_velocity.x = JUMPING_SPEED.x * jump_dir
 	elif PLAYER_STATE == P_WALLCRASHING or PLAYER_STATE == P_ROOFCRASHING:
 		new_velocity.x = WALK_SPEED * jump_dir
@@ -64,7 +70,9 @@ func get_direction() -> Vector2:
 	var y_dir = 0
 	if PLAYER_STATE == P_CHARGE_JUMP:
 		x_dir = 0
-		if (Input.is_action_just_released("jump") and on_floor) or OS.get_ticks_msec() - charge_jump_start > 800:
+		if not on_floor:
+			PLAYER_STATE = P_WALKOFF
+		elif Input.is_action_just_released("jump") or OS.get_ticks_msec() - charge_jump_start > 800:
 			charge_jump_end = OS.get_ticks_msec()
 			PLAYER_STATE = P_IDLE
 			jump_dir = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -83,7 +91,7 @@ func player_crash(is_wall: bool):
 		PLAYER_STATE = P_ROOFCRASHING
 
 
-func decide_player_state(velocity):
+func decide_player_state():
 	if PLAYER_STATE == P_CHARGE_JUMP: #gets set in get_direction
 		pass
 	elif PLAYER_STATE == P_WALLCRASHING and not on_floor:
@@ -124,6 +132,8 @@ func decide_player_flip(direction: Vector2):
 
 func animate_player():
 	match PLAYER_STATE:
+		P_FROZEN:
+			$AnimatedSprite.play("idle")
 		P_IDLE:
 			$AnimatedSprite.play("idle")
 		P_WALKING:
@@ -189,3 +199,10 @@ func _on_RoofDetector_body_exited(body):
 	roofs.erase(body)
 	if roofs.size() == 0:
 		on_roof = false
+
+
+func play_dialog(body, extra_arg_0):
+	PLAYER_STATE = P_FROZEN
+	var dialog = Dialogic.start("test")
+	add_child(dialog)
+	dialog.connect("timeline_end", self, "dialog_ended")
