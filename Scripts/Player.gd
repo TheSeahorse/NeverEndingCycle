@@ -3,16 +3,21 @@ extends KinematicBody2D
 var GRAVITY = 3000
 var WALK_SPEED = 400
 var JUMPING_SPEED = Vector2(800,2000) # you can jump faster than you can walk
-var MAX_JUMP_TIME = 600 # only effects how long you need to hold for max jump
+var MAX_JUMP_TIME = 600 # long you need to hold for max jump, in millisecs
 var MIN_JUMP_TIME = 200
-enum {P_IDLE, P_WALKING, P_CHARGE_JUMP, P_JUMPING, P_MIDAIR, P_FALLING} #PLAYER_STATE
+enum {P_IDLE, P_WALKING, P_CHARGE_JUMP, P_JUMPING, P_FALLING, P_WALLCRASHING, P_ROOFCRASHING, P_WALKOFF} #PLAYER_STATE
 var PLAYER_STATE = P_IDLE
 
+var on_floor = false
+var floors = []
+var on_wall = false
+var walls = []
+var on_roof = false
+var roofs = []
 var velocity = Vector2.ZERO
-var charge_jump = false
 var charge_jump_start = OS.get_ticks_msec()
 var charge_jump_end = OS.get_ticks_msec()
-var charge_jump_dir = 0 # 1 = right, -1 = left, 0 = straight up
+var jump_dir = 0 # 1 = right, -1 = left, 0 = straight up
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,7 +26,6 @@ func _ready():
 
 
 func _physics_process(delta):
-	#print("PLAYER_STATE: " + str(PLAYER_STATE))
 	var direction = get_direction()
 	velocity = calculate_move_velocity(direction)
 	decide_player_state(velocity)
@@ -36,10 +40,12 @@ func calculate_move_velocity(direction: Vector2) -> Vector2:
 	var new_velocity = velocity
 	if direction.y == -1: #jump was triggered
 		new_velocity.y = calculate_jump_velocity()
-	elif self.is_on_floor():
+	elif on_floor:
 		new_velocity.x = WALK_SPEED * direction.x
-	else:
-		new_velocity.x = JUMPING_SPEED.x * charge_jump_dir
+	elif PLAYER_STATE == P_JUMPING or PLAYER_STATE == P_FALLING:
+		new_velocity.x = JUMPING_SPEED.x * jump_dir
+	elif PLAYER_STATE == P_WALLCRASHING or PLAYER_STATE == P_ROOFCRASHING:
+		new_velocity.x = WALK_SPEED * jump_dir
 	new_velocity.y += GRAVITY * get_physics_process_delta_time()
 	return new_velocity
 
@@ -56,37 +62,57 @@ func calculate_jump_velocity() -> int:
 func get_direction() -> Vector2:
 	var x_dir = Input.get_action_strength("right") - Input.get_action_strength("left")
 	var y_dir = 0
-	if charge_jump:
+	if PLAYER_STATE == P_CHARGE_JUMP:
 		x_dir = 0
-		if (Input.is_action_just_released("jump") and self.is_on_floor()) or OS.get_ticks_msec() - charge_jump_start > 800:
+		if (Input.is_action_just_released("jump") and on_floor) or OS.get_ticks_msec() - charge_jump_start > 800:
 			charge_jump_end = OS.get_ticks_msec()
-			charge_jump = false
-			charge_jump_dir = Input.get_action_strength("right") - Input.get_action_strength("left")
+			PLAYER_STATE = P_IDLE
+			jump_dir = Input.get_action_strength("right") - Input.get_action_strength("left")
 			y_dir = -1
-	else:
-		if Input.is_action_just_pressed("jump") and self.is_on_floor():
+	elif Input.is_action_just_pressed("jump") and on_floor:
 			charge_jump_start = OS.get_ticks_msec()
-			charge_jump = true
+			PLAYER_STATE = P_CHARGE_JUMP
 	return Vector2(x_dir, y_dir)
 
 
-func decide_player_state(direction):
-	print("Direction: " + str(direction))
-	if charge_jump:
-		PLAYER_STATE = P_CHARGE_JUMP
-	elif self.is_on_floor():
-		if direction.x == 0:
+func player_crash(is_wall: bool):
+	if is_wall:
+		PLAYER_STATE = P_WALLCRASHING
+		jump_dir *= -1
+	else:
+		PLAYER_STATE = P_ROOFCRASHING
+
+
+func decide_player_state(velocity):
+	if PLAYER_STATE == P_CHARGE_JUMP: #gets set in get_direction
+		pass
+	elif PLAYER_STATE == P_WALLCRASHING and not on_floor:
+		decide_player_flip(Vector2(-1 * velocity.x, -1 * velocity.y))
+		return
+	elif PLAYER_STATE == P_ROOFCRASHING and not on_floor:
+		pass
+	elif PLAYER_STATE == P_WALKOFF and not on_floor:
+		pass
+	elif on_floor:
+		if velocity.x == 0:
 			PLAYER_STATE = P_IDLE
 		else:
 			PLAYER_STATE = P_WALKING
 	else:
-		if direction.y > 400:
-			PLAYER_STATE = P_FALLING
-		elif direction.y <= -400:
-			PLAYER_STATE = P_JUMPING
+		if velocity.y > 0:
+			if PLAYER_STATE == P_WALKING:
+				if velocity.x > 0:
+					jump_dir = 1
+				elif velocity.x < 0:
+					jump_dir = -1
+				else:
+					jump_dir = 0
+				PLAYER_STATE = P_WALKOFF
+			else:
+				PLAYER_STATE = P_FALLING
 		else:
-			PLAYER_STATE = P_MIDAIR
-	decide_player_flip(direction)
+			PLAYER_STATE = P_JUMPING
+	decide_player_flip(velocity)
 
 
 func decide_player_flip(direction: Vector2):
@@ -104,9 +130,62 @@ func animate_player():
 			$AnimatedSprite.play("walk")
 		P_JUMPING:
 			$AnimatedSprite.play("jump")
-		P_MIDAIR:
-			$AnimatedSprite.play("midair")
 		P_FALLING:
 			$AnimatedSprite.play("fall")
 		P_CHARGE_JUMP:
 			$AnimatedSprite.play("charge_jump")
+		P_WALLCRASHING:
+			$AnimatedSprite.play("crash")
+		P_ROOFCRASHING:
+			$AnimatedSprite.play("crash")
+		P_WALKOFF:
+			$AnimatedSprite.play("crash")
+
+
+func _on_WallDetector_body_entered(body):
+	if on_wall == false and not on_floor:
+		print("crash")
+		player_crash(true)
+	on_wall = true
+	walls.append(body)
+
+
+
+func _on_WallDetector_body_exited(body):
+	walls.erase(body)
+	if walls.size() == 0:
+		on_wall = false
+
+
+
+func _on_FloorDetector_body_entered(body):
+	on_floor = true
+	floors.append(body)
+
+
+func _on_FloorDetector_body_exited(body):
+	floors.erase(body)
+	if floors.size() == 0:
+		on_floor = false
+
+
+func _on_PrintTimer_timeout():
+	#print("PLAYER_STATE: " + str(PLAYER_STATE))
+	#print("Velocity: " + str(velocity))
+	#print("ON_FLOOR: " + str(on_floor))
+	#print("ON_WALL: " + str(on_wall))
+	pass
+
+
+func _on_RoofDetector_body_entered(body):
+	if on_roof == false and not on_floor:
+		print("roof_crash")
+		player_crash(false)
+	on_roof = true
+	roofs.append(body)
+
+
+func _on_RoofDetector_body_exited(body):
+	roofs.erase(body)
+	if roofs.size() == 0:
+		on_roof = false
