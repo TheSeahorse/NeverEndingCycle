@@ -18,11 +18,12 @@ var velocity = Vector2.ZERO
 var charge_jump_start = OS.get_ticks_msec()
 var charge_jump_end = OS.get_ticks_msec()
 var jump_dir = 0 # 1 = right, -1 = left, 0 = straight up
+var dialog_area: Area2D = null
+var next_dialog: String = ""
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 func _physics_process(delta):
@@ -38,8 +39,24 @@ func _process(delta):
 	animate_player()
 
 
-func dialog_ended(_timeline_name):
+func _input(event):
+	if event.is_action_pressed("interact") and dialog_area != null and PLAYER_STATE != P_FROZEN:
+		play_dialog(dialog_area, next_dialog)
+
+
+func play_dialog(_body: Node, dialog_name: String):
+	interact_sprite_visibility(false)
+	PLAYER_STATE = P_FROZEN
+	var dialog = Dialogic.start(dialog_name)
+	add_child(dialog)
+	dialog.connect("timeline_end", self, "dialog_ended", [dialog])
+
+
+func dialog_ended(timeline_name, dialog):
+	print(dialog)
 	PLAYER_STATE = P_IDLE
+	dialog.queue_free()
+	interact_sprite_visibility(true)
 
 
 func calculate_move_velocity(direction: Vector2) -> Vector2:
@@ -125,8 +142,10 @@ func decide_player_state():
 
 func decide_player_flip(direction: Vector2):
 	if direction.x > 0:
+		$InteractSprite.set_position(Vector2(80, -140))
 		$AnimatedSprite.flip_h = false
 	elif direction.x < 0:
+		$InteractSprite.set_position(Vector2(-80, -140))
 		$AnimatedSprite.flip_h = true
 
 
@@ -150,6 +169,10 @@ func animate_player():
 			$AnimatedSprite.play("crash")
 		P_WALKOFF:
 			$AnimatedSprite.play("crash")
+
+
+func interact_sprite_visibility(visible: bool):
+	$InteractSprite.visible = visible
 
 
 func _on_WallDetector_body_entered(body):
@@ -201,8 +224,13 @@ func _on_RoofDetector_body_exited(body):
 		on_roof = false
 
 
-func play_dialog(body, extra_arg_0):
-	PLAYER_STATE = P_FROZEN
-	var dialog = Dialogic.start("test")
-	add_child(dialog)
-	dialog.connect("timeline_end", self, "dialog_ended")
+func _on_InteractionDetector_area_entered(area):
+	$InteractSprite.show()
+	dialog_area = area
+	next_dialog = area.get_next_dialog(self)
+
+
+func _on_InteractionDetector_area_exited(area):
+	$InteractSprite.hide()
+	dialog_area = null
+	next_dialog = ""
