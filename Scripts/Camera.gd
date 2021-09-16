@@ -20,3 +20,7 @@ func _process(_delta):
 	new_position.x = row * 1920 + 960
 	self.set_position(new_position)
 
+	if player.player_stats[0] > 0:
+		$Egs.show()
+		$Egs.text = "EGS: " + str(player.player_stats[0] - player.player_stats[1])
+

@@ -129,7 +129,7 @@ shape = SubResource( 1 )
 position = Vector2( 0, -122 )
 frames = SubResource( 14 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="AmongusRed" type="Sprite" parent="."]
