@@ -20,10 +20,10 @@ var charge_jump_end = OS.get_ticks_msec()
 var jump_dir = 0 # 1 = right, -1 = left, 0 = straight up
 var dialog_area: Area2D = null
 var next_dialog: String = ""
-
+var player_stats: Array
 
 func _ready():
-	pass
+	player_stats = get_parent().stats
 
 
 func _physics_process(delta):
@@ -32,7 +32,7 @@ func _physics_process(delta):
 	var direction = get_direction()
 	velocity = calculate_move_velocity(direction)
 	decide_player_state()
-	velocity = move_and_slide(velocity, Vector2.UP)
+	velocity = move_and_slide(velocity, Vector2.UP, true)
 
 
 func _process(delta):
@@ -41,22 +41,44 @@ func _process(delta):
 
 func _input(event):
 	if event.is_action_pressed("interact") and dialog_area != null and PLAYER_STATE != P_FROZEN:
-		play_dialog(dialog_area, next_dialog)
+		play_dialog()
 
 
-func play_dialog(_body: Node, dialog_name: String):
+# [stat to be added, amount to be added]
+func add_stats(stat, amount):
+	print("stats added: " + str(amount))
+	get_parent().add_stats(stat, amount)
+
+
+func play_dialog():
+	next_dialog = dialog_area.get_next_dialog(self, player_stats)
 	interact_sprite_visibility(false)
 	PLAYER_STATE = P_FROZEN
-	var dialog = Dialogic.start(dialog_name)
+	var dialog = Dialogic.start(next_dialog)
 	add_child(dialog)
 	dialog.connect("timeline_end", self, "dialog_ended", [dialog])
+	dialog.connect("dialogic_signal", self, "dialog_answer")
 
 
 func dialog_ended(timeline_name, dialog):
-	print(dialog)
 	PLAYER_STATE = P_IDLE
 	dialog.queue_free()
 	interact_sprite_visibility(true)
+
+
+func dialog_answer(answer: String):
+	match answer:
+		"one_eg":
+			add_stats(1, 1)
+		"nine_egs":
+			add_stats(1, 9)
+		"hobo_eg":
+			print("inside")
+			add_stats(0, 1)
+			dialog_area.hobo_poof()
+			$InteractSprite.hide()
+			next_dialog = ""
+			dialog_area = null
 
 
 func calculate_move_velocity(direction: Vector2) -> Vector2:
@@ -70,6 +92,8 @@ func calculate_move_velocity(direction: Vector2) -> Vector2:
 	elif PLAYER_STATE == P_WALLCRASHING or PLAYER_STATE == P_ROOFCRASHING:
 		new_velocity.x = WALK_SPEED * jump_dir
 	new_velocity.y += GRAVITY * get_physics_process_delta_time()
+	if new_velocity.y > 2000:
+		new_velocity.y = 2000
 	return new_velocity
 
 
@@ -225,12 +249,17 @@ func _on_RoofDetector_body_exited(body):
 
 
 func _on_InteractionDetector_area_entered(area):
-	$InteractSprite.show()
-	dialog_area = area
-	next_dialog = area.get_next_dialog(self)
+	if area.get_collision_layer_bit(2):
+		$InteractSprite.show()
+		dialog_area = area
+	elif area.get_collision_layer_bit(3):
+		if area is Eg:
+			add_stats(0,1)
+			area.collected()
 
 
 func _on_InteractionDetector_area_exited(area):
-	$InteractSprite.hide()
-	dialog_area = null
-	next_dialog = ""
+	if area.get_collision_layer_bit(2):
+		$InteractSprite.hide()
+		dialog_area = null
+		next_dialog = ""

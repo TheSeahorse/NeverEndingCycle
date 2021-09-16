@@ -31,7 +31,7 @@ var INPUT_KEYS := [
 
 var DIALOG_KEYS := [
 	'translations',
-	'new_lines', 
+	'new_lines',
 	'remove_empty_messages',
 	'auto_color_names',
 	'propagate_input',
@@ -39,7 +39,7 @@ var DIALOG_KEYS := [
 	]
 
 var SAVING_KEYS := [
-	'save_current_timeline', 
+	'save_current_timeline',
 	'clear_current_timeline',
 	'save_definitions_on_start',
 	'save_definitions_on_end',
@@ -47,7 +47,7 @@ var SAVING_KEYS := [
 
 func _ready():
 	update_data()
-	
+
 	# Themes
 	nodes['themes'].connect('item_selected', self, '_on_default_theme_selected')
 	nodes['delay_after_options'].connect('text_changed', self, '_on_delay_options_text_changed')
@@ -57,10 +57,10 @@ func _ready():
 
 	nodes['default_action_key'].connect('pressed', self, '_on_default_action_key_presssed')
 	nodes['default_action_key'].connect('item_selected', self, '_on_default_action_key_item_selected')
-		
+
 	for k in DIALOG_KEYS:
 		nodes[k].connect('toggled', self, '_on_item_toggled', ['dialog', k])
-	
+
 	for k in SAVING_KEYS:
 		nodes[k].connect('toggled', self, '_on_item_toggled', ['saving', k])
 
@@ -89,7 +89,7 @@ func refresh_themes(settings: ConfigFile):
 	# TODO move to theme section later
 	if settings.has_section_key('dialog', 'advanced_themes'):
 		nodes['advanced_themes'].pressed = settings.get_value('dialog', 'advanced_themes')
-	
+
 	nodes['themes'].clear()
 	var theme_list = DialogicUtil.get_sorted_theme_list()
 	var theme_indexes = {}
@@ -99,11 +99,11 @@ func refresh_themes(settings: ConfigFile):
 		nodes['themes'].set_item_metadata(index, {'file': theme['file']})
 		theme_indexes[theme['file']] = index
 		index += 1
-	
+
 	# Only one item added, then save as default
-	if index == 1: 
+	if index == 1:
 		set_value('theme', 'default', theme_list[0]['file'])
-	
+
 	# More than one theme? Select which the default one is
 	if index > 1:
 		if settings.has_section_key('theme', 'default'):

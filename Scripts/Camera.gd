@@ -12,7 +12,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var new_position = Vector2(960,0)
-	var screen: int = int(player.get_position().y - 1180) / int(1080)
+	var screen = int(player.get_position().y - 1180) / int(1080)
+	var row = int(player.get_position().x / int(1900))
+	if player.get_position().x < 0:
+		row -= 1
 	new_position.y = screen * 1080 + 540
+	new_position.x = row * 1900 + 960
 	self.set_position(new_position)
 

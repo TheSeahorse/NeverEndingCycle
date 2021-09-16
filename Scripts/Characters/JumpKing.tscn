@@ -4,10 +4,10 @@
 [ext_resource path="res://Resources/Graphics/Characters/jump_king_left2.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Characters/JumpKing.gd" type="Script" id=3]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 158, 97 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
 "loop": true,
@@ -22,11 +22,10 @@ script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -89 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -74 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "idle"
-frame = 1
 playing = true
