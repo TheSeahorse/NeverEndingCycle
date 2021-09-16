@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Resources/Graphics/Clueless/clueless_jump.png" type="Texture" id=1]
 [ext_resource path="res://Resources/Graphics/Clueless/clueless_idle.png" type="Texture" id=2]
@@ -7,7 +7,13 @@
 [ext_resource path="res://Resources/Graphics/Clueless/clueless_fall.png" type="Texture" id=5]
 [ext_resource path="res://Resources/Graphics/Clueless/clueless_midair.png" type="Texture" id=6]
 [ext_resource path="res://Resources/Graphics/Clueless/clueless_charge_jump.png" type="Texture" id=7]
-[ext_resource path="res://Resources/Graphics/e_key.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Graphics/UI/e_key.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Sound/jk_jump.wav" type="AudioStream" id=9]
+[ext_resource path="res://Resources/Sound/jk_bounce.wav" type="AudioStream" id=10]
+[ext_resource path="res://Resources/Sound/jk_land.wav" type="AudioStream" id=11]
+[ext_resource path="res://Resources/Sound/jk_crash.wav" type="AudioStream" id=12]
+[ext_resource path="res://Resources/Graphics/Clueless/clueless_floor_crash.png" type="Texture" id=13]
+[ext_resource path="res://Resources/Graphics/Clueless/Red.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 26, 122 )
@@ -67,6 +73,16 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "floor_crash",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "crash",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
 "loop": true,
 "name": "walk",
@@ -86,16 +102,11 @@ animations = [ {
 "loop": false,
 "name": "fall",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": false,
-"name": "crash",
-"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=15]
-radius = 29.0
-height = 208.0
+radius = 43.0159
+height = 180.0
 
 [sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 26, 1 )
@@ -117,8 +128,15 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -122 )
 frames = SubResource( 14 )
-animation = "fall"
+animation = "idle"
+frame = 2
 playing = true
+
+[node name="AmongusRed" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -122 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 14 )
 
 [node name="InteractionDetector" type="Area2D" parent="."]
 collision_layer = 0
@@ -126,6 +144,7 @@ collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionDetector"]
 position = Vector2( 0, -126 )
+rotation = 0.127409
 shape = SubResource( 15 )
 
 [node name="FloorDetector" type="Area2D" parent="."]
@@ -165,6 +184,22 @@ visible = false
 position = Vector2( 80, -140 )
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 8 )
+
+[node name="jk_jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -10.0
+
+[node name="jk_bounce" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -10.0
+
+[node name="jk_land" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -10.0
+
+[node name="jk_crash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -10.0
 
 [connection signal="area_entered" from="InteractionDetector" to="." method="_on_InteractionDetector_area_entered"]
 [connection signal="area_exited" from="InteractionDetector" to="." method="_on_InteractionDetector_area_exited"]

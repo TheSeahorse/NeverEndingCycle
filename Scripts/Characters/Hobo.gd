@@ -2,7 +2,7 @@ extends Area2D
 
 
 
-func get_next_dialog(player: Node, stats: Array) -> String:
+func get_next_dialog(_player: Node, _stats: Array) -> String:
 	return "hobo_sell_egg"
 
 

@@ -6,7 +6,7 @@ func _ready():
 	pass # Replace with function body.
 
 
-func get_next_dialog(player: Node, stats: Array) -> String:
+func get_next_dialog(_player: Node, stats: Array) -> String:
 	print("egs: " + str(stats[0]) + " given egs: " + str(stats[1]))
 	if stats[0] == 0:
 		return "okayeg_no_eg"

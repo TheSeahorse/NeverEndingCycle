@@ -64,6 +64,10 @@ config/icon="res://icon.png"
 
 DialogicSingleton="*res://addons/dialogic/Other/DialogicSingleton.gd"
 
+[debug]
+
+gdscript/warnings/integer_division=false
+
 [display]
 
 window/size/width=1920
@@ -75,7 +79,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "res://addons/dialogic/plugin.cfg" )
 
 [input]
 

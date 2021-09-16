@@ -5,7 +5,7 @@ var WALK_SPEED = 400
 var JUMPING_SPEED = Vector2(800,2000) # you can jump faster than you can walk
 var MAX_JUMP_TIME = 600 # long you need to hold for max jump, in millisecs
 var MIN_JUMP_TIME = 200
-enum {P_FROZEN, P_IDLE, P_WALKING, P_CHARGE_JUMP, P_JUMPING, P_FALLING, P_WALLCRASHING, P_ROOFCRASHING, P_WALKOFF} #PLAYER_STATE
+enum {P_FROZEN, P_IDLE, P_WALKING, P_CHARGE_JUMP, P_JUMPING, P_FALLING, P_WALLCRASHING, P_ROOFCRASHING, P_WALKOFF, P_FLOORCRASHED} #PLAYER_STATE
 var PLAYER_STATE = P_IDLE
 
 var on_floor = false
@@ -15,6 +15,7 @@ var walls = []
 var on_roof = false
 var roofs = []
 var velocity = Vector2.ZERO
+var player_should_crash = false
 var charge_jump_start = OS.get_ticks_msec()
 var charge_jump_end = OS.get_ticks_msec()
 var jump_dir = 0 # 1 = right, -1 = left, 0 = straight up
@@ -26,7 +27,7 @@ func _ready():
 	player_stats = get_parent().stats
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if PLAYER_STATE == P_FROZEN:
 		return
 	var direction = get_direction()
@@ -35,7 +36,7 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2.UP, true)
 
 
-func _process(delta):
+func _process(_delta):
 	animate_player()
 
 
@@ -52,7 +53,7 @@ func add_stats(stat, amount):
 
 func play_dialog():
 	next_dialog = dialog_area.get_next_dialog(self, player_stats)
-	interact_sprite_visibility(false)
+	$InteractSprite.hide()
 	PLAYER_STATE = P_FROZEN
 	var dialog = Dialogic.start(next_dialog)
 	add_child(dialog)
@@ -63,7 +64,11 @@ func play_dialog():
 func dialog_ended(timeline_name, dialog):
 	PLAYER_STATE = P_IDLE
 	dialog.queue_free()
-	interact_sprite_visibility(true)
+	if next_dialog == "copesen_its_ironic":
+		$InteractSprite.hide()
+		next_dialog == ""
+	else:
+		$InteractSprite.show()
 
 
 func dialog_answer(answer: String):
@@ -73,17 +78,21 @@ func dialog_answer(answer: String):
 		"nine_egs":
 			add_stats(1, 9)
 		"hobo_eg":
-			print("inside")
 			add_stats(0, 1)
 			dialog_area.hobo_poof()
 			$InteractSprite.hide()
 			next_dialog = ""
 			dialog_area = null
+		"copesen_ironic":
+			dialog_area.copesen_free()
+			dialog_area = null
+			$InteractSprite.hide()
 
 
 func calculate_move_velocity(direction: Vector2) -> Vector2:
 	var new_velocity = velocity
 	if direction.y == -1: #jump was triggered
+		play_sound("jk_jump")
 		new_velocity.y = calculate_jump_velocity()
 	elif on_floor:
 		new_velocity.x = WALK_SPEED * direction.x
@@ -92,8 +101,9 @@ func calculate_move_velocity(direction: Vector2) -> Vector2:
 	elif PLAYER_STATE == P_WALLCRASHING or PLAYER_STATE == P_ROOFCRASHING:
 		new_velocity.x = WALK_SPEED * jump_dir
 	new_velocity.y += GRAVITY * get_physics_process_delta_time()
-	if new_velocity.y > 2000:
-		new_velocity.y = 2000
+	if new_velocity.y > GRAVITY:
+		player_should_crash = true
+		new_velocity.y = GRAVITY
 	return new_velocity
 
 
@@ -125,6 +135,7 @@ func get_direction() -> Vector2:
 
 
 func player_crash(is_wall: bool):
+	play_sound("jk_bounce")
 	if is_wall:
 		PLAYER_STATE = P_WALLCRASHING
 		jump_dir *= -1
@@ -143,10 +154,20 @@ func decide_player_state():
 	elif PLAYER_STATE == P_WALKOFF and not on_floor:
 		pass
 	elif on_floor:
-		if velocity.x == 0:
-			PLAYER_STATE = P_IDLE
+		if player_should_crash:
+			player_should_crash = false
+			play_sound("jk_crash")
+			PLAYER_STATE = P_FLOORCRASHED
 		else:
-			PLAYER_STATE = P_WALKING
+			if PLAYER_STATE != P_IDLE and PLAYER_STATE != P_WALKING and PLAYER_STATE != P_FLOORCRASHED:
+				play_sound("jk_land")
+			if velocity.x == 0:
+				if PLAYER_STATE == P_FLOORCRASHED:
+					PLAYER_STATE = P_FLOORCRASHED
+				else:
+					PLAYER_STATE = P_IDLE
+			else:
+				PLAYER_STATE = P_WALKING
 	else:
 		if velocity.y > 0:
 			if PLAYER_STATE == P_WALKING:
@@ -156,6 +177,7 @@ func decide_player_state():
 					jump_dir = -1
 				else:
 					jump_dir = 0
+					print("this shouldnt be possible")
 				PLAYER_STATE = P_WALKOFF
 			else:
 				PLAYER_STATE = P_FALLING
@@ -168,9 +190,11 @@ func decide_player_flip(direction: Vector2):
 	if direction.x > 0:
 		$InteractSprite.set_position(Vector2(80, -140))
 		$AnimatedSprite.flip_h = false
+		$AmongusRed.flip_h = false
 	elif direction.x < 0:
 		$InteractSprite.set_position(Vector2(-80, -140))
 		$AnimatedSprite.flip_h = true
+		$AmongusRed.flip_h = true
 
 
 func animate_player():
@@ -191,12 +215,25 @@ func animate_player():
 			$AnimatedSprite.play("crash")
 		P_ROOFCRASHING:
 			$AnimatedSprite.play("crash")
+		P_FLOORCRASHED:
+			$AnimatedSprite.play("floor_crash")
 		P_WALKOFF:
 			$AnimatedSprite.play("crash")
 
 
-func interact_sprite_visibility(visible: bool):
-	$InteractSprite.visible = visible
+func play_sound(sound: String):
+	print(sound)
+	$jk_jump.play()
+	get_node(sound).play()
+
+
+func get_among_us_costume_visibility() -> bool:
+	return $AmongusRed.visible
+
+
+func among_us_costume(status: bool):
+	$AmongusRed.visible = status
+	$AnimatedSprite.visible = not status
 
 
 func _on_WallDetector_body_entered(body):
@@ -250,8 +287,9 @@ func _on_RoofDetector_body_exited(body):
 
 func _on_InteractionDetector_area_entered(area):
 	if area.get_collision_layer_bit(2):
-		$InteractSprite.show()
+		next_dialog = area.get_next_dialog(self, player_stats)
 		dialog_area = area
+		$InteractSprite.show()
 	elif area.get_collision_layer_bit(3):
 		if area is Eg:
 			add_stats(0,1)
