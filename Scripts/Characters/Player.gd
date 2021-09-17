@@ -95,8 +95,13 @@ func calculate_move_velocity(direction: Vector2) -> Vector2:
 		play_sound("jk_jump")
 		new_velocity.y = calculate_jump_velocity()
 	elif on_floor:
-		new_velocity.x = WALK_SPEED * direction.x
-	if PLAYER_STATE == P_JUMPING or PLAYER_STATE == P_FALLING:
+		if (PLAYER_STATE == P_IDLE or PLAYER_STATE == P_WALKING or PLAYER_STATE == P_FLOORCRASHED or PLAYER_STATE == P_CHARGE_JUMP):
+			new_velocity.x = WALK_SPEED * direction.x
+		else:
+			new_velocity.x = 0
+
+
+	elif PLAYER_STATE == P_JUMPING or PLAYER_STATE == P_FALLING:
 		new_velocity.x = JUMPING_SPEED.x * jump_dir
 	elif PLAYER_STATE == P_WALLCRASHING or PLAYER_STATE == P_ROOFCRASHING:
 		new_velocity.x = WALK_SPEED * jump_dir
@@ -222,7 +227,6 @@ func animate_player():
 
 
 func play_sound(sound: String):
-	print(sound)
 	$jk_jump.play()
 	get_node(sound).play()
 
@@ -254,6 +258,7 @@ func _on_WallDetector_body_exited(body):
 
 func _on_FloorDetector_body_entered(body):
 	on_floor = true
+	print("on_floor")
 	floors.append(body)
 
 
