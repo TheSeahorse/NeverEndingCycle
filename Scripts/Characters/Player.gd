@@ -16,6 +16,7 @@ var on_roof = false
 var roofs = []
 var velocity = Vector2.ZERO
 var player_should_crash = false
+var holding_jump = false
 var charge_jump_start = OS.get_ticks_msec()
 var charge_jump_end = OS.get_ticks_msec()
 var jump_dir = 0 # 1 = right, -1 = left, 0 = straight up
@@ -37,6 +38,10 @@ func _physics_process(_delta):
 
 
 func _process(_delta):
+	if Input.get_action_strength("jump") > 0:
+		holding_jump = true
+	else:
+		holding_jump = false
 	animate_player()
 
 
@@ -95,12 +100,10 @@ func calculate_move_velocity(direction: Vector2) -> Vector2:
 		play_sound("jk_jump")
 		new_velocity.y = calculate_jump_velocity()
 	elif on_floor:
-		if (PLAYER_STATE == P_IDLE or PLAYER_STATE == P_WALKING or PLAYER_STATE == P_FLOORCRASHED or PLAYER_STATE == P_CHARGE_JUMP):
+		if (PLAYER_STATE == P_IDLE or PLAYER_STATE == P_WALKING or PLAYER_STATE == P_FLOORCRASHED):
 			new_velocity.x = WALK_SPEED * direction.x
 		else:
 			new_velocity.x = 0
-
-
 	elif PLAYER_STATE == P_JUMPING or PLAYER_STATE == P_FALLING:
 		new_velocity.x = JUMPING_SPEED.x * jump_dir
 	elif PLAYER_STATE == P_WALLCRASHING or PLAYER_STATE == P_ROOFCRASHING:
@@ -133,7 +136,7 @@ func get_direction() -> Vector2:
 			PLAYER_STATE = P_IDLE
 			jump_dir = Input.get_action_strength("right") - Input.get_action_strength("left")
 			y_dir = -1
-	elif Input.is_action_just_pressed("jump") and on_floor:
+	elif holding_jump and on_floor and PLAYER_STATE != P_FLOORCRASHED and PLAYER_STATE != P_FALLING and PLAYER_STATE != P_ROOFCRASHING and PLAYER_STATE != P_WALKOFF and PLAYER_STATE != P_WALLCRASHING:
 			charge_jump_start = OS.get_ticks_msec()
 			PLAYER_STATE = P_CHARGE_JUMP
 	return Vector2(x_dir, y_dir)

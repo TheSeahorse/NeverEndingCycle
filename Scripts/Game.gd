@@ -12,7 +12,7 @@ var stats = [0, 0] #[Egs, given egs]
 func _ready():
 	current_level = JumpKingIntro.instance()
 	player = load("res://Scripts/Characters/Player.tscn").instance()
-	player.set_position(Vector2(100, -10570))
+	player.set_position(Vector2(1010, -8570))
 	camera = load("res://Scripts/Camera.tscn").instance()
 	add_child(current_level)
 	add_child(player)

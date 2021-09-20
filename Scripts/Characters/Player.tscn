@@ -16,7 +16,7 @@
 [ext_resource path="res://Resources/Graphics/Clueless/Red.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 26, 122 )
+extents = Vector2( 26, 120 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
@@ -112,7 +112,7 @@ height = 180.0
 extents = Vector2( 26, 2 )
 
 [sub_resource type="RectangleShape2D" id=17]
-extents = Vector2( 27, 120 )
+extents = Vector2( 27, 118 )
 
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 26, 1 )
@@ -122,14 +122,14 @@ collision_mask = 14
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -122 )
+position = Vector2( 0, -120 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -122 )
 frames = SubResource( 14 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="AmongusRed" type="Sprite" parent="."]
@@ -163,7 +163,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallDetector"]
 modulate = Color( 0.843137, 0.552941, 0, 1 )
-position = Vector2( 0, -122 )
+position = Vector2( 0, -120 )
 shape = SubResource( 17 )
 
 [node name="RoofDetector" type="Area2D" parent="."]
@@ -172,7 +172,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoofDetector"]
 modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 0, -244 )
+position = Vector2( 0, -240 )
 shape = SubResource( 18 )
 
 [node name="PrintTimer" type="Timer" parent="."]
