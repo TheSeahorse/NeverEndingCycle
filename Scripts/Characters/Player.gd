@@ -81,6 +81,7 @@ func dialog_answer(answer: String):
 		"one_eg":
 			add_stats(1, 1)
 		"nine_egs":
+			dialog_area.remove_crown()
 			add_stats(1, 9)
 		"hobo_eg":
 			add_stats(0, 1)

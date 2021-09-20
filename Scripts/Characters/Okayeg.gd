@@ -1,13 +1,8 @@
 extends Area2D
 class_name Okayeg
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 
 func get_next_dialog(_player: Node, stats: Array) -> String:
-	print("egs: " + str(stats[0]) + " given egs: " + str(stats[1]))
 	if stats[0] == 0:
 		return "okayeg_no_eg"
 	elif stats[0] > 0 and stats[0] < 10:
@@ -23,3 +18,6 @@ func get_next_dialog(_player: Node, stats: Array) -> String:
 	else:
 		return "okayeg_broken"
 
+
+func remove_crown():
+	$AnimatedSprite.play("no_crown")
