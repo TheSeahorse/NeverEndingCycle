@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="OverworldCamera" type="Camera2D"]
+limit_left = 0
+limit_right = 3200
+limit_bottom = 0
