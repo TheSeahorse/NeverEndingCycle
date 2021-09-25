@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Resources/Menues/Buttons/windows_button_pressed.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Menues/Backgrounds/windows_security.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Menues/Buttons/windows_button_normal.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Menues/Buttons/windows_button_hover.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Menues/Backgrounds/black_background.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Sound/windows_alert.wav" type="AudioStream" id=6]
+[ext_resource path="res://Scripts/Menues/BitcoinMiner.gd" type="Script" id=7]
+
+[node name="BitcoinMiner" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 7 )
+
+[node name="Background" type="Sprite" parent="."]
+scale = Vector2( 4.8, 4.8 )
+texture = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 2 )
+
+[node name="TextureButton" type="TextureButton" parent="Sprite"]
+margin_left = -269.0
+margin_top = 134.0
+margin_right = 266.0
+margin_bottom = 177.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 1 )
+texture_hover = ExtResource( 4 )
+texture_focused = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="notification" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 6 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="pressed" from="Sprite/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

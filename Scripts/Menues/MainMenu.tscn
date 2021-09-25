@@ -1,0 +1,133 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scripts/Menues/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Menues/Fonts/Tourmaline-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Resources/Menues/Buttons/main_button_normal.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Menues/Buttons/main_button_pressed.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Menues/Buttons/main_button_hover.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Menues/Backgrounds/menu_background.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+font_data = ExtResource( 2 )
+
+[node name="MainMenu" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -240.0
+margin_top = -196.0
+margin_right = 240.0
+margin_bottom = 196.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Overworld" type="TextureButton" parent="VBoxContainer"]
+margin_right = 480.0
+margin_bottom = 128.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+texture_focused = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/Overworld"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+text = "minecraft"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Jump King" type="TextureButton" parent="VBoxContainer"]
+margin_top = 132.0
+margin_right = 480.0
+margin_bottom = 260.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+texture_focused = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/Jump King"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+text = "jump king"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Minecraft" type="TextureButton" parent="VBoxContainer"]
+margin_top = 264.0
+margin_right = 480.0
+margin_bottom = 392.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+texture_focused = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/Minecraft"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+text = "????"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="TextureButton" parent="VBoxContainer"]
+margin_top = 396.0
+margin_right = 480.0
+margin_bottom = 524.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+texture_focused = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/Quit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+text = "quit"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="VBoxContainer/Overworld" to="." method="_on_Overworld_pressed"]
+[connection signal="pressed" from="VBoxContainer/Jump King" to="." method="_on_Jump_King_pressed"]
+[connection signal="pressed" from="VBoxContainer/Minecraft" to="." method="_on_Overworld_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
