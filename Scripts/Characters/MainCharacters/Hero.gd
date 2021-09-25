@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
-var GRAVITY = 4000
+var GRAVITY = 5000
 var WALK_SPEED = 400
-var JUMPING_SPEED = Vector2(400,700) # you can jump faster than you can walk
+var JUMPING_SPEED = Vector2(400,1000) # you can jump faster than you can walk
 enum {P_IDLE, P_WALKING, P_JUMPING, P_FALLING, P_LANDED} #PLAYER_STATE
 var PLAYER_STATE = P_IDLE
 

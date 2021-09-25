@@ -20,7 +20,7 @@ func _process(_delta):
 
 func _input(event):
 	if event.is_action_pressed("quit"):
-		if player:
+		if is_instance_valid(player):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			free_old_level()
 			menu = MainMenu.instance()
@@ -53,7 +53,7 @@ func free_old_level():
 func play_overworld():
 	current_level = load("res://Scripts/Levels/Assylum.tscn").instance()
 	player = load("res://Scripts/Characters/MainCharacters/Hero.tscn").instance()
-	player.set_position(Vector2(600, -244))
+	player.set_position(Vector2(5800, -220))
 	camera = load("res://Scripts/Other/Cameras/AssylumCamera.tscn").instance()
 	add_child(current_level)
 	add_child(player)
@@ -62,7 +62,7 @@ func play_overworld():
 
 
 func play_jump_king():
-	current_level = load("res://Scripts/Levels/JumpKingLevel.tscn").instance()
+	current_level = load("res://Scripts/Levels/JumpKing.tscn").instance()
 	player = load("res://Scripts/Characters/MainCharacters/Clueless.tscn").instance()
 	player.set_position(Vector2(100, -70))
 	camera = load("res://Scripts/Other/Cameras/JumpKingCamera.tscn").instance()
