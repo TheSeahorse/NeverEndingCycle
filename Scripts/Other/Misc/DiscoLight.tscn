@@ -1,0 +1,49 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Resources/Graphics/Levels/Asylum/Backgrounds/Disco/discoball6.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Graphics/Levels/Asylum/Backgrounds/Disco/discoball1.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Graphics/Levels/Asylum/Backgrounds/Disco/discoball8.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Graphics/Levels/Asylum/Backgrounds/Disco/discoball2.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Graphics/Levels/Asylum/Backgrounds/Disco/discoball0.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Graphics/Levels/Asylum/Backgrounds/Disco/discoball3.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Graphics/Levels/Asylum/Backgrounds/Disco/discoball7.png" type="Texture" id=7]
+[ext_resource path="res://Resources/Graphics/Levels/Asylum/Backgrounds/Disco/discoball5.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Graphics/Levels/Asylum/Backgrounds/Disco/discoball4.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Graphics/Levels/Asylum/Backgrounds/Disco/light.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/Other/Misc/DiscoLight.gd" type="Script" id=11]
+[ext_resource path="res://Resources/Graphics/Levels/Asylum/Tilemap/rope.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "spin",
+"speed": 24.0
+} ]
+
+[node name="DiscoLight" type="Node2D"]
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -233 )
+texture = ExtResource( 12 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 10 )
+shadow_enabled = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Light2D"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+animation = "spin"
+playing = true
+
+[node name="InitialRand" type="Timer" parent="."]
+one_shot = true
+
+[node name="ChangeColor" type="Timer" parent="."]
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="timeout" from="InitialRand" to="." method="set_seed"]
+[connection signal="timeout" from="ChangeColor" to="." method="_on_ChangeColor_timeout"]

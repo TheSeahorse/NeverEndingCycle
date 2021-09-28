@@ -73,20 +73,15 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
-"loop": false,
-"name": "crash",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": false,
-"name": "charge_jump",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "floor_crash",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "walk",
+"speed": 15.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": false,
@@ -98,10 +93,15 @@ animations = [ {
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
-"loop": true,
-"name": "walk",
-"speed": 15.0
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "crash",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": false,
+"name": "charge_jump",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=15]
@@ -129,7 +129,7 @@ shape = SubResource( 1 )
 position = Vector2( 0, -122 )
 frames = SubResource( 14 )
 animation = "idle"
-frame = 3
+frame = 1
 playing = true
 
 [node name="AmongusRed" type="Sprite" parent="."]

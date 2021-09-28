@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Other/Cameras/AsylumCamera.gd" type="Script" id=1]
+
+[node name="AsylumCamera" type="Camera2D"]
+limit_left = 0
+limit_top = -3200
+limit_right = 6400
+limit_bottom = 0
+script = ExtResource( 1 )

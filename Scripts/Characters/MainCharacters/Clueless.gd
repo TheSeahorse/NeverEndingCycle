@@ -262,7 +262,6 @@ func _on_WallDetector_body_exited(body):
 
 func _on_FloorDetector_body_entered(body):
 	on_floor = true
-	print("on_floor")
 	floors.append(body)
 
 

@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
 var GRAVITY = 5000
-var WALK_SPEED = 400
-var JUMPING_SPEED = Vector2(400,1000) # you can jump faster than you can walk
-enum {P_IDLE, P_WALKING, P_JUMPING, P_FALLING, P_LANDED} #PLAYER_STATE
+var WALK_SPEED = 500
+var JUMPING_SPEED = Vector2(500,1000) # you can jump faster than you can walk
+enum {P_FROZEN, P_IDLE, P_WALKING, P_JUMPING, P_FALLING, P_LANDED} #PLAYER_STATE
 var PLAYER_STATE = P_IDLE
 
 var player_stats
@@ -15,7 +15,8 @@ var landing = false
 var jumping = false
 var holding = false
 var jump_start = OS.get_ticks_msec()
-
+var dialog_area: Area2D = null
+var next_dialog: String = ""
 
 
 func _ready():
@@ -23,6 +24,8 @@ func _ready():
 
 
 func _physics_process(_delta):
+	if PLAYER_STATE == P_FROZEN:
+		return
 	var direction = get_direction()
 	velocity = calculate_move_velocity(direction)
 	decide_player_state()
@@ -37,6 +40,8 @@ func _process(_delta):
 func _input(event):
 	if event.is_action_released("jump"):
 		holding = false
+	if event.is_action_pressed("interact") and is_instance_valid(dialog_area) and PLAYER_STATE != P_FROZEN:
+		play_dialog()
 
 
 func get_direction():
@@ -92,8 +97,11 @@ func decide_player_state():
 		PLAYER_STATE = P_FALLING
 	decide_player_flip(velocity)
 
+
 func animate_player():
 	match PLAYER_STATE:
+		P_FROZEN:
+			$AnimatedSprite.play("idle")
 		P_IDLE:
 			$AnimatedSprite.play("idle")
 		P_WALKING:
@@ -109,9 +117,33 @@ func animate_player():
 func decide_player_flip(direction: Vector2):
 	if direction.x > 0:
 		$AnimatedSprite.flip_h = false
+		$InteractSprite.position = Vector2(100, -100)
 	elif direction.x < 0:
 		$AnimatedSprite.flip_h = true
+		$InteractSprite.position = Vector2(-100, -100)
 
+
+func play_dialog():
+	if is_instance_valid(dialog_area):
+		next_dialog = dialog_area.get_next_dialog(self)
+	$InteractSprite.hide()
+	PLAYER_STATE = P_FROZEN
+	var dialog = Dialogic.start(next_dialog)
+	add_child(dialog)
+	dialog.connect("timeline_end", self, "dialog_ended", [dialog])
+	dialog.connect("dialogic_signal", self, "dialog_answer")
+
+
+func dialog_ended(timeline_name, dialog):
+	PLAYER_STATE = P_IDLE
+	dialog.queue_free()
+	$InteractSprite.show()
+
+
+func dialog_answer(answer: String):
+	match answer:
+		"":
+			pass
 
 func _on_FloorDetector_body_entered(body):
 	on_floor = true
@@ -128,3 +160,14 @@ func _on_FloorDetector_body_exited(body):
 
 func _on_LandTimer_timeout():
 	landing = false
+
+
+func _on_InteractionDetector_area_entered(area):
+	dialog_area = area
+	$InteractSprite.show()
+
+
+func _on_InteractionDetector_area_exited(area):
+	$InteractSprite.hide()
+	dialog_area = null
+	next_dialog = ""

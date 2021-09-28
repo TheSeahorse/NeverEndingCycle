@@ -16,7 +16,7 @@ func _ready():
 	add_child(menu)
 
 func _process(_delta):
-	print(menu)
+	pass
 
 func _input(event):
 	if event.is_action_pressed("quit"):
@@ -35,7 +35,7 @@ func play_level(level: String):
 	match level:
 		"jump_king":
 			play_jump_king()
-		"overworld":
+		"asylum":
 			play_overworld()
 
 
@@ -51,10 +51,10 @@ func free_old_level():
 
 
 func play_overworld():
-	current_level = load("res://Scripts/Levels/Assylum.tscn").instance()
+	current_level = load("res://Scripts/Levels/Asylum.tscn").instance()
 	player = load("res://Scripts/Characters/MainCharacters/Hero.tscn").instance()
 	player.set_position(Vector2(5800, -220))
-	camera = load("res://Scripts/Other/Cameras/AssylumCamera.tscn").instance()
+	camera = load("res://Scripts/Other/Cameras/AsylumCamera.tscn").instance()
 	add_child(current_level)
 	add_child(player)
 	player.add_child(camera)
