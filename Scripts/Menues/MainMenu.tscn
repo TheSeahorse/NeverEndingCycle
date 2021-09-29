@@ -36,7 +36,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Overworld" type="TextureButton" parent="VBoxContainer"]
+[node name="Asylum" type="TextureButton" parent="VBoxContainer"]
 margin_right = 480.0
 margin_bottom = 128.0
 texture_normal = ExtResource( 3 )
@@ -47,11 +47,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="VBoxContainer/Overworld"]
+[node name="Label" type="Label" parent="VBoxContainer/Asylum"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 1 )
-text = "minecraft"
+text = "Asylum"
 align = 1
 valign = 1
 __meta__ = {
@@ -97,7 +97,30 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 1 )
-text = "????"
+text = "Minecraft"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Boshy" type="TextureButton" parent="VBoxContainer"]
+margin_top = 396.0
+margin_right = 480.0
+margin_bottom = 524.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+texture_focused = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/Boshy"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+text = "Boshy"
 align = 1
 valign = 1
 __meta__ = {
@@ -105,9 +128,9 @@ __meta__ = {
 }
 
 [node name="Quit" type="TextureButton" parent="VBoxContainer"]
-margin_top = 396.0
+margin_top = 528.0
 margin_right = 480.0
-margin_bottom = 524.0
+margin_bottom = 656.0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 5 )
@@ -127,7 +150,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="VBoxContainer/Overworld" to="." method="_on_Overworld_pressed"]
+[connection signal="pressed" from="VBoxContainer/Asylum" to="." method="_on_Overworld_pressed"]
 [connection signal="pressed" from="VBoxContainer/Jump King" to="." method="_on_Jump_King_pressed"]
 [connection signal="pressed" from="VBoxContainer/Minecraft" to="." method="_on_Overworld_pressed"]
+[connection signal="pressed" from="VBoxContainer/Boshy" to="." method="_on_Overworld_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

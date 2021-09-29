@@ -1,7 +1,7 @@
 extends Camera2D
 
 
-func _process(delta):
+func _process(_delta):
 	var offset = 40
 	var player = get_parent()
 	if player.position.y > -1024 - offset:

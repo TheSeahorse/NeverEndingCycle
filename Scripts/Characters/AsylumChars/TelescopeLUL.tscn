@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Resources/Graphics/Levels/Asylum/Backgrounds/Disco/telescope.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Graphics/Levels/Asylum/Backgrounds/Disco/body.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Graphics/Characters/LUL/MegaLUL.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Characters/AsylumChars/TelescopeLUL.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 88, 116 )
+
+[node name="TelescopeLUL" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 4 )
+
+[node name="Body" type="Sprite" parent="."]
+position = Vector2( 174, -78 )
+texture = ExtResource( 2 )
+
+[node name="MegaLUL" type="Sprite" parent="."]
+position = Vector2( 169, -178 )
+texture = ExtResource( 3 )
+
+[node name="Telescope" type="Sprite" parent="."]
+position = Vector2( -32, -183 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 171, -116 )
+shape = SubResource( 1 )

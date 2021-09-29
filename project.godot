@@ -35,6 +35,11 @@ _global_script_classes=[ {
 "path": "res://addons/dialogic/Other/DialogicUtil.gd"
 }, {
 "base": "Area2D",
+"class": "DoorKey",
+"language": "GDScript",
+"path": "res://Scripts/Other/Collectibles/DoorKey.gd"
+}, {
+"base": "Area2D",
 "class": "Eg",
 "language": "GDScript",
 "path": "res://Scripts/Other/Collectibles/Eg.gd"
@@ -50,6 +55,7 @@ _global_script_class_icons={
 "DialogicDefinitionsUtil": "",
 "DialogicResources": "",
 "DialogicUtil": "",
+"DoorKey": "",
 "Eg": "",
 "Okayeg": ""
 }
@@ -72,7 +78,6 @@ gdscript/warnings/integer_division=false
 
 window/size/width=1920
 window/size/height=1080
-window/size/fullscreen=true
 window/size/test_width=1280
 window/size/test_height=720
 mouse_cursor/custom_image="res://Resources/Menues/forsen_insane_mouse.png"

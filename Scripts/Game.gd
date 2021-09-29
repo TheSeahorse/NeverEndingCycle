@@ -7,11 +7,11 @@ var player
 var camera
 var menu
 
-var stats = [0, 0] #[Egs, given egs]
+var stats = [0, 0, [false,false,false,false,false, false]] #[Egs, given egs, unlocked_doors]
 
 
 func _ready():
-	#$SameThreeStones.play()
+	$SameThreeStones.play()
 	menu = MainMenu.instance()
 	add_child(menu)
 
@@ -30,6 +30,7 @@ func _input(event):
 
 
 func play_level(level: String):
+	$SameThreeStones.stop()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	free_old_level()
 	match level:
@@ -72,13 +73,30 @@ func play_jump_king():
 	camera.make_current()
 
 
+func unlock_door(number: int):
+	stats[2][number-1] = true
+
 
 func add_stats(stat: int, amount: int):
 	stats[stat] += amount
 
 
-func get_stats(stat: int) -> int:
-	return stats[stat]
+func get_stats() -> int:
+	return stats
+
+
+func get_level() -> Node2D:
+	if is_instance_valid(current_level):
+		return current_level
+	else:
+		return null
+
+
+func get_player() -> KinematicBody2D:
+	if is_instance_valid(player):
+		return player
+	else:
+		return null
 
 
 func quit_game():

@@ -15,8 +15,9 @@ var landing = false
 var jumping = false
 var holding = false
 var jump_start = OS.get_ticks_msec()
-var dialog_area: Area2D = null
+var dialog_area = null
 var next_dialog: String = ""
+var dont_show_interaction_sprite = false
 
 
 func _ready():
@@ -134,15 +135,21 @@ func play_dialog():
 	dialog.connect("dialogic_signal", self, "dialog_answer")
 
 
-func dialog_ended(timeline_name, dialog):
+func dialog_ended(_timeline_name, dialog):
 	PLAYER_STATE = P_IDLE
 	dialog.queue_free()
-	$InteractSprite.show()
+	if dont_show_interaction_sprite:
+		$InteractSprite.hide()
+		dont_show_interaction_sprite = false
+	else:
+		$InteractSprite.show()
 
 
 func dialog_answer(answer: String):
 	match answer:
-		"":
+		"open_two":
+			var level = get_parent().get_level()
+			level.unlock_door(2)
 			pass
 
 func _on_FloorDetector_body_entered(body):
@@ -167,7 +174,22 @@ func _on_InteractionDetector_area_entered(area):
 	$InteractSprite.show()
 
 
-func _on_InteractionDetector_area_exited(area):
+func _on_InteractionDetector_area_exited(_area):
 	$InteractSprite.hide()
 	dialog_area = null
 	next_dialog = ""
+
+
+func _on_CollectibleDetector_area_entered(area):
+	if area is DoorKey:
+		dont_show_interaction_sprite = true
+		var door = area.pickup_key()
+		next_dialog = "unlocked_door" + str(door)
+		var level = get_parent().get_level()
+		level.unlock_door(door)
+		area.queue_free()
+		play_dialog()
+
+
+func _on_CollectibleDetector_area_exited(_area):
+	pass # Replace with function body.
