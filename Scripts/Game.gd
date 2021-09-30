@@ -1,6 +1,8 @@
 extends Node2D
 
 const MainMenu = preload("res://Scripts/Menues/MainMenu.tscn")
+const Asylum = preload("res://Scripts/Levels/Asylum.tscn")
+const JumpKing = preload("res://Scripts/Levels/JumpKing.tscn")
 
 var current_level
 var player
@@ -29,15 +31,15 @@ func _input(event):
 			quit_game()
 
 
-func play_level(level: String):
+func play_level(level: String, spawn_pos: Vector2):
 	$SameThreeStones.stop()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	free_old_level()
 	match level:
 		"jump_king":
-			play_jump_king()
+			play_jump_king(spawn_pos)
 		"asylum":
-			play_overworld()
+			play_asylum(spawn_pos)
 
 
 func free_old_level():
@@ -51,25 +53,25 @@ func free_old_level():
 		menu.queue_free()
 
 
-func play_overworld():
-	current_level = load("res://Scripts/Levels/Asylum.tscn").instance()
+func play_asylum(spawn_pos: Vector2):
+	current_level = Asylum.instance()
 	player = load("res://Scripts/Characters/MainCharacters/Hero.tscn").instance()
-	player.set_position(Vector2(5800, -220))
+	player.set_position(spawn_pos)
 	camera = load("res://Scripts/Other/Cameras/AsylumCamera.tscn").instance()
-	add_child(current_level)
-	add_child(player)
-	player.add_child(camera)
+	call_deferred("add_child", current_level)
+	call_deferred("add_child", player)
+	player.call_deferred("add_child", camera)
 	camera.make_current()
 
 
-func play_jump_king():
-	current_level = load("res://Scripts/Levels/JumpKing.tscn").instance()
+func play_jump_king(spawn_pos: Vector2):
+	current_level = JumpKing.instance()
 	player = load("res://Scripts/Characters/MainCharacters/Clueless.tscn").instance()
-	player.set_position(Vector2(100, -70))
+	player.set_position(spawn_pos)
 	camera = load("res://Scripts/Other/Cameras/JumpKingCamera.tscn").instance()
-	add_child(current_level)
-	add_child(player)
-	add_child(camera)
+	call_deferred("add_child", current_level)
+	call_deferred("add_child", player)
+	call_deferred("add_child", camera)
 	camera.make_current()
 
 

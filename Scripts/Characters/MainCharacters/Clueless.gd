@@ -26,6 +26,8 @@ var player_stats: Array
 
 func _ready():
 	player_stats = get_parent().stats
+	next_dialog = "clueless_easy"
+	play_dialog()
 
 
 func _physics_process(_delta):
@@ -38,6 +40,7 @@ func _physics_process(_delta):
 
 
 func _process(_delta):
+	print(PLAYER_STATE)
 	if Input.get_action_strength("jump") > 0:
 		holding_jump = true
 	else:
@@ -57,7 +60,8 @@ func add_stats(stat, amount):
 
 
 func play_dialog():
-	next_dialog = dialog_area.get_next_dialog(self, player_stats)
+	if is_instance_valid(dialog_area):
+		next_dialog = dialog_area.get_next_dialog(self, player_stats)
 	$InteractSprite.hide()
 	PLAYER_STATE = P_FROZEN
 	var dialog = Dialogic.start(next_dialog)
@@ -66,12 +70,12 @@ func play_dialog():
 	dialog.connect("dialogic_signal", self, "dialog_answer")
 
 
-func dialog_ended(timeline_name, dialog):
+func dialog_ended(_timeline_name, dialog):
 	PLAYER_STATE = P_IDLE
 	dialog.queue_free()
-	if next_dialog == "copesen_its_ironic":
+	if next_dialog == "copesen_its_ironic" or next_dialog == "clueless_easy":
 		$InteractSprite.hide()
-		next_dialog == ""
+		next_dialog = ""
 	else:
 		$InteractSprite.show()
 

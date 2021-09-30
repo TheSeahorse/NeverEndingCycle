@@ -16,7 +16,6 @@ func _ready():
 		door += 1
 
 
-
 func show_bitcoin(camera):
 	$BitcoinMiner.show_miner()
 	var new_position = camera.get_camera_screen_center()
@@ -27,3 +26,17 @@ func show_bitcoin(camera):
 func unlock_door(number: int):
 	get_parent().unlock_door(number)
 	get_node("Doors/AsylumDoor" + str(number)).queue_free()
+
+
+func open_hidden_door(number: int):
+	print("inside")
+	$Doors/DoorOpener.interpolate_property(get_node("Doors/HiddenDoor" + str(number)), "scale", null, Vector2(1, 0), 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$Doors/DoorOpener.start()
+
+
+func _on_DoorOpener_completed(object, _key):
+	object.queue_free()
+
+
+func play_level(level: String, spawn_pos: Vector2):
+	get_parent().play_level(level, spawn_pos)

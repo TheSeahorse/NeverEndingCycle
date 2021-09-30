@@ -22,6 +22,9 @@ var dont_show_interaction_sprite = false
 
 func _ready():
 	player_stats = get_parent().stats
+	dont_show_interaction_sprite = true
+	next_dialog = "ended_stream"
+	play_dialog()
 
 
 func _physics_process(_delta):
@@ -150,7 +153,10 @@ func dialog_answer(answer: String):
 		"open_two":
 			var level = get_parent().get_level()
 			level.unlock_door(2)
-			pass
+		"open_bog":
+			var level = get_parent().get_level()
+			level.open_hidden_door(1)
+
 
 func _on_FloorDetector_body_entered(body):
 	on_floor = true

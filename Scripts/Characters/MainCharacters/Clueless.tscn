@@ -16,7 +16,7 @@
 [ext_resource path="res://Resources/Graphics/Characters/Clueless/Red.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 26, 120 )
+extents = Vector2( 26, 118 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
@@ -73,24 +73,14 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ) ],
-"loop": false,
-"name": "jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": false,
-"name": "crash",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": false,
-"name": "charge_jump",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "floor_crash",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": false,
+"name": "jump",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
@@ -102,6 +92,16 @@ animations = [ {
 "loop": false,
 "name": "fall",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": false,
+"name": "charge_jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "crash",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=15]
@@ -112,7 +112,7 @@ height = 180.0
 extents = Vector2( 26, 2 )
 
 [sub_resource type="RectangleShape2D" id=17]
-extents = Vector2( 27, 118 )
+extents = Vector2( 27, 116 )
 
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 26, 1 )
@@ -122,14 +122,13 @@ collision_mask = 14
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -120 )
+position = Vector2( 0, -118 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -122 )
 frames = SubResource( 14 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="AmongusRed" type="Sprite" parent="."]
@@ -163,7 +162,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallDetector"]
 modulate = Color( 0.843137, 0.552941, 0, 1 )
-position = Vector2( 0, -120 )
+position = Vector2( 0, -118 )
 shape = SubResource( 17 )
 
 [node name="RoofDetector" type="Area2D" parent="."]
@@ -172,7 +171,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoofDetector"]
 modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 0, -240 )
+position = Vector2( 0, -236 )
 shape = SubResource( 18 )
 
 [node name="PrintTimer" type="Timer" parent="."]
