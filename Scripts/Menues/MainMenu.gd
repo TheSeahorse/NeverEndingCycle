@@ -10,7 +10,7 @@ func _on_Jump_King_pressed():
 
 
 func _on_Overworld_pressed():
-	get_parent().play_level("asylum", Vector2(5800, -220))
+	get_parent().play_level("asylum", Vector2(2850, -2200))
 
 
 func _on_Quit_pressed():

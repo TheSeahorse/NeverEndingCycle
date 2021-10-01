@@ -172,6 +172,41 @@ position = Vector2( 1307, -64 )
 [node name="Eg" parent="." instance=ExtResource( 5 )]
 position = Vector2( 821, -14641 )
 
+[node name="TestEgs" type="Node2D" parent="."]
+
+[node name="Eg10" parent="TestEgs" instance=ExtResource( 5 )]
+position = Vector2( 517, -4775 )
+
+[node name="Eg11" parent="TestEgs" instance=ExtResource( 5 )]
+position = Vector2( 517, -4775 )
+
+[node name="Eg12" parent="TestEgs" instance=ExtResource( 5 )]
+position = Vector2( 517, -4775 )
+
+[node name="Eg13" parent="TestEgs" instance=ExtResource( 5 )]
+position = Vector2( 517, -4775 )
+
+[node name="Eg14" parent="TestEgs" instance=ExtResource( 5 )]
+position = Vector2( 517, -4775 )
+
+[node name="Eg15" parent="TestEgs" instance=ExtResource( 5 )]
+position = Vector2( 517, -4775 )
+
+[node name="Eg16" parent="TestEgs" instance=ExtResource( 5 )]
+position = Vector2( 517, -4775 )
+
+[node name="Eg17" parent="TestEgs" instance=ExtResource( 5 )]
+position = Vector2( 517, -4775 )
+
+[node name="Eg18" parent="TestEgs" instance=ExtResource( 5 )]
+position = Vector2( 517, -4775 )
+
+[node name="Eg19" parent="TestEgs" instance=ExtResource( 5 )]
+position = Vector2( 517, -4775 )
+
+[node name="Eg20" parent="TestEgs" instance=ExtResource( 5 )]
+position = Vector2( 517, -4775 )
+
 [node name="Eg2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1863, -12223 )
 

@@ -17,8 +17,10 @@ func _ready():
 	menu = MainMenu.instance()
 	add_child(menu)
 
+
 func _process(_delta):
 	pass
+
 
 func _input(event):
 	if event.is_action_pressed("quit"):
@@ -27,12 +29,13 @@ func _input(event):
 			free_old_level()
 			menu = MainMenu.instance()
 			add_child(menu)
+			$SameThreeStones.play()
 		else:
 			quit_game()
 
 
 func play_level(level: String, spawn_pos: Vector2):
-	$SameThreeStones.stop()
+	#$SameThreeStones.stop()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	free_old_level()
 	match level:

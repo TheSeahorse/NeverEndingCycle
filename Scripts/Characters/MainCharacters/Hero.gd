@@ -23,7 +23,7 @@ var dont_show_interaction_sprite = false
 func _ready():
 	player_stats = get_parent().stats
 	dont_show_interaction_sprite = true
-	next_dialog = "ended_stream"
+	next_dialog = "start_maze"
 	play_dialog()
 
 
@@ -156,6 +156,11 @@ func dialog_answer(answer: String):
 		"open_bog":
 			var level = get_parent().get_level()
 			level.open_hidden_door(1)
+		"open_four":
+			var level = get_parent().get_level()
+			level.unlock_door(4)
+		"fors_crown":
+			dialog_area.equip_crown()
 
 
 func _on_FloorDetector_body_entered(body):

@@ -11,7 +11,9 @@ func get_next_dialog(_player: Node, stats: Array) -> String:
 		else:
 			return "okayeg_one_eg"
 	elif stats[0] > 9:
-		if stats[1] < 10:
+		if stats[1] < 1:
+			return "okayeg_give_one_eg"
+		elif stats[1] < 10:
 			return "okayeg_give_nine_egs"
 		else:
 			return "okayeg_given_all_egs"
