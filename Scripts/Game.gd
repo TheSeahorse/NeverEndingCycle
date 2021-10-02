@@ -3,6 +3,7 @@ extends Node2D
 const MainMenu = preload("res://Scripts/Menues/MainMenu.tscn")
 const Asylum = preload("res://Scripts/Levels/Asylum.tscn")
 const JumpKing = preload("res://Scripts/Levels/JumpKing.tscn")
+const BoshyLevel = preload("res://Scripts/Levels/BoshyMap.tscn")
 
 var current_level
 var player
@@ -35,7 +36,7 @@ func _input(event):
 
 
 func play_level(level: String, spawn_pos: Vector2):
-	#$SameThreeStones.stop()
+	$SameThreeStones.stop()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	free_old_level()
 	match level:
@@ -43,6 +44,41 @@ func play_level(level: String, spawn_pos: Vector2):
 			play_jump_king(spawn_pos)
 		"asylum":
 			play_asylum(spawn_pos)
+		"boshy":
+			play_boshy(spawn_pos)
+
+
+func play_asylum(spawn_pos: Vector2):
+	current_level = Asylum.instance()
+	call_deferred("add_child", current_level)
+	player = load("res://Scripts/Characters/MainCharacters/Hero.tscn").instance()
+	player.set_position(spawn_pos)
+	call_deferred("add_child", player)
+	camera = load("res://Scripts/Other/Cameras/AsylumCamera.tscn").instance()
+	player.call_deferred("add_child", camera)
+	camera.make_current()
+
+
+func play_jump_king(spawn_pos: Vector2):
+	current_level = JumpKing.instance()
+	call_deferred("add_child", current_level)
+	player = load("res://Scripts/Characters/MainCharacters/Clueless.tscn").instance()
+	player.set_position(spawn_pos)
+	call_deferred("add_child", player)
+	camera = load("res://Scripts/Other/Cameras/JumpKingCamera.tscn").instance()
+	call_deferred("add_child", camera)
+	camera.make_current()
+
+
+func play_boshy(spawn_pos: Vector2):
+	current_level = BoshyLevel.instance()
+	call_deferred("add_child", current_level)
+	player = load("res://Scripts/Characters/MainCharacters/Boshy.tscn").instance()
+	player.set_position(spawn_pos)
+	call_deferred("add_child", player)
+	camera = load("res://Scripts/Other/Cameras/BoshyCamera.tscn").instance()
+	player.call_deferred("add_child", camera)
+	camera.make_current()
 
 
 func free_old_level():
@@ -56,34 +92,17 @@ func free_old_level():
 		menu.queue_free()
 
 
-func play_asylum(spawn_pos: Vector2):
-	current_level = Asylum.instance()
-	player = load("res://Scripts/Characters/MainCharacters/Hero.tscn").instance()
-	player.set_position(spawn_pos)
-	camera = load("res://Scripts/Other/Cameras/AsylumCamera.tscn").instance()
-	call_deferred("add_child", current_level)
-	call_deferred("add_child", player)
-	player.call_deferred("add_child", camera)
-	camera.make_current()
-
-
-func play_jump_king(spawn_pos: Vector2):
-	current_level = JumpKing.instance()
-	player = load("res://Scripts/Characters/MainCharacters/Clueless.tscn").instance()
-	player.set_position(spawn_pos)
-	camera = load("res://Scripts/Other/Cameras/JumpKingCamera.tscn").instance()
-	call_deferred("add_child", current_level)
-	call_deferred("add_child", player)
-	call_deferred("add_child", camera)
-	camera.make_current()
-
-
 func unlock_door(number: int):
 	stats[2][number-1] = true
 
 
 func add_stats(stat: int, amount: int):
 	stats[stat] += amount
+
+
+func reset_jump_king_stats():
+	stats[0] = 0
+	stats[1] = 0
 
 
 func get_stats() -> int:

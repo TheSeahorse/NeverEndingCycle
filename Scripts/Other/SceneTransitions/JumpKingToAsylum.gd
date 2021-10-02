@@ -1,6 +1,7 @@
 extends Area2D
 
 signal play_asylum
+signal reset_stats
 
 
 func _on_JumpKingToAsylum_body_entered(body):
@@ -20,6 +21,9 @@ func dialog_ended(_timeline_name, dialog, body):
 	dialog.queue_free()
 
 
-
-func dialog_answer(_answer):
-	emit_signal("play_asylum")
+func dialog_answer(answer):
+	if answer == "not_completed":
+		emit_signal("reset_stats")
+		emit_signal("play_asylum")
+	elif answer == "completed":
+		emit_signal("play_asylum")

@@ -1,9 +1,14 @@
 extends Camera2D
 
+var player
+
+
+func _ready():
+	player = get_parent()
+
 
 func _process(_delta):
 	var offset = 40
-	var player = get_parent()
 	if player.position.y > -1024 - offset:
 		limit_left = 0
 		limit_right = 6400

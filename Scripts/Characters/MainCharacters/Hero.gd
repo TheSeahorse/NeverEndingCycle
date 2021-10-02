@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var GRAVITY = 5000
 var WALK_SPEED = 500
-var JUMPING_SPEED = Vector2(500,1000) # you can jump faster than you can walk
+var JUMPING_SPEED = Vector2(500,1000)
 enum {P_FROZEN, P_IDLE, P_WALKING, P_JUMPING, P_FALLING, P_LANDED} #PLAYER_STATE
 var PLAYER_STATE = P_IDLE
 
@@ -22,9 +22,10 @@ var dont_show_interaction_sprite = false
 
 func _ready():
 	player_stats = get_parent().stats
-	dont_show_interaction_sprite = true
-	next_dialog = "start_maze"
-	play_dialog()
+	if self.position == Vector2(6000, -220):
+		dont_show_interaction_sprite = true
+		next_dialog = "ended_stream"
+		play_dialog()
 
 
 func _physics_process(_delta):
@@ -59,7 +60,7 @@ func get_direction():
 			else:
 				holding = true
 				jumping = true
-				jump_start = OS.get_ticks_msec()
+				jump_start = current_time
 		elif not jumping:
 			y_dir = 0
 		elif jumping and current_time - jump_start > 250:

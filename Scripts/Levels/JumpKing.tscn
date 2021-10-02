@@ -245,3 +245,4 @@ scale = Vector2( 0.5, 1 )
 position = Vector2( 2, -68 )
 
 [connection signal="play_asylum" from="JumpKingToAsylum" to="." method="play_level" binds= [ "asylum", Vector2( 6000, -1200 ) ]]
+[connection signal="reset_stats" from="JumpKingToAsylum" to="." method="reset_stats"]

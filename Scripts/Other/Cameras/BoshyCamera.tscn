@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="BoshyCamera" type="Camera2D"]
+limit_left = 0
+limit_top = -1080
+limit_right = 1920
+limit_bottom = 0

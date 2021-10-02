@@ -900,14 +900,14 @@ RAND_WAIT = 0.8
 position = Vector2( 4408, -1918 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 129 )
-frame = 11
+frame = 96
 playing = true
 
 [node name="AlienDance" type="AnimatedSprite" parent="CosmeticSprites"]
 position = Vector2( 5308, -1779 )
 scale = Vector2( 2.5, 2.5 )
 frames = SubResource( 198 )
-frame = 56
+frame = 33
 playing = true
 
 [node name="Kitchen" type="Sprite" parent="CosmeticSprites"]
@@ -1097,7 +1097,7 @@ position = Vector2( 444, -1183 )
 position = Vector2( 5545, -1152 )
 
 [node name="KissingBooth" parent="Interactables" instance=ExtResource( 25 )]
-position = Vector2( 4929, -1153 )
+position = Vector2( 4929, -1152 )
 
 [node name="TrumpTable" parent="Interactables" instance=ExtResource( 24 )]
 position = Vector2( 4347, -1153 )
@@ -1133,7 +1133,7 @@ position = Vector2( 3456, -128 )
 position = Vector2( 3456, -1152 )
 
 [node name="AsylumDoor4" parent="Doors" instance=ExtResource( 27 )]
-position = Vector2( 3008, -2176 )
+position = Vector2( 3038, -2588 )
 
 [node name="AsylumDoor5" parent="Doors" instance=ExtResource( 27 )]
 position = Vector2( 3456, -2176 )
