@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=47 format=2]
 
-[ext_resource path="res://Resources/Graphics/Characters/forsenE.jpg" type="Texture" id=1]
+[ext_resource path="res://Resources/Graphics/Characters/JumpKing/forsenE.jpg" type="Texture" id=1]
 [ext_resource path="res://Resources/Graphics/Levels/JumpKing/black.png" type="Texture" id=2]
 [ext_resource path="res://Resources/Graphics/Levels/JumpKing/tower.png" type="Texture" id=3]
 [ext_resource path="res://Resources/Graphics/Levels/JumpKing/jk_single.png" type="Texture" id=4]

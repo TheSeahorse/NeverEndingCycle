@@ -19,6 +19,11 @@ func _process(_delta):
 		limit_right = 6400
 		limit_top = -2176
 		limit_bottom = -1024
+	elif player.position.x < -1675:
+		limit_left = -3648
+		limit_right = -1664
+		limit_top = -4480
+		limit_bottom = -3392
 	elif player.position.x < 2944:
 		limit_left = -1792
 		limit_right = 3072

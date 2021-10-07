@@ -48,6 +48,16 @@ _global_script_classes=[ {
 "class": "Okayeg",
 "language": "GDScript",
 "path": "res://Scripts/Characters/JumpKingChars/Okayeg.gd"
+}, {
+"base": "RigidBody2D",
+"class": "RopeEnd",
+"language": "GDScript",
+"path": "res://Scripts/Levels/Minecraft/RopeEndPiece.gd"
+}, {
+"base": "RigidBody2D",
+"class": "RopePiece",
+"language": "GDScript",
+"path": "res://Scripts/Levels/Minecraft/RopePiece.gd"
 } ]
 _global_script_class_icons={
 "Dialogic": "",
@@ -57,7 +67,9 @@ _global_script_class_icons={
 "DialogicUtil": "",
 "DoorKey": "",
 "Eg": "",
-"Okayeg": ""
+"Okayeg": "",
+"RopeEnd": "",
+"RopePiece": ""
 }
 
 [application]

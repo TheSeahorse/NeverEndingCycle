@@ -17,5 +17,10 @@ func _on_Boshy_pressed():
 	get_parent().play_level("boshy", Vector2(64, -128))
 
 
+func _on_Minecraft_pressed():
+	get_parent().play_level("minecraft", Vector2.ZERO)
+
+
 func _on_Quit_pressed():
 	get_parent().quit_game()
+

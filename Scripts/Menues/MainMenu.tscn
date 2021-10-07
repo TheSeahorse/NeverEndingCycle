@@ -152,6 +152,6 @@ __meta__ = {
 
 [connection signal="pressed" from="VBoxContainer/Asylum" to="." method="_on_Overworld_pressed"]
 [connection signal="pressed" from="VBoxContainer/Jump King" to="." method="_on_Jump_King_pressed"]
-[connection signal="pressed" from="VBoxContainer/Minecraft" to="." method="_on_Overworld_pressed"]
+[connection signal="pressed" from="VBoxContainer/Minecraft" to="." method="_on_Minecraft_pressed"]
 [connection signal="pressed" from="VBoxContainer/Boshy" to="." method="_on_Boshy_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

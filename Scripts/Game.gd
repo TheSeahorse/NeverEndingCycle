@@ -3,6 +3,7 @@ extends Node2D
 const MainMenu = preload("res://Scripts/Menues/MainMenu.tscn")
 const Asylum = preload("res://Scripts/Levels/Asylum.tscn")
 const JumpKing = preload("res://Scripts/Levels/JumpKing.tscn")
+const MinecraftLevel = preload("res://Scripts/Levels/Minecraft/MinecraftLevel.tscn")
 const BoshyLevel = preload("res://Scripts/Levels/BoshyMap.tscn")
 
 var current_level
@@ -44,6 +45,8 @@ func play_level(level: String, spawn_pos: Vector2):
 			play_jump_king(spawn_pos)
 		"asylum":
 			play_asylum(spawn_pos)
+		"minecraft":
+			play_minecraft()
 		"boshy":
 			play_boshy(spawn_pos)
 
@@ -70,6 +73,18 @@ func play_jump_king(spawn_pos: Vector2):
 	camera.make_current()
 
 
+func play_minecraft():
+	current_level = MinecraftLevel.instance()
+	call_deferred("add_child", current_level)
+	player = load("res://Scripts/Characters/MainCharacters/ZoomersLULW.tscn").instance()
+	call_deferred("add_child", player)
+	current_level.set_player(player)
+	camera = load("res://Scripts/Other/Cameras/MinecraftCamera.tscn").instance()
+	player.call_deferred("add_child", camera)
+	camera.make_current()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
 func play_boshy(spawn_pos: Vector2):
 	current_level = BoshyLevel.instance()
 	call_deferred("add_child", current_level)
@@ -77,17 +92,17 @@ func play_boshy(spawn_pos: Vector2):
 	player.set_position(spawn_pos)
 	call_deferred("add_child", player)
 	camera = load("res://Scripts/Other/Cameras/BoshyCamera.tscn").instance()
-	player.call_deferred("add_child", camera)
+	call_deferred("add_child", camera)
 	camera.make_current()
 
 
 func free_old_level():
 	if is_instance_valid(current_level):
 		current_level.queue_free()
-	if is_instance_valid(player):
-		player.queue_free()
 	if is_instance_valid(camera):
 		camera.queue_free()
+	if is_instance_valid(player):
+		player.queue_free()
 	if is_instance_valid(menu):
 		menu.queue_free()
 
