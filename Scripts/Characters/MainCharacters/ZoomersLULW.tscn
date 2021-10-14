@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Resources/Graphics/Characters/Minecraft/ZoomersLULW.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Characters/MainCharacters/ZoomersLULW.gd" type="Script" id=2]
@@ -10,12 +10,15 @@ bounce = 1.0
 [sub_resource type="CircleShape2D" id=2]
 radius = 30.0
 
+[sub_resource type="CircleShape2D" id=3]
+radius = 34.0
+
 [node name="ZoomersLULW" type="RigidBody2D"]
-collision_mask = 26
+collision_mask = 18
 mass = 30.0
 physics_material_override = SubResource( 1 )
 gravity_scale = 3.0
-contacts_reported = 2
+contacts_reported = 3
 contact_monitor = true
 script = ExtResource( 2 )
 
@@ -27,3 +30,14 @@ texture = ExtResource( 1 )
 shape = SubResource( 2 )
 
 [node name="J" type="PinJoint2D" parent="C"]
+
+[node name="CollectibleDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleDetector"]
+modulate = Color( 0.529412, 0.807843, 0.576471, 1 )
+shape = SubResource( 3 )
+
+[connection signal="body_exited" from="." to="." method="_on_ZoomersLULW_body_exited"]
+[connection signal="area_entered" from="CollectibleDetector" to="." method="_on_CollectibleDetector_area_entered"]

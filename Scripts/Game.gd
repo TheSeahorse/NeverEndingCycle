@@ -79,8 +79,9 @@ func play_minecraft():
 	player = load("res://Scripts/Characters/MainCharacters/ZoomersLULW.tscn").instance()
 	call_deferred("add_child", player)
 	current_level.set_player(player)
+	player.set_level(current_level)
 	camera = load("res://Scripts/Other/Cameras/MinecraftCamera.tscn").instance()
-	player.call_deferred("add_child", camera)
+	call_deferred("add_child", camera)
 	camera.make_current()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 

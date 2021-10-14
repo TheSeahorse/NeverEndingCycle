@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "RigidBody2D",
+"class": "Blaze",
+"language": "GDScript",
+"path": "res://Scripts/Characters/MinecraftCharacters/Blaze.gd"
+}, {
+"base": "RigidBody2D",
+"class": "Creeper",
+"language": "GDScript",
+"path": "res://Scripts/Characters/MinecraftCharacters/Creeper.gd"
+}, {
 "base": "Node",
 "class": "Dialogic",
 "language": "GDScript",
@@ -44,10 +54,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Other/Collectibles/Eg.gd"
 }, {
+"base": "RigidBody2D",
+"class": "Horse",
+"language": "GDScript",
+"path": "res://Scripts/Characters/MinecraftCharacters/Horse.gd"
+}, {
 "base": "Area2D",
 "class": "Okayeg",
 "language": "GDScript",
 "path": "res://Scripts/Characters/JumpKingChars/Okayeg.gd"
+}, {
+"base": "RigidBody2D",
+"class": "Piglin",
+"language": "GDScript",
+"path": "res://Scripts/Characters/MinecraftCharacters/Piglin.gd"
 }, {
 "base": "RigidBody2D",
 "class": "RopeEnd",
@@ -58,8 +78,25 @@ _global_script_classes=[ {
 "class": "RopePiece",
 "language": "GDScript",
 "path": "res://Scripts/Levels/Minecraft/RopePiece.gd"
+}, {
+"base": "RigidBody2D",
+"class": "Villager",
+"language": "GDScript",
+"path": "res://Scripts/Characters/MinecraftCharacters/Villager.gd"
+}, {
+"base": "RigidBody2D",
+"class": "Zombie",
+"language": "GDScript",
+"path": "res://Scripts/Characters/MinecraftCharacters/Zombie.gd"
+}, {
+"base": "RigidBody2D",
+"class": "ZombiePiglin",
+"language": "GDScript",
+"path": "res://Scripts/Characters/MinecraftCharacters/ZombiePiglin.gd"
 } ]
 _global_script_class_icons={
+"Blaze": "",
+"Creeper": "",
 "Dialogic": "",
 "DialogicBackgroundMusic": "",
 "DialogicDefinitionsUtil": "",
@@ -67,9 +104,14 @@ _global_script_class_icons={
 "DialogicUtil": "",
 "DoorKey": "",
 "Eg": "",
+"Horse": "",
 "Okayeg": "",
+"Piglin": "",
 "RopeEnd": "",
-"RopePiece": ""
+"RopePiece": "",
+"Villager": "",
+"Zombie": "",
+"ZombiePiglin": ""
 }
 
 [application]
@@ -90,7 +132,6 @@ gdscript/warnings/integer_division=false
 
 window/size/width=1920
 window/size/height=1080
-window/size/fullscreen=true
 window/size/test_width=1280
 window/size/test_height=720
 mouse_cursor/custom_image="res://Resources/Menues/forsen_insane_mouse.png"

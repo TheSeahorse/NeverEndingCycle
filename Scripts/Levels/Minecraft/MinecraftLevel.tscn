@@ -1,13 +1,84 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Resources/Graphics/Levels/Minecraft/trees_background.jpg" type="Texture" id=1]
+[ext_resource path="res://Resources/Graphics/Levels/Minecraft/field_night.jpg" type="Texture" id=1]
 [ext_resource path="res://Scripts/Levels/Minecraft/MinecraftLevel.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Graphics/Levels/Minecraft/minecraft_tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://Resources/Graphics/Levels/Minecraft/the_end.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Graphics/Levels/Minecraft/field.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Graphics/Levels/Minecraft/inside_stronghold.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Graphics/Levels/Minecraft/inside_bastion.png" type="Texture" id=7]
+[ext_resource path="res://Resources/Graphics/Levels/Minecraft/nether.jpg" type="Texture" id=8]
+[ext_resource path="res://Resources/Graphics/Levels/Minecraft/village.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Graphics/Levels/Minecraft/inside_fortress.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/Other/Misc/EnemyDeleter.tscn" type="PackedScene" id=11]
 
 [node name="MinecraftLevel" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Background" type="Sprite" parent="."]
+[node name="Backgrounds" type="Node2D" parent="."]
 position = Vector2( 0, -1080 )
 scale = Vector2( 2.4, 2.4 )
+
+[node name="Field1" type="Sprite" parent="Backgrounds"]
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Village" type="Sprite" parent="Backgrounds"]
+visible = false
+texture = ExtResource( 9 )
+centered = false
+
+[node name="Field2" type="Sprite" parent="Backgrounds"]
+visible = false
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Nether" type="Sprite" parent="Backgrounds"]
+visible = false
+texture = ExtResource( 8 )
+centered = false
+
+[node name="Bastion" type="Sprite" parent="Backgrounds"]
+visible = false
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Fortress" type="Sprite" parent="Backgrounds"]
+visible = false
+texture = ExtResource( 10 )
+centered = false
+
+[node name="FieldNight" type="Sprite" parent="Backgrounds"]
+visible = false
 texture = ExtResource( 1 )
 centered = false
+
+[node name="Stronghold" type="Sprite" parent="Backgrounds"]
+visible = false
+texture = ExtResource( 6 )
+centered = false
+
+[node name="TheEnd" type="Sprite" parent="Backgrounds"]
+visible = false
+texture = ExtResource( 4 )
+centered = false
+
+[node name="MinecraftTilemap" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+collision_layer = 2
+collision_mask = 0
+format = 1
+
+[node name="EnemyTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="EnemyDeleterBot" parent="." instance=ExtResource( 11 )]
+position = Vector2( 0, 500 )
+
+[node name="EnemyDeleterTop" parent="." instance=ExtResource( 11 )]
+position = Vector2( 0, -1580 )
+
+[connection signal="timeout" from="EnemyTimer" to="." method="spawn_enemy"]

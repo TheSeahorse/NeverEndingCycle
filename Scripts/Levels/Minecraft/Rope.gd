@@ -6,8 +6,14 @@ var rope_pieces = []
 var ropes = [] # There can be multiple if the rope is cut
 var rope_points : PoolVector2Array = []
 var rope_close_tolerence = piece_length
+var detached = false
 
 onready var rope_start_piece = $RopeEndPiece
+
+
+func _ready():
+	$FadeTween.interpolate_property($RopeEndPiece, "modulate", null, Color(1,1,1,0), 2, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$FadeTween.start()
 
 
 func _process(_delta):
@@ -17,10 +23,12 @@ func _process(_delta):
 
 
 func _draw():
-	if ropes.size() > 0:
+	if detached:
+		return
+	elif ropes.size() > 0:
 		for rope in ropes:
 			if rope.size() > 0:
-				draw_polyline(rope, Color("80604D"))
+				draw_polyline(rope, Color("80604D"), 2.0)
 
 
 func spawn_rope(start_pos: Vector2, end_pos: Vector2, player: Object):
@@ -66,3 +74,13 @@ func get_rope_points():
 			ropes.append(rope_points)
 			rope_points = []
 	ropes.append(rope_points)
+
+
+func despawn_rope():
+	get_parent().despawn_rope(self)
+
+
+func detach_rope():
+	rope_pieces[rope_pieces.size() - 2].queue_free()
+	detached = true
+
