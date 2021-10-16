@@ -1,11 +1,38 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Sound/Same3Stones.wav" type="AudioStream" id=2]
+[ext_resource path="res://Resources/Sound/Minecraft/Strike the Earth! (Plains of Passage) - Shovel Knight [OST].wav" type="AudioStream" id=3]
+[ext_resource path="res://Resources/Sound/Minecraft/generating_god_seed.wav" type="AudioStream" id=4]
+[ext_resource path="res://Resources/Sound/Minecraft/Terraria Music - Day.wav" type="AudioStream" id=5]
+[ext_resource path="res://Resources/Sound/Minecraft/Super Meat Boy! - Digital Special Edition Soundtrack - 03 Forest Funk (Ch 1 Light World).wav" type="AudioStream" id=6]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="SameThreeStones" type="AudioStreamPlayer" parent="."]
+[node name="MinecraftPlaylist" type="Node2D" parent="."]
+
+[node name="StrikeTheEarth" type="AudioStreamPlayer" parent="MinecraftPlaylist"]
+stream = ExtResource( 3 )
+volume_db = -10.0
+
+[node name="TerrariaDay" type="AudioStreamPlayer" parent="MinecraftPlaylist"]
+stream = ExtResource( 5 )
+volume_db = -10.0
+
+[node name="ForestFunk" type="AudioStreamPlayer" parent="MinecraftPlaylist"]
+stream = ExtResource( 6 )
+volume_db = -10.0
+
+[node name="Music" type="Node2D" parent="."]
+
+[node name="SameThreeStones" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource( 2 )
 volume_db = -10.0
+
+[node name="GeneratingGodSeed" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 4 )
+
+[connection signal="finished" from="MinecraftPlaylist/StrikeTheEarth" to="." method="playlist_play_next" binds= [ true ]]
+[connection signal="finished" from="MinecraftPlaylist/TerrariaDay" to="." method="playlist_play_next" binds= [ true ]]
+[connection signal="finished" from="MinecraftPlaylist/ForestFunk" to="." method="playlist_play_next" binds= [ true ]]

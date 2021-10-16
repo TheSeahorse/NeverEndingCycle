@@ -14,6 +14,8 @@ func _ready():
 			else:
 				$Interactables/PileOfClothes.found_key()
 		door += 1
+	if stats[3]:
+		$CosmeticSprites/LidlBoardRecord.show()
 
 
 func show_bitcoin(camera):
@@ -36,6 +38,10 @@ func open_hidden_door(number: int):
 
 func _on_DoorOpener_completed(object, _key):
 	object.queue_free()
+
+
+func generate_god_seed():
+	get_parent().generate_god_seed()
 
 
 func play_level(level: String, spawn_pos: Vector2):

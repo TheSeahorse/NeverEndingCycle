@@ -151,6 +151,9 @@ func dialog_ended(_timeline_name, dialog):
 
 func dialog_answer(answer: String):
 	match answer:
+		"open_one":
+			var level = get_parent().get_level()
+			level.unlock_door(1)
 		"open_two":
 			var level = get_parent().get_level()
 			level.unlock_door(2)

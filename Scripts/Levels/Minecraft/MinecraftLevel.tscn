@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Resources/Graphics/Levels/Minecraft/field_night.jpg" type="Texture" id=1]
 [ext_resource path="res://Scripts/Levels/Minecraft/MinecraftLevel.gd" type="Script" id=2]
@@ -11,6 +11,59 @@
 [ext_resource path="res://Resources/Graphics/Levels/Minecraft/village.png" type="Texture" id=9]
 [ext_resource path="res://Resources/Graphics/Levels/Minecraft/inside_fortress.png" type="Texture" id=10]
 [ext_resource path="res://Scripts/Other/Misc/EnemyDeleter.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Resources/Menues/Buttons/you_died_button_normal.png" type="Texture" id=12]
+[ext_resource path="res://Resources/Graphics/Levels/Minecraft/death_background.png" type="Texture" id=13]
+[ext_resource path="res://Resources/Menues/Buttons/you_died_button_hover.png" type="Texture" id=14]
+[ext_resource path="res://Resources/Menues/Buttons/you_died_button_pressed.png" type="Texture" id=15]
+[ext_resource path="res://Resources/Menues/Fonts/Minecraftia-Regular.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://Resources/Graphics/Levels/Asylum/Tilemap/transparent.png" type="Texture" id=17]
+[ext_resource path="res://Resources/Sound/Minecraft/ugandan_key.wav" type="AudioStream" id=18]
+[ext_resource path="res://Resources/Sound/Minecraft/back_to_the_bog.wav" type="AudioStream" id=19]
+[ext_resource path="res://Resources/Sound/Minecraft/not_very_xqcl_of_you.wav" type="AudioStream" id=20]
+[ext_resource path="res://Resources/Sound/Minecraft/cant_see_shit_in_this_mist.wav" type="AudioStream" id=21]
+[ext_resource path="res://Resources/Sound/Minecraft/stahp_it_ron.wav" type="AudioStream" id=22]
+[ext_resource path="res://Resources/Sound/Minecraft/everybody_relax.wav" type="AudioStream" id=23]
+[ext_resource path="res://Resources/Sound/Minecraft/forsens_law.wav" type="AudioStream" id=24]
+[ext_resource path="res://Resources/Sound/Minecraft/some_kind_of_hogwart.wav" type="AudioStream" id=25]
+[ext_resource path="res://Resources/Sound/Minecraft/bastion_of_sebastian.wav" type="AudioStream" id=26]
+[ext_resource path="res://Resources/Sound/Minecraft/same_three_stones.wav" type="AudioStream" id=27]
+[ext_resource path="res://Resources/Sound/Minecraft/bada-bing_bada-bang.wav" type="AudioStream" id=28]
+[ext_resource path="res://Resources/Sound/Minecraft/same_six_stones.wav" type="AudioStream" id=29]
+[ext_resource path="res://Resources/Sound/Minecraft/give_up.wav" type="AudioStream" id=30]
+[ext_resource path="res://Resources/Sound/Minecraft/dragon_dead.wav" type="AudioStream" id=31]
+[ext_resource path="res://Resources/Sound/Minecraft/death.wav" type="AudioStream" id=32]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "transparent.png 0"
+0/texture = ExtResource( 17 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="DynamicFont" id=3]
+size = 28
+outline_size = 1
+outline_color = Color( 0.321569, 0.321569, 0.321569, 1 )
+font_data = ExtResource( 16 )
 
 [node name="MinecraftLevel" type="Node2D"]
 script = ExtResource( 2 )
@@ -63,6 +116,12 @@ visible = false
 texture = ExtResource( 4 )
 centered = false
 
+[node name="InvisForDragon" type="TileMap" parent="."]
+tile_set = SubResource( 2 )
+collision_layer = 0
+collision_mask = 16
+format = 1
+
 [node name="MinecraftTilemap" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
 collision_layer = 2
@@ -81,4 +140,132 @@ position = Vector2( 0, 500 )
 [node name="EnemyDeleterTop" parent="." instance=ExtResource( 11 )]
 position = Vector2( 0, -1580 )
 
+[node name="MinecraftDeath" type="Node2D" parent="."]
+visible = false
+position = Vector2( 0, -1080 )
+z_index = 10
+
+[node name="Sprite" type="Sprite" parent="MinecraftDeath"]
+scale = Vector2( 2.4, 2.4 )
+texture = ExtResource( 13 )
+centered = false
+
+[node name="Retry" type="TextureButton" parent="MinecraftDeath"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 672.0
+margin_top = 473.0
+margin_right = 1248.0
+margin_bottom = 537.0
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MinecraftDeath/Retry"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 3 )
+text = "Back to the bog"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Return" type="TextureButton" parent="MinecraftDeath"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 672.0
+margin_top = 542.0
+margin_right = 1248.0
+margin_bottom = 606.0
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MinecraftDeath/Return"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 3 )
+text = "Give up"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuSounds" type="Node2D" parent="."]
+
+[node name="BackToBog" type="AudioStreamPlayer" parent="MenuSounds"]
+stream = ExtResource( 19 )
+
+[node name="GiveUp" type="AudioStreamPlayer" parent="MenuSounds"]
+stream = ExtResource( 30 )
+
+[node name="AchievementSounds" type="Node2D" parent="."]
+
+[node name="Wood" type="AudioStreamPlayer" parent="AchievementSounds"]
+stream = ExtResource( 27 )
+volume_db = 10.0
+
+[node name="Stone" type="AudioStreamPlayer" parent="AchievementSounds"]
+stream = ExtResource( 29 )
+volume_db = 10.0
+
+[node name="Iron" type="AudioStreamPlayer" parent="AchievementSounds"]
+stream = ExtResource( 20 )
+volume_db = 10.0
+
+[node name="Bucket" type="AudioStreamPlayer" parent="AchievementSounds"]
+stream = ExtResource( 22 )
+volume_db = 10.0
+
+[node name="Obsidian" type="AudioStreamPlayer" parent="AchievementSounds"]
+stream = ExtResource( 28 )
+volume_db = 10.0
+
+[node name="NetherPortal1" type="AudioStreamPlayer" parent="AchievementSounds"]
+stream = ExtResource( 21 )
+volume_db = 10.0
+
+[node name="Bastion" type="AudioStreamPlayer" parent="AchievementSounds"]
+stream = ExtResource( 26 )
+volume_db = 10.0
+
+[node name="Fortress" type="AudioStreamPlayer" parent="AchievementSounds"]
+stream = ExtResource( 25 )
+volume_db = 10.0
+
+[node name="BlazeRod1" type="AudioStreamPlayer" parent="AchievementSounds"]
+stream = ExtResource( 18 )
+volume_db = 10.0
+
+[node name="Stronghold" type="AudioStreamPlayer" parent="AchievementSounds"]
+stream = ExtResource( 24 )
+volume_db = 10.0
+
+[node name="End" type="AudioStreamPlayer" parent="AchievementSounds"]
+stream = ExtResource( 23 )
+volume_db = 10.0
+
+[node name="PlayerDead" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 32 )
+
+[node name="DragonDead" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 31 )
+
 [connection signal="timeout" from="EnemyTimer" to="." method="spawn_enemy"]
+[connection signal="mouse_entered" from="MinecraftDeath/Retry" to="." method="play_menu_sound" binds= [ "BackToBog" ]]
+[connection signal="pressed" from="MinecraftDeath/Retry" to="." method="_on_Retry_pressed"]
+[connection signal="mouse_entered" from="MinecraftDeath/Return" to="." method="play_menu_sound" binds= [ "GiveUp" ]]
+[connection signal="pressed" from="MinecraftDeath/Return" to="." method="_on_Return_pressed"]

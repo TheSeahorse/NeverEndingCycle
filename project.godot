@@ -55,6 +55,11 @@ _global_script_classes=[ {
 "path": "res://Scripts/Other/Collectibles/Eg.gd"
 }, {
 "base": "RigidBody2D",
+"class": "EnderDragon",
+"language": "GDScript",
+"path": "res://Scripts/Characters/MinecraftCharacters/EnderDragon.gd"
+}, {
+"base": "RigidBody2D",
 "class": "Horse",
 "language": "GDScript",
 "path": "res://Scripts/Characters/MinecraftCharacters/Horse.gd"
@@ -104,6 +109,7 @@ _global_script_class_icons={
 "DialogicUtil": "",
 "DoorKey": "",
 "Eg": "",
+"EnderDragon": "",
 "Horse": "",
 "Okayeg": "",
 "Piglin": "",
@@ -134,6 +140,7 @@ window/size/width=1920
 window/size/height=1080
 window/size/test_width=1280
 window/size/test_height=720
+window/vsync/use_vsync=false
 mouse_cursor/custom_image="res://Resources/Menues/forsen_insane_mouse.png"
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
@@ -208,4 +215,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+2d/snapping/use_gpu_pixel_snap=true
 environment/default_environment="res://default_env.tres"

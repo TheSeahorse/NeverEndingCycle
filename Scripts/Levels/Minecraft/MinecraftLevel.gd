@@ -9,11 +9,14 @@ var Piglin = preload("res://Scripts/Characters/MinecraftCharacters/Piglin.tscn")
 var Creeper = preload("res://Scripts/Characters/MinecraftCharacters/Creeper.tscn")
 var Zombie = preload("res://Scripts/Characters/MinecraftCharacters/Zombie.tscn")
 var Blaze = preload("res://Scripts/Characters/MinecraftCharacters/Blaze.tscn")
+var EnderDragon = preload("res://Scripts/Characters/MinecraftCharacters/EnderDragon.tscn")
 
 var player # gets set from game
+var dragon
 
+var start_time
 var rng = RandomNumberGenerator.new()
-var phase = "field" #field, village, nether, bastion, fortress, night, stronghold, end
+var phase = "field" #field, village, nether, bastion, fortress, night, stronghold, end, dead, loading, tutorial
 var game_over = false
 var attached_rope = null
 var ropes_spawned = 0
@@ -21,16 +24,23 @@ var level = 1
 
 
 func _ready():
+	rng.randomize()
+	start_time = OS.get_ticks_msec()
 	update_tilemap()
 	spawn_collectible(Vector2.ZERO)
+	phase = "tutorial"
+	var dialog = Dialogic.start("tutorial")
+	add_child(dialog)
+	dialog.connect("timeline_end", self, "dialog_ended", [dialog])
 
 
-func _process(delta):
-	print($Enemies.get_children().size())
+func _process(_delta):
+	if not game_over and ((player.position.y > 300 or player.position.y < -1380) or (player.position.x > 2220 or player.position.x < -300)):
+		player_died()
 
 
 func _input(event):
-	if game_over:
+	if game_over or phase == "tutorial":
 		return
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and !event.is_pressed():
@@ -38,6 +48,23 @@ func _input(event):
 		if event.button_index == BUTTON_LEFT and event.is_pressed():
 			if ropes_spawned < 2:
 				spawn_rope()
+
+
+func player_died():
+	phase = "dead"
+	game_over = true
+	delete_all_enemies()
+	player.queue_free()
+	$MinecraftDeath.show()
+	$PlayerDead.play()
+	get_parent().stop_all_music()
+	$EnemyTimer.process_mode = Timer.TIMER_PROCESS_IDLE
+
+
+func dialog_ended(_timeline_name, dialog):
+	phase = "field"
+	dialog.queue_free()
+	player.resume()
 
 
 func spawn_rope():
@@ -102,13 +129,19 @@ func spawn_collectible(prev_pos: Vector2):
 
 
 func collect_collectible(area: Area2D):
-	var prev_pos = area.position
-	remove_child(area)
-	area.queue_free()
-	level += 1
-	update_background()
-	update_tilemap()
-	spawn_collectible(prev_pos)
+	if level == 34:
+		beat_minecraft()
+		remove_child(area)
+		area.queue_free()
+	else:
+		var prev_pos = area.position
+		remove_child(area)
+		area.queue_free()
+		decide_and_play_achievement_sound()
+		level += 1
+		update_background()
+		update_tilemap()
+		spawn_collectible(prev_pos)
 
 
 func update_background():
@@ -117,7 +150,7 @@ func update_background():
 			phase = "village"
 			delete_all_enemies()
 			$Backgrounds/Village.show()
-		9:
+		7:
 			phase = "field"
 			delete_all_enemies()
 			$Backgrounds/Field2.show()
@@ -138,22 +171,24 @@ func update_background():
 			delete_all_enemies()
 			$Backgrounds/Fortress.show()
 		22:
-			$EnemyTimer.wait_time = 3
+			$EnemyTimer.wait_time = 1
 			$EnemyTimer.start()
 			phase = "night"
 			delete_all_enemies()
 			$Backgrounds/FieldNight.show()
 		26:
+			$EnemyTimer.wait_time = 3
+			$EnemyTimer.start()
 			phase = "stronghold"
 			delete_all_enemies()
 			$Backgrounds/Stronghold.show()
 		29:
 			phase = "end"
 			delete_all_enemies()
+			spawn_ender_dragon()
 			$Backgrounds/TheEnd.show()
 		_:
 			pass
-
 
 
 func update_tilemap():
@@ -173,12 +208,15 @@ func update_tilemap():
 
 
 func change_tilemap_walls(texture: int):
-	for y in range(-17,0):
+	for y in range(-27,10):
 		$MinecraftTilemap.set_cell(0, y, texture)
 		$MinecraftTilemap.set_cell(29, y, texture)
 
 
+#Called by EnemyTimer
 func spawn_enemy():
+	if phase == "dead" or phase == "tutorial" or phase == "end":
+		return
 	var enemy = decide_enemy()
 	enemy.rotation_degrees = rng.randi_range(0, 360)
 	if enemy.get_class() == "Blaze":
@@ -191,6 +229,18 @@ func spawn_enemy():
 		enemy.position = Vector2(rng.randi_range(200, 1720), -1240)
 	get_node("Enemies").call_deferred("add_child", enemy)
 
+
+func spawn_ender_dragon():
+	dragon = EnderDragon.instance()
+	if player.position.x > 960:
+		dragon.position = Vector2(400, -540)
+	else:
+		dragon.position = Vector2(1520, -540)
+		dragon.linear_velocity = Vector2(-500, 0)
+	for x in range(0, 29):
+		$InvisForDragon.set_cell(x, -17, 0)
+		$InvisForDragon.set_cell(x, -1, 0)
+	get_node("Enemies").call_deferred("add_child", dragon)
 
 
 func decide_enemy() -> RigidBody2D:
@@ -218,3 +268,65 @@ func decide_enemy() -> RigidBody2D:
 func delete_all_enemies():
 	for enemy in $Enemies.get_children():
 		enemy.queue_free()
+
+
+func beat_minecraft():
+	player.pause()
+	phase = "dead" #not actually dead
+	dragon.die()
+	$DragonDead.play()
+
+
+# called from dagon
+func dragon_dead():
+	if OS.get_ticks_msec() - start_time < 1236000/2:
+		get_parent().beat_minecraft_record()
+	get_parent().play_level("asylum", Vector2(-3200, -3550))
+
+
+func play_menu_sound(sound: String):
+	var sounds = $MenuSounds.get_children()
+	for sound in sounds:
+		sound.stop()
+	get_node("MenuSounds/" + sound).play()
+
+
+func play_achievement_sound(sound: String):
+	var sounds = $AchievementSounds.get_children()
+	for sound in sounds:
+		sound.stop()
+	get_node("AchievementSounds/" + sound).play()
+
+
+func decide_and_play_achievement_sound():
+	match level:
+		1:
+			play_achievement_sound("Wood")
+		2:
+			play_achievement_sound("Stone")
+		5:
+			play_achievement_sound("Iron")
+		6:
+			play_achievement_sound("Bucket")
+		9:
+			play_achievement_sound("Obsidian")
+		10:
+			play_achievement_sound("NetherPortal1")
+		11:
+			play_achievement_sound("Bastion")
+		16:
+			play_achievement_sound("Fortress")
+		17:
+			play_achievement_sound("BlazeRod1")
+		25:
+			play_achievement_sound("Stronghold")
+		28:
+			play_achievement_sound("End")
+
+
+func _on_Retry_pressed():
+	get_parent().generate_god_seed()
+
+
+func _on_Return_pressed():
+	get_parent().play_level("asylum", Vector2(-3200, -3550))

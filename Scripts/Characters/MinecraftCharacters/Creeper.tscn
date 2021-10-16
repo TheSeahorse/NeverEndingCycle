@@ -26,5 +26,6 @@ wait_time = 2.0
 
 [node name="ExplosionSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+volume_db = -10.0
 
 [connection signal="timeout" from="FreeTimer" to="." method="_on_FreeTimer_timeout"]

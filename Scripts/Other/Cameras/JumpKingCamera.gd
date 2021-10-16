@@ -3,9 +3,9 @@ extends Camera2D
 
 var player: Node
 
+
 func _ready():
 	player = self.get_parent().get_children()[self.get_parent().get_children().find(self) - 1]
-
 
 
 func _process(_delta):

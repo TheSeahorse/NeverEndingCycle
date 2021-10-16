@@ -46,6 +46,7 @@ texture = ExtResource( 12 )
 
 [node name="4" type="Sprite" parent="Textures"]
 visible = false
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 
 [node name="5" type="Sprite" parent="Textures"]
@@ -94,6 +95,7 @@ texture = ExtResource( 11 )
 
 [node name="16" type="Sprite" parent="Textures"]
 visible = false
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 5 )
 
 [node name="17" type="Sprite" parent="Textures"]
@@ -135,30 +137,47 @@ texture = ExtResource( 19 )
 
 [node name="26" type="Sprite" parent="Textures"]
 visible = false
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 9 )
 
 [node name="27" type="Sprite" parent="Textures"]
 visible = false
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 9 )
 
 [node name="28" type="Sprite" parent="Textures"]
 visible = false
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 15 )
 
 [node name="29" type="Sprite" parent="Textures"]
 visible = false
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 
 [node name="30" type="Sprite" parent="Textures"]
 visible = false
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 
 [node name="31" type="Sprite" parent="Textures"]
 visible = false
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 
 [node name="32" type="Sprite" parent="Textures"]
 visible = false
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+
+[node name="33" type="Sprite" parent="Textures"]
+visible = false
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+
+[node name="34" type="Sprite" parent="Textures"]
+visible = false
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

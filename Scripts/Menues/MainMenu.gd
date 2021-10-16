@@ -18,7 +18,7 @@ func _on_Boshy_pressed():
 
 
 func _on_Minecraft_pressed():
-	get_parent().play_level("minecraft", Vector2.ZERO)
+	get_parent().generate_god_seed()
 
 
 func _on_Quit_pressed():

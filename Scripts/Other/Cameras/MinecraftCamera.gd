@@ -6,7 +6,9 @@ func _ready():
 	start_time = OS.get_ticks_msec()
 
 
+
 func _process(_delta):
+	self.set_position(Vector2(960,-540))
 	var time = (OS.get_ticks_msec() - start_time) * 2
 	var hundreds = int(time/10 % 100)
 	var seconds = int(time/1000 % 60)

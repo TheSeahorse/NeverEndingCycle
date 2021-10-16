@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Graphics/Levels/Minecraft/generating_good_seed.webm" type="VideoStream" id=1]
+[ext_resource path="res://Scripts/Other/Misc/GeneratingGodSeed.gd" type="Script" id=2]
+
+[node name="GeneratingGodSeed" type="Node"]
+script = ExtResource( 2 )
+
+[node name="GodSeed" type="VideoPlayer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+stream = ExtResource( 1 )
+autoplay = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 960, 540 )
+
+[connection signal="finished" from="GodSeed" to="." method="_on_GeneratingGodSeed_finished"]
