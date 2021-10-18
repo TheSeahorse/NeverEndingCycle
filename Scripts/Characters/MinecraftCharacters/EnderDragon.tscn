@@ -210,7 +210,6 @@ visible = false
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 44 )
 animation = "death"
-frame = 42
 
 [connection signal="timeout" from="GravityTimer" to="." method="_on_GravityTimer_timeout"]
 [connection signal="timeout" from="BoostTimer" to="." method="_on_BoostTimer_timeout"]
