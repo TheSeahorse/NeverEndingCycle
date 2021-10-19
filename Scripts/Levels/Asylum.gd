@@ -31,7 +31,6 @@ func unlock_door(number: int):
 
 
 func open_hidden_door(number: int):
-	print("inside")
 	$Doors/DoorOpener.interpolate_property(get_node("Doors/HiddenDoor" + str(number)), "scale", null, Vector2(1, 0), 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Doors/DoorOpener.start()
 
@@ -46,3 +45,4 @@ func generate_god_seed():
 
 func play_level(level: String, spawn_pos: Vector2):
 	get_parent().play_level(level, spawn_pos)
+

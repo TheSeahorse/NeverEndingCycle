@@ -27,6 +27,7 @@ var dont_show_interaction_sprite = false
 
 
 func _ready():
+	print("boshy ready")
 	player_stats = get_parent().stats
 
 

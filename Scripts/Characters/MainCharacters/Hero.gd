@@ -157,12 +157,15 @@ func dialog_answer(answer: String):
 		"open_two":
 			var level = get_parent().get_level()
 			level.unlock_door(2)
-		"open_bog":
-			var level = get_parent().get_level()
-			level.open_hidden_door(1)
 		"open_four":
 			var level = get_parent().get_level()
 			level.unlock_door(4)
+		"open_bog":
+			var level = get_parent().get_level()
+			level.open_hidden_door(1)
+		"open_da_wey":
+			var level = get_parent().get_level()
+			level.open_hidden_door(2)
 		"fors_crown":
 			dialog_area.equip_crown()
 

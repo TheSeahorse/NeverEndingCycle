@@ -59,7 +59,8 @@ func generated_dream_seed():
 
 
 func play_level(level: String, spawn_pos: Vector2):
-	stop_all_music()
+	if level != "minecraft":
+		stop_all_music()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	free_old_level()
 	match level:
@@ -111,6 +112,7 @@ func play_minecraft(spawn_pos: Vector2):
 
 
 func play_boshy(spawn_pos: Vector2):
+	print("inside boshy")
 	current_level = BoshyLevel.instance()
 	call_deferred("add_child", current_level)
 	player = load("res://Scripts/Characters/MainCharacters/Boshy.tscn").instance()
@@ -144,8 +146,9 @@ func stop_all_music():
 		song.stop()
 
 
-func playlist_play_next(auto: bool):
-	if stopping_music and auto:
+#false for within code, true for songs calling from their finished() signal
+func playlist_play_next(finished: bool):
+	if stopping_music and finished:
 		return
 	stopping_music = false
 	$MinecraftPlaylist.get_children()[next_song].play()
