@@ -4,7 +4,8 @@ const MainMenu = preload("res://Scripts/Menues/MainMenu.tscn")
 const Asylum = preload("res://Scripts/Levels/Asylum.tscn")
 const JumpKing = preload("res://Scripts/Levels/JumpKing.tscn")
 const MinecraftLevel = preload("res://Scripts/Levels/Minecraft/MinecraftLevel.tscn")
-const BoshyLevel = preload("res://Scripts/Levels/BoshyMap.tscn")
+const BoshyBoss1 = preload("res://Scripts/Levels/BoshyBoss1.tscn")
+const BoshyBoss2 = preload("res://Scripts/Levels/BoshyBoss2.tscn")
 const MinecraftCamera = preload("res://Scripts/Other/Cameras/MinecraftCamera.tscn")
 const GodSeed = preload("res://Scripts/Other/Misc/GeneratingGodSeed.tscn")
 
@@ -17,7 +18,7 @@ var god_seed
 var next_song = 0
 var stopping_music = false
 
-var stats = [0, 0, [false,false,false,false,false,false], false] #[Egs, given egs, unlocked_doors, beaten_record]
+var stats = [0, 0, [false,false,false,false,false,false], false, [false,false,false]] #[Egs, given egs, unlocked_doors, beaten_minecraft_record, beaten_boshy_bosses]
 
 
 func _ready():
@@ -71,7 +72,7 @@ func play_level(level: String, spawn_pos: Vector2):
 		"minecraft":
 			play_minecraft(spawn_pos)
 		"boshy":
-			play_boshy(spawn_pos)
+			play_boshy()
 
 
 func play_asylum(spawn_pos: Vector2):
@@ -111,16 +112,32 @@ func play_minecraft(spawn_pos: Vector2):
 	playlist_play_next(false)
 
 
-func play_boshy(spawn_pos: Vector2):
+func play_boshy():
 	print("inside boshy")
-	current_level = BoshyLevel.instance()
+	current_level = BoshyBoss1.instance()
 	call_deferred("add_child", current_level)
 	player = load("res://Scripts/Characters/MainCharacters/Boshy.tscn").instance()
-	player.set_position(spawn_pos)
+	player.set_position(Vector2(960, 600))
+	player.connect("dead", self, "boshy_died")
 	call_deferred("add_child", player)
 	camera = load("res://Scripts/Other/Cameras/BoshyCamera.tscn").instance()
 	call_deferred("add_child", camera)
 	camera.make_current()
+
+
+func add_bullet(bullet: RigidBody2D):
+	if $Bullets.get_children().size() < 5:
+		$Bullets.call_deferred("add_child", bullet)
+
+
+func start_boshy_fight():
+	player.start_boss_fight()
+	current_level.start_boss_fight()
+	$Music/MegaLulBoss.play()
+
+
+func boshy_died():
+	play_level("boshy", Vector2(64,800))
 
 
 func free_old_level():

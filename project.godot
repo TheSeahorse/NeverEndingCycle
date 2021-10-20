@@ -138,6 +138,7 @@ gdscript/warnings/integer_division=false
 
 window/size/width=1920
 window/size/height=1080
+window/size/fullscreen=true
 window/size/test_width=1280
 window/size/test_height=720
 window/vsync/use_vsync=false
@@ -208,6 +209,7 @@ shoot={
 2d_physics/layer_3="Interactable"
 2d_physics/layer_4="Collectible"
 2d_physics/layer_5="Enemies"
+2d_physics/layer_6="PlayerBullet"
 
 [physics]
 

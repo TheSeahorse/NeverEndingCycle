@@ -1,7 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Resources/Graphics/Characters/Boshy/forsen_boshy.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Characters/MainCharacters/Boshy.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Graphics/Characters/Boshy/boshy_death7.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Graphics/Characters/Boshy/boshy_death6.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Graphics/Characters/Boshy/boshy_death2.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Graphics/Characters/Boshy/boshy_death5.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Graphics/Characters/Boshy/boshy_death4.png" type="Texture" id=7]
+[ext_resource path="res://Resources/Graphics/Characters/Boshy/boshy_death3.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Graphics/Characters/Boshy/boshy_death1.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Graphics/Characters/Boshy/boshy_death0.png" type="Texture" id=10]
+[ext_resource path="res://Resources/Graphics/Characters/Boshy/boshy_death8.png" type="Texture" id=11]
+[ext_resource path="res://Resources/Sound/death.wav" type="AudioStream" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24, 28 )
@@ -13,7 +23,15 @@ extents = Vector2( 24, 1 )
 extents = Vector2( 24, 1 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 24, 28 )
+extents = Vector2( 25, 29 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "death",
+"speed": 24.0
+} ]
 
 [node name="Boshy" type="KinematicBody2D"]
 collision_mask = 2
@@ -59,7 +77,19 @@ modulate = Color( 0.803922, 0.0431373, 0.258824, 1 )
 position = Vector2( 0, -28 )
 shape = SubResource( 4 )
 
+[node name="DeathAnimation" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 0, -32 )
+frames = SubResource( 5 )
+animation = "death"
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
 [connection signal="body_entered" from="FloorDetector" to="." method="_on_FloorDetector_body_entered"]
 [connection signal="body_exited" from="FloorDetector" to="." method="_on_FloorDetector_body_exited"]
 [connection signal="body_entered" from="RoofDetector" to="." method="_on_RoofDetector_body_entered"]
 [connection signal="body_exited" from="RoofDetector" to="." method="_on_RoofDetector_body_exited"]
+[connection signal="area_entered" from="HurtBox" to="." method="get_hit"]
+[connection signal="body_entered" from="HurtBox" to="." method="get_hit"]
+[connection signal="finished" from="Death" to="." method="die"]

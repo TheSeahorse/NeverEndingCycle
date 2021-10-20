@@ -924,14 +924,14 @@ RAND_WAIT = 0.8
 position = Vector2( 4408, -1918 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 129 )
-frame = 52
+frame = 97
 playing = true
 
 [node name="AlienDance" type="AnimatedSprite" parent="CosmeticSprites"]
 position = Vector2( 5308, -1779 )
 scale = Vector2( 2.5, 2.5 )
 frames = SubResource( 198 )
-frame = 41
+frame = 18
 playing = true
 
 [node name="Kitchen" type="Sprite" parent="CosmeticSprites"]
@@ -1006,7 +1006,6 @@ scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 53 )
 
 [node name="Fogs" type="Node2D" parent="."]
-visible = false
 
 [node name="Maze" type="Node2D" parent="Fogs"]
 
@@ -1227,7 +1226,7 @@ position = Vector2( 2048, -832 )
 [node name="Doors" type="Node2D" parent="."]
 
 [node name="AsylumDoor1" parent="Doors" instance=ExtResource( 27 )]
-position = Vector2( 3011, 130 )
+position = Vector2( 3008, -128 )
 
 [node name="AsylumDoor2" parent="Doors" instance=ExtResource( 27 )]
 position = Vector2( 3456, -128 )
@@ -1297,5 +1296,5 @@ position = Vector2( 2380, -576 )
 
 [connection signal="play_level" from="AsylumToJumpKing" to="." method="play_level" binds= [ "jump_king", Vector2( 100, -70 ) ]]
 [connection signal="generate_god_seed" from="AsylumToMinecraft" to="." method="generate_god_seed"]
-[connection signal="play_level" from="AsylumToBoshy" to="." method="play_level" binds= [ "boshy", Vector2( 128, -128 ) ]]
+[connection signal="play_level" from="AsylumToBoshy" to="." method="play_level" binds= [ "boshy", Vector2( 64, 800 ) ]]
 [connection signal="tween_completed" from="Doors/DoorOpener" to="." method="_on_DoorOpener_completed"]

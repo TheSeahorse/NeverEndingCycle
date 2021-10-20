@@ -8,7 +8,7 @@ func _ready():
 
 func get_next_dialog(player: Node) -> String:
 	if player.player_stats[1] > 9:
-		if $Crown.visible:
+		if player.player_stats[2][3]:
 			return "real_forsen_king"
 		else:
 			return "real_forsen_key"

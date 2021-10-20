@@ -7,8 +7,6 @@ func _ready():
 	pass # Replace with function body.
 
 
-
-
 func _on_LifeTimer_timeout():
 	self.queue_free()
 

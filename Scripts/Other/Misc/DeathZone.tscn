@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="DeathZone" type="Area2D"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -89, 51, -66, 1162, 1992, 1138, 1986, -234, -37, -241, -39, -207, 1951, -201, 1951, 1115, -32, 1118, -29, -181 )

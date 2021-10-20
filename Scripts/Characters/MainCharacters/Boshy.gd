@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
-
 const Bullet = preload("res://Scripts/Other/Misc/Bullet.tscn")
 
+signal dead
 
 var GRAVITY = 5000
 var WALK_SPEED = 500
@@ -20,8 +20,6 @@ var roofs = []
 var jump_start = OS.get_ticks_msec()
 var holding_jump = false #if holding space
 var has_double_jump = true
-var dialog_area = null
-var next_dialog: String = ""
 var dont_show_interaction_sprite = false
 
 
@@ -29,10 +27,11 @@ var dont_show_interaction_sprite = false
 func _ready():
 	print("boshy ready")
 	player_stats = get_parent().stats
+	play_dialog("boshy_tutorial")
 
 
 func _physics_process(_delta):
-	if PLAYER_STATE == P_FROZEN:
+	if PLAYER_STATE == P_FROZEN or PLAYER_STATE == P_DEAD:
 		return
 	var direction = get_direction()
 	velocity = calculate_move_velocity(direction)
@@ -41,10 +40,16 @@ func _physics_process(_delta):
 
 
 func _input(event):
+	if PLAYER_STATE == P_FROZEN or PLAYER_STATE == P_DEAD:
+		return
 	if event.is_action_pressed("shoot"):
 		shoot()
 	if event.is_action_released("jump"):
 		holding_jump = false
+
+
+func start_boss_fight():
+	PLAYER_STATE = P_IDLE
 
 
 func get_direction():
@@ -101,14 +106,48 @@ func decide_player_flip():
 		$GunPosition.position.x = -32
 
 
+func play_dialog(dialog_name: String):
+	PLAYER_STATE = P_FROZEN
+	var dialog = Dialogic.start(dialog_name)
+	add_child(dialog)
+	dialog.connect("timeline_end", self, "dialog_ended", [dialog])
+	dialog.connect("dialogic_signal", self, "dialog_answer")
+
+
+func dialog_ended(_timeline_name, dialog):
+	PLAYER_STATE = P_IDLE
+	dialog.queue_free()
+
+
+func dialog_answer(answer: String):
+	match answer:
+		"start_boss_fight":
+			get_parent().start_boshy_fight()
+
+
 func shoot():
 	var bullet = Bullet.instance()
 	bullet.position = $GunPosition.position + self.position
 	if $Sprite.flip_h:
-		bullet.linear_velocity.x = -1500
+		bullet.linear_velocity.x = -1300
 	else:
-		bullet.linear_velocity.x = 1500
-	get_parent().call_deferred("add_child", bullet)
+		bullet.linear_velocity.x = 1300
+	get_parent().add_bullet(bullet)
+
+
+func get_hit(_area):
+	if PLAYER_STATE == P_DEAD:
+		return
+	PLAYER_STATE = P_DEAD
+	$Sprite.hide()
+	$Death.play()
+	$DeathAnimation.show()
+	$DeathAnimation.play("death")
+
+
+#when deathsound finishes playing
+func die():
+	emit_signal("dead")
 
 
 func _on_FloorDetector_body_entered(body):

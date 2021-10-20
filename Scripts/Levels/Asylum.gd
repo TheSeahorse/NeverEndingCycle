@@ -9,13 +9,16 @@ func _ready():
 	for unlocked in unlocked_doors:
 		if unlocked:
 			unlock_door(door)
-			if door != 2: #door 2 has no key
+			if door == 3: #door 3 has a key
 				get_node("Keys/DoorKey" + str(door)).queue_free()
-			else:
-				$Interactables/PileOfClothes.found_key()
 		door += 1
+	if stats[2][3]:
+		$Interactables/RealForsen.equip_crown()
 	if stats[3]:
 		$CosmeticSprites/LidlBoardRecord.show()
+		$CosmeticSprites/AlienDance.queue_free()
+		$CosmeticSprites/AlienPls.queue_free()
+		$Interactables/TelescopeLUL.queue_free()
 
 
 func show_bitcoin(camera):
