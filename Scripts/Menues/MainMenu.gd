@@ -14,7 +14,7 @@ func _on_Overworld_pressed():
 
 
 func _on_Boshy_pressed():
-	get_parent().play_level("boshy", Vector2(96, 800))
+	get_parent().play_level("boshy", Vector2.ZERO)
 
 
 func _on_Minecraft_pressed():

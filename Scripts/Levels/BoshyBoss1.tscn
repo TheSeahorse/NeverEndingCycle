@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Levels/BoshyBoss1.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Graphics/Levels/Boshy/Tilemap/BoshyBoss1.tres" type="TileSet" id=2]
 [ext_resource path="res://Resources/Graphics/Levels/Boshy/Backgrounds/stargaze.jpg" type="Texture" id=3]
 [ext_resource path="res://Scripts/Characters/BoshyCharacters/Bosses/MegaLULBoss.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Other/Misc/DeathZone.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Resources/Sound/Boshy/christian_song.wav" type="AudioStream" id=6]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1602, 761, 0, 0, 0, 0, 1602, 243, 0, 0, 0, 0, 1602, 761 )
+}
 
 [node name="BoshyBoss1" type="Node2D"]
 script = ExtResource( 1 )
@@ -21,13 +27,28 @@ collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 393221, 1, 0, 458757, 0, 0, 458766, 1, 0, 458767, 1, 0, 524293, 0, 0, 589828, 1, 0, 589829, 0, 0, 589830, 1, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 720910, 0, 0, 720911, 0, 0, 786435, 1, 0, 786436, 1, 0, 786437, 1, 0, 786438, 1, 0, 786439, 1, 0, 786446, 0, 0, 786447, 0, 0, 851973, 0, 0, 851982, 0, 0, 851983, 0, 0, 917509, 0, 0, 917518, 0, 0, 917519, 0, 0, 983040, 1, 0, 983041, 1, 0, 983042, 1, 0, 983043, 1, 0, 983044, 1, 0, 983045, 0, 0, 983046, 1, 0, 983047, 1, 0, 983048, 1, 0, 983049, 1, 0, 983050, 1, 0, 983051, 1, 0, 983052, 1, 0, 983053, 1, 0, 983054, 0, 0, 983055, 0, 0, 1048576, 0, 0, 1048577, 0, 0, 1048578, 0, 0, 1048579, 0, 0, 1048580, 0, 0, 1048581, 0, 0, 1048582, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1048591, 0, 0 )
 
-[node name="MegaLULBoss" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1600, 760 )
-
 [node name="AlienFallTimer" type="Timer" parent="."]
 wait_time = 8.0
 
 [node name="DeathZone" parent="." instance=ExtResource( 5 )]
 
-[connection signal="phase_two" from="MegaLULBoss" to="." method="phase_two_enabled"]
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1602, 761 )
+rotation = -1.5708
+rotate = false
+
+[node name="MegaLULBoss" parent="Path2D/PathFollow2D" instance=ExtResource( 4 )]
+rotation = 1.5708
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
 [connection signal="timeout" from="AlienFallTimer" to="." method="_on_AlienFallTimer_timeout"]
+[connection signal="defeated" from="Path2D/PathFollow2D/MegaLULBoss" to="." method="boss_defeated"]
+[connection signal="phase_two" from="Path2D/PathFollow2D/MegaLULBoss" to="." method="phase_two_enabled"]
+[connection signal="spawn_alien" from="Path2D/PathFollow2D/MegaLULBoss" to="." method="spawn_alien"]

@@ -6,6 +6,7 @@ const JumpKing = preload("res://Scripts/Levels/JumpKing.tscn")
 const MinecraftLevel = preload("res://Scripts/Levels/Minecraft/MinecraftLevel.tscn")
 const BoshyBoss1 = preload("res://Scripts/Levels/BoshyBoss1.tscn")
 const BoshyBoss2 = preload("res://Scripts/Levels/BoshyBoss2.tscn")
+const BoshyBoss3 = preload("res://Scripts/Levels/BoshyBoss2.tscn")
 const MinecraftCamera = preload("res://Scripts/Other/Cameras/MinecraftCamera.tscn")
 const GodSeed = preload("res://Scripts/Other/Misc/GeneratingGodSeed.tscn")
 
@@ -114,7 +115,12 @@ func play_minecraft(spawn_pos: Vector2):
 
 func play_boshy():
 	print("inside boshy")
-	current_level = BoshyBoss1.instance()
+	if !stats[4][0]:
+		current_level = BoshyBoss1.instance()
+	elif !stats[4][1]:
+		current_level = BoshyBoss2.instance()
+	else:
+		current_level = BoshyBoss3.instance()
 	call_deferred("add_child", current_level)
 	player = load("res://Scripts/Characters/MainCharacters/Boshy.tscn").instance()
 	player.set_position(Vector2(960, 600))
@@ -127,13 +133,13 @@ func play_boshy():
 
 func add_bullet(bullet: RigidBody2D):
 	if $Bullets.get_children().size() < 5:
+		player.play_sound("Shoot")
 		$Bullets.call_deferred("add_child", bullet)
 
 
 func start_boshy_fight():
 	player.start_boss_fight()
 	current_level.start_boss_fight()
-	$Music/MegaLulBoss.play()
 
 
 func boshy_died():
@@ -180,6 +186,10 @@ func unlock_door(number: int):
 
 func beat_minecraft_record():
 	stats[3] = true
+
+
+func beat_boshy_boss(number: int):
+	stats[4][number-1] = true
 
 
 func add_stats(stat: int, amount: int):

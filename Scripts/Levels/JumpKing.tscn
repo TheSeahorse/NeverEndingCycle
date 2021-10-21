@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Resources/Graphics/Levels/JumpKing/JumpKing.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/Characters/JumpKingChars/Okayeg.tscn" type="PackedScene" id=2]
@@ -29,6 +29,12 @@
 [ext_resource path="res://Resources/Graphics/Levels/JumpKing/school_corridor.jpg" type="Texture" id=27]
 [ext_resource path="res://Scripts/Levels/JumpKing.gd" type="Script" id=28]
 [ext_resource path="res://Scripts/Other/SceneTransitions/JumpKingToAsylum.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Resources/Sound/JumpKing/bog.wav" type="AudioStream" id=30]
+[ext_resource path="res://Resources/Sound/JumpKing/du_gamla.wav" type="AudioStream" id=31]
+[ext_resource path="res://Resources/Sound/JumpKing/heavenly_choi.wav" type="AudioStream" id=32]
+[ext_resource path="res://Resources/Sound/JumpKing/disc_golf.wav" type="AudioStream" id=33]
+[ext_resource path="res://Resources/Sound/JumpKing/stable.wav" type="AudioStream" id=34]
+[ext_resource path="res://Resources/Sound/JumpKing/kinda_snus.wav" type="AudioStream" id=35]
 
 [node name="JumpKing" type="Node2D"]
 script = ExtResource( 28 )
@@ -243,6 +249,49 @@ scale = Vector2( 0.5, 1 )
 
 [node name="JumpKingToAsylum" parent="." instance=ExtResource( 29 )]
 position = Vector2( 2, -68 )
+
+[node name="Music" type="Node2D" parent="."]
+
+[node name="Bog" type="AudioStreamPlayer2D" parent="Music"]
+position = Vector2( 960, -540 )
+stream = ExtResource( 30 )
+autoplay = true
+max_distance = 1500.0
+attenuation = 2.0
+
+[node name="Conrad" type="AudioStreamPlayer2D" parent="Music"]
+position = Vector2( 960, -2600 )
+stream = ExtResource( 33 )
+autoplay = true
+max_distance = 400.0
+attenuation = 2.0
+
+[node name="Stable" type="AudioStreamPlayer2D" parent="Music"]
+position = Vector2( 960, -4600 )
+stream = ExtResource( 34 )
+volume_db = 10.0
+autoplay = true
+max_distance = 1500.0
+
+[node name="KindaSnus" type="AudioStreamPlayer2D" parent="Music"]
+position = Vector2( 1800, -7200 )
+stream = ExtResource( 35 )
+autoplay = true
+max_distance = 1500.0
+
+[node name="DuGamla" type="AudioStreamPlayer2D" parent="Music"]
+position = Vector2( 960, -10300 )
+stream = ExtResource( 31 )
+autoplay = true
+max_distance = 1200.0
+attenuation = 2.0
+
+[node name="HeavenlyChoir" type="AudioStreamPlayer2D" parent="Music"]
+position = Vector2( 960, -13500 )
+stream = ExtResource( 32 )
+autoplay = true
+max_distance = 1800.0
+attenuation = 2.0
 
 [connection signal="play_asylum" from="JumpKingToAsylum" to="." method="play_level" binds= [ "asylum", Vector2( 6000, -1200 ) ]]
 [connection signal="reset_stats" from="JumpKingToAsylum" to="." method="reset_stats"]

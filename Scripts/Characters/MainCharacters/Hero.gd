@@ -58,6 +58,7 @@ func get_direction():
 			if holding:
 				y_dir = 0
 			else:
+				$Jump.play()
 				holding = true
 				jumping = true
 				jump_start = current_time

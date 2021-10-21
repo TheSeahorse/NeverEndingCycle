@@ -1,4 +1,4 @@
-[gd_scene load_steps=254 format=2]
+[gd_scene load_steps=261 format=2]
 
 [ext_resource path="res://Resources/Graphics/Levels/Asylum/Tilemap/Assylum.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/Levels/Asylum.gd" type="Script" id=2]
@@ -19,7 +19,7 @@
 [ext_resource path="res://Scripts/Other/Misc/DiscoLight.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scripts/Characters/AsylumChars/PissToilet.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scripts/Characters/AsylumChars/PileOfClothes.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Resources/Sound/disco.wav" type="AudioStream" id=20]
+[ext_resource path="res://Resources/Sound/Asylum/never_doubt.wav" type="AudioStream" id=20]
 [ext_resource path="res://Resources/Graphics/Levels/Asylum/Backgrounds/Disco/alienPls.png" type="Texture" id=21]
 [ext_resource path="res://Scripts/Characters/AsylumChars/DoctorDance.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Resources/Graphics/Levels/Asylum/Backgrounds/Disco/alienDance.png" type="Texture" id=23]
@@ -55,6 +55,13 @@
 [ext_resource path="res://Resources/Graphics/Levels/Asylum/Backgrounds/no_trash.png" type="Texture" id=53]
 [ext_resource path="res://Scripts/Characters/AsylumChars/Trash.tscn" type="PackedScene" id=54]
 [ext_resource path="res://Scripts/Other/SceneTransitions/AsylumToBoshy.tscn" type="PackedScene" id=55]
+[ext_resource path="res://Resources/Graphics/Levels/Asylum/Backgrounds/old_radio.png" type="Texture" id=56]
+[ext_resource path="res://Resources/Sound/Asylum/sebastian_room.wav" type="AudioStream" id=57]
+[ext_resource path="res://Resources/Graphics/Levels/Asylum/Backgrounds/speaker.png" type="Texture" id=58]
+[ext_resource path="res://Resources/Sound/Asylum/elevator_music.wav" type="AudioStream" id=59]
+[ext_resource path="res://Resources/Sound/Asylum/clint_spoon_story.wav" type="AudioStream" id=60]
+[ext_resource path="res://Scripts/Other/Misc/CarHonk.tscn" type="PackedScene" id=61]
+[ext_resource path="res://Scripts/Characters/AsylumChars/TrollFace.tscn" type="PackedScene" id=62]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 21 )
@@ -924,14 +931,14 @@ RAND_WAIT = 0.8
 position = Vector2( 4408, -1918 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 129 )
-frame = 97
+frame = 35
 playing = true
 
 [node name="AlienDance" type="AnimatedSprite" parent="CosmeticSprites"]
 position = Vector2( 5308, -1779 )
 scale = Vector2( 2.5, 2.5 )
 frames = SubResource( 198 )
-frame = 18
+frame = 24
 playing = true
 
 [node name="Kitchen" type="Sprite" parent="CosmeticSprites"]
@@ -1004,6 +1011,55 @@ texture = ExtResource( 51 )
 position = Vector2( 1856, -671 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 53 )
+
+[node name="OldRadio" type="Sprite" parent="CosmeticSprites"]
+position = Vector2( 4616, -189 )
+texture = ExtResource( 56 )
+
+[node name="ClassicalMusic" type="AudioStreamPlayer2D" parent="CosmeticSprites/OldRadio"]
+stream = ExtResource( 57 )
+volume_db = 20.0
+autoplay = true
+max_distance = 800.0
+attenuation = 3.0
+
+[node name="Speaker" type="Sprite" parent="CosmeticSprites"]
+position = Vector2( 2050, -1671 )
+rotation = 0.705452
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 58 )
+flip_h = true
+
+[node name="ElevatorMusic" type="AudioStreamPlayer2D" parent="CosmeticSprites/Speaker"]
+stream = ExtResource( 59 )
+volume_db = -10.0
+autoplay = true
+max_distance = 900.0
+attenuation = 2.0
+
+[node name="Speaker2" type="Sprite" parent="CosmeticSprites"]
+position = Vector2( 832, -1668 )
+rotation = -1.03035
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 58 )
+
+[node name="ElevatorMusic" type="AudioStreamPlayer2D" parent="CosmeticSprites/Speaker2"]
+stream = ExtResource( 59 )
+volume_db = -10.0
+autoplay = true
+max_distance = 900.0
+attenuation = 2.0
+
+[node name="ClintTV" type="Sprite" parent="CosmeticSprites"]
+position = Vector2( 955, -224 )
+texture = ExtResource( 52 )
+
+[node name="SpoonStory" type="AudioStreamPlayer2D" parent="CosmeticSprites/ClintTV"]
+stream = ExtResource( 60 )
+volume_db = 15.0
+autoplay = true
+max_distance = 600.0
+attenuation = 2.0
 
 [node name="Fogs" type="Node2D" parent="."]
 
@@ -1212,7 +1268,7 @@ position = Vector2( 1850, -1148 )
 position = Vector2( -2942, -3519 )
 
 [node name="ZULUL" parent="Interactables" instance=ExtResource( 45 )]
-position = Vector2( 512, -128 )
+position = Vector2( 788, -128 )
 
 [node name="LULTrio" parent="Interactables" instance=ExtResource( 46 )]
 position = Vector2( 770, -576 )
@@ -1223,10 +1279,16 @@ position = Vector2( 2426, -832 )
 [node name="MEGALUL" parent="Interactables" instance=ExtResource( 49 )]
 position = Vector2( 2048, -832 )
 
+[node name="CarHonk" parent="Interactables" instance=ExtResource( 61 )]
+position = Vector2( 1006, -1214 )
+
+[node name="TrollFace" parent="Interactables" instance=ExtResource( 62 )]
+position = Vector2( 1909, -2431 )
+
 [node name="Doors" type="Node2D" parent="."]
 
 [node name="AsylumDoor1" parent="Doors" instance=ExtResource( 27 )]
-position = Vector2( 3008, -128 )
+position = Vector2( 3015, 137 )
 
 [node name="AsylumDoor2" parent="Doors" instance=ExtResource( 27 )]
 position = Vector2( 3456, -128 )
@@ -1279,17 +1341,6 @@ position = Vector2( 1020, -518 )
 stream = ExtResource( 20 )
 autoplay = true
 max_distance = 1000.0
-
-[node name="DiscoDown" type="AudioStreamPlayer2D" parent="Sounds"]
-stream = ExtResource( 20 )
-volume_db = -20.0
-autoplay = true
-max_distance = 650.0
-attenuation = 2.0
-
-[node name="clint_on_tv" type="Sprite" parent="."]
-position = Vector2( 679, -224 )
-texture = ExtResource( 52 )
 
 [node name="Trash" parent="." instance=ExtResource( 54 )]
 position = Vector2( 2380, -576 )

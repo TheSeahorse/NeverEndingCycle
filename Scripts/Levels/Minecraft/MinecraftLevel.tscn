@@ -210,61 +210,64 @@ __meta__ = {
 
 [node name="BackToBog" type="AudioStreamPlayer" parent="MenuSounds"]
 stream = ExtResource( 19 )
+volume_db = 5.0
 
 [node name="GiveUp" type="AudioStreamPlayer" parent="MenuSounds"]
 stream = ExtResource( 30 )
+volume_db = 5.0
 
 [node name="AchievementSounds" type="Node2D" parent="."]
 
 [node name="Wood" type="AudioStreamPlayer" parent="AchievementSounds"]
 stream = ExtResource( 27 )
-volume_db = 10.0
+volume_db = 5.0
 
 [node name="Stone" type="AudioStreamPlayer" parent="AchievementSounds"]
 stream = ExtResource( 29 )
-volume_db = 10.0
+volume_db = 5.0
 
 [node name="Iron" type="AudioStreamPlayer" parent="AchievementSounds"]
 stream = ExtResource( 20 )
-volume_db = 10.0
+volume_db = 5.0
 
 [node name="Bucket" type="AudioStreamPlayer" parent="AchievementSounds"]
 stream = ExtResource( 22 )
-volume_db = 10.0
+volume_db = 5.0
 
 [node name="Obsidian" type="AudioStreamPlayer" parent="AchievementSounds"]
 stream = ExtResource( 28 )
-volume_db = 10.0
+volume_db = 5.0
 
 [node name="NetherPortal1" type="AudioStreamPlayer" parent="AchievementSounds"]
 stream = ExtResource( 21 )
-volume_db = 10.0
+volume_db = 2.0
 
 [node name="Bastion" type="AudioStreamPlayer" parent="AchievementSounds"]
 stream = ExtResource( 26 )
-volume_db = 10.0
+volume_db = 5.0
 
 [node name="Fortress" type="AudioStreamPlayer" parent="AchievementSounds"]
 stream = ExtResource( 25 )
-volume_db = 10.0
+volume_db = 5.0
 
 [node name="BlazeRod1" type="AudioStreamPlayer" parent="AchievementSounds"]
 stream = ExtResource( 18 )
-volume_db = 10.0
+volume_db = 5.0
 
 [node name="Stronghold" type="AudioStreamPlayer" parent="AchievementSounds"]
 stream = ExtResource( 24 )
-volume_db = 10.0
+volume_db = 5.0
 
 [node name="End" type="AudioStreamPlayer" parent="AchievementSounds"]
 stream = ExtResource( 23 )
-volume_db = 10.0
+volume_db = 5.0
 
 [node name="PlayerDead" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 32 )
 
 [node name="DragonDead" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 31 )
+volume_db = 10.0
 
 [connection signal="timeout" from="EnemyTimer" to="." method="spawn_enemy"]
 [connection signal="mouse_entered" from="MinecraftDeath/Retry" to="." method="play_menu_sound" binds= [ "BackToBog" ]]

@@ -11,7 +11,7 @@ radius = 74.6685
 height = 95.7779
 
 [node name="MegaLULBoss" type="KinematicBody2D"]
-collision_layer = 16
+collision_layer = 0
 collision_mask = 2
 script = ExtResource( 2 )
 
@@ -21,7 +21,8 @@ margin_left = -232.0
 margin_top = -193.0
 margin_right = 232.0
 margin_bottom = -153.0
-value = 100.0
+max_value = 20.0
+value = 20.0
 texture_under = ExtResource( 4 )
 texture_progress = ExtResource( 3 )
 nine_patch_stretch = true
@@ -54,9 +55,5 @@ polygon = PoolVector2Array( 40, -110, 61, -104, 94, -77, 107, -5, 93, 26, 55, 88
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 3.0
 
-[node name="MoveTimer" type="Timer" parent="."]
-wait_time = 5.0
-
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
-[connection signal="timeout" from="MoveTimer" to="." method="_on_MoveTimer_timeout"]

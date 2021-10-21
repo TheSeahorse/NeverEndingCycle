@@ -27,7 +27,10 @@ var dont_show_interaction_sprite = false
 func _ready():
 	print("boshy ready")
 	player_stats = get_parent().stats
-	play_dialog("boshy_tutorial")
+	if !player_stats[4][0]:
+		play_dialog("boshy_tutorial")
+	else:
+		get_parent().start_boshy_fight()
 
 
 func _physics_process(_delta):
@@ -58,6 +61,7 @@ func get_direction():
 	var current_time = OS.get_ticks_msec()
 	if y_dir == 1:
 		if on_floor:
+			play_sound("Jump1")
 			holding_jump = true
 			jump_start = current_time
 		elif holding_jump and current_time - jump_start > 150:
@@ -65,6 +69,7 @@ func get_direction():
 		elif holding_jump:
 			pass
 		elif has_double_jump:
+			play_sound("Jump2")
 			has_double_jump = false
 			holding_jump = true
 			jump_start = current_time
@@ -123,6 +128,8 @@ func dialog_answer(answer: String):
 	match answer:
 		"start_boss_fight":
 			get_parent().start_boshy_fight()
+		"defeated_megalul":
+			get_parent().play_level("boshy", Vector2.ZERO)
 
 
 func shoot():
@@ -148,6 +155,15 @@ func get_hit(_area):
 #when deathsound finishes playing
 func die():
 	emit_signal("dead")
+
+
+func boss_defeated(number: int):
+	PLAYER_STATE = P_FROZEN
+	play_dialog("boss_defeated_" + str(number))
+
+
+func play_sound(sound: String):
+	get_node(sound).play()
 
 
 func _on_FloorDetector_body_entered(body):
