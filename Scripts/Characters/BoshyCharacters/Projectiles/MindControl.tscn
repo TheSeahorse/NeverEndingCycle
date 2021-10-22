@@ -4,7 +4,7 @@
 [ext_resource path="res://Scripts/Characters/BoshyCharacters/Projectiles/MindControl.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 103, 156 )
+extents = Vector2( 103, 153 )
 
 [node name="MindControl" type="RigidBody2D"]
 collision_layer = 16

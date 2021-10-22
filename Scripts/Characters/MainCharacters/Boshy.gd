@@ -5,8 +5,8 @@ const Bullet = preload("res://Scripts/Other/Misc/Bullet.tscn")
 signal dead
 
 var GRAVITY = 5000
-var WALK_SPEED = 500
-var JUMPING_SPEED = Vector2(500,800)
+var WALK_SPEED = 400
+var JUMPING_SPEED = Vector2(400,800)
 enum {P_FROZEN, P_IDLE, P_WALKING, P_INAIR, P_DEAD} #PLAYER_STATE
 var PLAYER_STATE = P_IDLE
 
@@ -29,8 +29,6 @@ func _ready():
 	player_stats = get_parent().stats
 	if !player_stats[4][0]:
 		play_dialog("boshy_tutorial")
-	else:
-		get_parent().start_boshy_fight()
 
 
 func _physics_process(_delta):

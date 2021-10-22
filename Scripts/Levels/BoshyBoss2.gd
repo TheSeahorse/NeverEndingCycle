@@ -9,6 +9,7 @@ var defeated = false
 
 
 func _ready():
+	get_parent().start_boshy_fight()
 	rng = RandomNumberGenerator.new()
 	rng.randomize()
 

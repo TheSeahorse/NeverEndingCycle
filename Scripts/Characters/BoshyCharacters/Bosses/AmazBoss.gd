@@ -14,7 +14,7 @@ var rng: RandomNumberGenerator
 var speed = 0
 var pain_speed = 600
 var control_speed = 250
-var health = 100
+var health = 1
 var hard_mode = false
 var pain_time = 4
 var pain_separation = 0.4

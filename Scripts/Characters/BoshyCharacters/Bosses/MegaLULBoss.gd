@@ -12,7 +12,7 @@ signal phase_two
 var start_pos: Vector2
 var move_direction = Vector2(0,-1)
 var speed = 100
-var health = 120
+var health = 2
 var rng: RandomNumberGenerator
 var started = false
 var hard = false

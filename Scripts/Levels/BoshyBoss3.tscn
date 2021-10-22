@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Resources/Graphics/Levels/Boshy/Backgrounds/solgryn_background.png" type="Texture" id=1]
 [ext_resource path="res://Resources/Graphics/Levels/Boshy/Tilemap/BoshyBoss1.tres" type="TileSet" id=2]
@@ -6,6 +6,22 @@
 [ext_resource path="res://Scripts/Levels/BoshyBoss3.gd" type="Script" id=4]
 [ext_resource path="res://Resources/Sound/Boshy/solgryn.wav" type="AudioStream" id=5]
 [ext_resource path="res://Resources/Graphics/Levels/Boshy/Backgrounds/solgryn_big.jpg" type="Texture" id=6]
+[ext_resource path="res://Scripts/Characters/BoshyCharacters/Projectiles/Horse.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, -2.22725, 0, 0, 1657, 266, 0, 0, 0, 0, 1659, 868, 0, 0, 0, 0, 215, 232, 0, 0, 0, 0, 211, 892, 0, 0, 0, 0, 1639, 232, 0, 0, 0, 0, 1635, 878, 0, 0, 0, 0, 229, 244, 0, 0, 0, 0, 237, 858, 0, 0, 0, 0, 1559, 1080, 0, 0, 0, 0, 1657, 266 )
+}
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 284, 153, 0, 0, 0, 0, 1622, 167, 0, 0, 0, 0, 254, 163, 0, 0, 0, 0, 1610, 147, 0, 0, 0, 0, 284, 153 )
+}
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1667, 1454, 69.8467, 132.142, -69.8467, -132.142, 1402, 993, 281.275, -20.7652, -281.275, 20.7652, 946, 772, 52.857, -77.3977, -52.857, 77.3977, 542, 1034, 0, 0, 0, 0, 332, 1563 )
+}
 
 [node name="BoshyBoss3" type="Node2D"]
 script = ExtResource( 4 )
@@ -33,7 +49,39 @@ tile_data = PoolIntArray( 851977, 2, 0, 851978, 2, 0, 851979, 2, 0, 851980, 2, 0
 
 [node name="Solgryn" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+volume_db = -7.0
 
 [node name="Projectiles" type="Node2D" parent="."]
 
+[node name="StartPath" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="StartPath"]
+position = Vector2( 1657, 266 )
+rotate = false
+loop = false
+
+[node name="TopPath" type="Path2D" parent="."]
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="TopPath"]
+position = Vector2( 284, 153 )
+rotate = false
+loop = false
+
+[node name="HorsePath" type="Path2D" parent="."]
+curve = SubResource( 3 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="HorsePath"]
+position = Vector2( 1667, 1454 )
+rotation = -2.10595
+loop = false
+
+[node name="Horse" parent="HorsePath/PathFollow2D" instance=ExtResource( 7 )]
+
+[node name="BeamTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="tween_all_completed" from="BigBoshy/Tween" to="." method="_on_Tween_tween_all_completed"]
+[connection signal="timeout" from="BeamTimer" to="." method="spawn_beam"]
