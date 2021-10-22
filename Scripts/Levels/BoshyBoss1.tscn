@@ -45,7 +45,7 @@ rotation = 1.5708
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 
 [connection signal="timeout" from="AlienFallTimer" to="." method="_on_AlienFallTimer_timeout"]

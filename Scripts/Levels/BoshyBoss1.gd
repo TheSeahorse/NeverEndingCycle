@@ -42,7 +42,7 @@ func spawn_alien(alien):
 
 #called from game when dialog is finished
 func start_boss_fight():
-	$AudioStreamPlayer.play()
+	$Music.play()
 	$AlienFallTimer.start()
 	$Path2D/PathFollow2D/MegaLULBoss.start_boss_fight()
 
@@ -55,6 +55,7 @@ func phase_two_enabled():
 
 func boss_defeated():
 	defeated = true
+	$Music.stop()
 	for child in $Enemies.get_children():
 		child.call_deferred("queue_free")
 	get_parent().get_player().boss_defeated(1)

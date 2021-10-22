@@ -1,0 +1,43 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Resources/Graphics/Characters/Boshy/Projectiles/rope1.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Graphics/Characters/Boshy/Projectiles/rope3.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Graphics/Characters/Boshy/Projectiles/rope5.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Graphics/Characters/Boshy/Projectiles/rope2.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Graphics/Characters/Boshy/Projectiles/rope0.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Graphics/Characters/Boshy/Projectiles/rope4.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Characters/BoshyCharacters/Projectiles/BurningRope.gd" type="Script" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "burning",
+"speed": 20.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 156, 7 )
+
+[node name="BurningRope" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource( 7 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "burning"
+frame = 5
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 14, -5 )
+shape = SubResource( 2 )
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 14.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]

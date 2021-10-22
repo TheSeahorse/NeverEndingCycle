@@ -86,8 +86,8 @@ func calculate_move_velocity(direction: Vector2) -> Vector2:
 			new_velocity.y += velocity.y
 	new_velocity.x = WALK_SPEED * direction.x
 	new_velocity.y += GRAVITY * get_physics_process_delta_time()
-	if new_velocity.y > GRAVITY/3:
-		new_velocity.y = GRAVITY/3
+	if new_velocity.y > GRAVITY/6:
+		new_velocity.y = GRAVITY/6
 	return new_velocity
 
 
@@ -129,6 +129,8 @@ func dialog_answer(answer: String):
 		"start_boss_fight":
 			get_parent().start_boshy_fight()
 		"defeated_megalul":
+			get_parent().play_level("boshy", Vector2.ZERO)
+		"defeated_scamaz":
 			get_parent().play_level("boshy", Vector2.ZERO)
 
 

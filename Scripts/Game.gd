@@ -6,7 +6,7 @@ const JumpKing = preload("res://Scripts/Levels/JumpKing.tscn")
 const MinecraftLevel = preload("res://Scripts/Levels/Minecraft/MinecraftLevel.tscn")
 const BoshyBoss1 = preload("res://Scripts/Levels/BoshyBoss1.tscn")
 const BoshyBoss2 = preload("res://Scripts/Levels/BoshyBoss2.tscn")
-const BoshyBoss3 = preload("res://Scripts/Levels/BoshyBoss2.tscn")
+const BoshyBoss3 = preload("res://Scripts/Levels/BoshyBoss3.tscn")
 const MinecraftCamera = preload("res://Scripts/Other/Cameras/MinecraftCamera.tscn")
 const GodSeed = preload("res://Scripts/Other/Misc/GeneratingGodSeed.tscn")
 
@@ -123,7 +123,12 @@ func play_boshy():
 		current_level = BoshyBoss3.instance()
 	call_deferred("add_child", current_level)
 	player = load("res://Scripts/Characters/MainCharacters/Boshy.tscn").instance()
-	player.set_position(Vector2(960, 600))
+	if !stats[4][0]:
+		player.set_position(Vector2(64,900))
+	elif !stats[4][1]:
+		player.set_position(Vector2(960, 760))
+	else:
+		player.set_position(Vector2(960, 800))
 	player.connect("dead", self, "boshy_died")
 	call_deferred("add_child", player)
 	camera = load("res://Scripts/Other/Cameras/BoshyCamera.tscn").instance()

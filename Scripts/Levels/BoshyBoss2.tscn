@@ -9,7 +9,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( -296.844, 85.7197, 296.844, -85.7197, 952, 67, -53.9716, -85.7197, 53.9716, 85.7197, 1620, 215, 90.4818, -4.7622, -90.4818, 4.7622, 1372, 444, 107.943, -331.767, -107.943, 331.767, 385, 212, -106.356, 46.0346, 106.356, -46.0346, 971, 561, -269.858, 120.642, 269.858, -120.642, 952, 67 )
+"points": PoolVector2Array( -296.844, 85.7197, 296.844, -85.7197, 952, 67, -53.9716, -85.7197, 53.9716, 85.7197, 1641, 209, 120.72, 1.53741, -120.72, -1.53741, 1369, 561, 111.723, -346.886, -111.723, 346.886, 273, 180, -106.356, 46.0346, 106.356, -46.0346, 1099, 707, -269.858, 120.642, 269.858, -120.642, 952, 67 )
 }
 
 [node name="BoshyBoss2" type="Node2D"]
@@ -25,7 +25,7 @@ tile_set = ExtResource( 2 )
 collision_layer = 2
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 262146, 1, 0, 262171, 1, 0, 458755, 1, 0, 458756, 1, 0, 458777, 1, 0, 458778, 1, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655381, 1, 0, 655382, 1, 0, 655383, 1, 0, 786444, 1, 0, 786445, 1, 0, 786446, 1, 0, 786447, 1, 0, 786448, 1, 0, 786449, 1, 0, 1048588, 1, 0, 1048589, 1, 0, 1048590, 1, 0, 1048591, 1, 0, 1048592, 1, 0, 1048593, 1, 0 )
+tile_data = PoolIntArray( 262146, 1, 0, 262171, 1, 0, 458755, 1, 0, 458756, 1, 0, 458777, 1, 0, 458778, 1, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655381, 1, 0, 655382, 1, 0, 655383, 1, 0, 786444, 1, 0, 786445, 1, 0, 786446, 1, 0, 786447, 1, 0, 786448, 1, 0, 786449, 1, 0, 851980, 0, 0, 851985, 0, 0, 917516, 0, 0, 917521, 0, 0, 983052, 0, 0, 983057, 0, 0, 1048588, 0, 0, 1048593, 0, 0 )
 
 [node name="DeathZone" parent="." instance=ExtResource( 3 )]
 
@@ -38,9 +38,19 @@ rotation = -0.277791
 rotate = false
 
 [node name="AmazBoss" parent="AmazPath/PathFollow2D" instance=ExtResource( 4 )]
-position = Vector2( -23.8582, 83.6648 )
 rotation = 0.277791
-scale = Vector2( 1, 1 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Scamaz" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[node name="RopeTimer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[connection signal="defeated" from="AmazPath/PathFollow2D/AmazBoss" to="." method="boss_defeated"]
+[connection signal="get_player" from="AmazPath/PathFollow2D/AmazBoss" to="." method="_on_AmazBoss_get_player"]
+[connection signal="phase_two" from="AmazPath/PathFollow2D/AmazBoss" to="." method="_on_AmazBoss_phase_two"]
+[connection signal="spawn_projectile" from="AmazPath/PathFollow2D/AmazBoss" to="." method="_on_AmazBoss_spawn_projectile"]
+[connection signal="timeout" from="RopeTimer" to="." method="_on_RopeTimer_timeout"]
