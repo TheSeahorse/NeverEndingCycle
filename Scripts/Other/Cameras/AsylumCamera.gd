@@ -2,6 +2,7 @@ extends Camera2D
 
 var player
 var sneaky_snitch = false
+var old_forsen = false
 
 func _ready():
 	player = get_parent()
@@ -15,6 +16,13 @@ func _process(_delta):
 	else:
 		$SneakySnitch.stop()
 		sneaky_snitch = false
+	if player.position.x > 3500 and player.position.y < -2000:
+		if !old_forsen:
+			$OldForsen.play()
+			old_forsen = true
+	else:
+		$OldForsen.stop()
+		old_forsen = false
 	var offset = 40
 	if player.position.y > -1024 - offset:
 		limit_left = 0

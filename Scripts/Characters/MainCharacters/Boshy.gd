@@ -25,7 +25,6 @@ var dont_show_interaction_sprite = false
 
 
 func _ready():
-	print("boshy ready")
 	player_stats = get_parent().stats
 	if !player_stats[4][0]:
 		play_dialog("boshy_tutorial")
@@ -130,6 +129,9 @@ func dialog_answer(answer: String):
 			get_parent().play_level("boshy", Vector2.ZERO)
 		"defeated_scamaz":
 			get_parent().play_level("boshy", Vector2.ZERO)
+		"unlock_door_5":
+			get_parent().unlock_door(5)
+			get_parent().play_level("asylum", Vector2(2700, -3400))
 
 
 func shoot():

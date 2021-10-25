@@ -175,67 +175,32 @@ scale = Vector2( 1.3, 1.3 )
 [node name="JumpKing" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1307, -64 )
 
-[node name="Eg" parent="." instance=ExtResource( 5 )]
-position = Vector2( 821, -14641 )
-
-[node name="TestEgs" type="Node2D" parent="."]
-
-[node name="Eg10" parent="TestEgs" instance=ExtResource( 5 )]
-position = Vector2( 517, -4775 )
-
-[node name="Eg11" parent="TestEgs" instance=ExtResource( 5 )]
-position = Vector2( 517, -4775 )
-
-[node name="Eg12" parent="TestEgs" instance=ExtResource( 5 )]
-position = Vector2( 517, -4775 )
-
-[node name="Eg13" parent="TestEgs" instance=ExtResource( 5 )]
-position = Vector2( 517, -4775 )
-
-[node name="Eg14" parent="TestEgs" instance=ExtResource( 5 )]
-position = Vector2( 517, -4775 )
-
-[node name="Eg15" parent="TestEgs" instance=ExtResource( 5 )]
-position = Vector2( 517, -4775 )
-
-[node name="Eg16" parent="TestEgs" instance=ExtResource( 5 )]
-position = Vector2( 517, -4775 )
-
-[node name="Eg17" parent="TestEgs" instance=ExtResource( 5 )]
-position = Vector2( 517, -4775 )
-
-[node name="Eg18" parent="TestEgs" instance=ExtResource( 5 )]
-position = Vector2( 517, -4775 )
-
-[node name="Eg19" parent="TestEgs" instance=ExtResource( 5 )]
-position = Vector2( 517, -4775 )
-
-[node name="Eg20" parent="TestEgs" instance=ExtResource( 5 )]
-position = Vector2( 517, -4775 )
-
-[node name="Eg2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1863, -12223 )
-
-[node name="Eg3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1722, -6660 )
-
-[node name="Eg4" parent="." instance=ExtResource( 5 )]
+[node name="Eg1" parent="." instance=ExtResource( 5 )]
 position = Vector2( 128, -2691 )
 
-[node name="Eg5" parent="." instance=ExtResource( 5 )]
+[node name="Eg2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 515, -4361 )
+
+[node name="Eg3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1792, -6221 )
+
+[node name="Eg4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 687, -8440 )
+
+[node name="Eg5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1722, -6660 )
 
 [node name="Eg6" parent="." instance=ExtResource( 5 )]
 position = Vector2( 247, -6579 )
 
-[node name="Eg7" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1792, -6221 )
-
 [node name="Eg8" parent="." instance=ExtResource( 5 )]
-position = Vector2( 687, -8440 )
+position = Vector2( 821, -14641 )
 
 [node name="Eg9" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1600, -13887 )
+
+[node name="Eg10" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1863, -12223 )
 
 [node name="AmongusSwitch2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 862, -8624 )
@@ -294,4 +259,3 @@ max_distance = 1800.0
 attenuation = 2.0
 
 [connection signal="play_asylum" from="JumpKingToAsylum" to="." method="play_level" binds= [ "asylum", Vector2( 6000, -1200 ) ]]
-[connection signal="reset_stats" from="JumpKingToAsylum" to="." method="reset_stats"]

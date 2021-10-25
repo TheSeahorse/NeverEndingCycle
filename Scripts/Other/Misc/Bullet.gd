@@ -12,10 +12,8 @@ func _on_LifeTimer_timeout():
 
 
 func _on_HitBox_area_entered(_area):
-	print("hit")
 	self.queue_free()
 
 
 func _on_HitBox_body_entered(_body):
-	print("hit")
 	self.queue_free()

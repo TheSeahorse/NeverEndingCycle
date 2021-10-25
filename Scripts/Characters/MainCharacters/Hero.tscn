@@ -53,7 +53,7 @@ region = Rect2( 1344, 1024, 192, 256 )
 [sub_resource type="AtlasTexture" id=10]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 576, 0, 192, 256 )
+region = Rect2( 192, 0, 192, 256 )
 
 [sub_resource type="AtlasTexture" id=11]
 flags = 4
@@ -63,7 +63,7 @@ region = Rect2( 384, 0, 192, 256 )
 [sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 192, 0, 192, 256 )
+region = Rect2( 576, 0, 192, 256 )
 
 [sub_resource type="SpriteFrames" id=13]
 animations = [ {
@@ -78,8 +78,8 @@ animations = [ {
 "speed": 12.0
 }, {
 "frames": [ SubResource( 10 ) ],
-"loop": true,
-"name": "land",
+"loop": false,
+"name": "jump",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 11 ) ],
@@ -88,8 +88,8 @@ animations = [ {
 "speed": 5.0
 }, {
 "frames": [ SubResource( 12 ) ],
-"loop": false,
-"name": "jump",
+"loop": true,
+"name": "land",
 "speed": 5.0
 } ]
 
@@ -167,4 +167,3 @@ volume_db = -30.0
 [connection signal="body_entered" from="InteractionDetector" to="." method="_on_InteractionDetector_area_entered"]
 [connection signal="body_exited" from="InteractionDetector" to="." method="_on_InteractionDetector_area_exited"]
 [connection signal="area_entered" from="CollectibleDetector" to="." method="_on_CollectibleDetector_area_entered"]
-[connection signal="area_exited" from="CollectibleDetector" to="." method="_on_CollectibleDetector_area_exited"]

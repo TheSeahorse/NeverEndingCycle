@@ -1,11 +1,12 @@
 extends Node2D
 
 
+const RealForsen = preload("res://Scripts/Characters/AsylumChars/RealForsenEnd.tscn")
+
 func _ready():
 	var stats = get_parent().get_stats()
 	var unlocked_doors = stats[2]
 	var door = 1
-	print(unlocked_doors)
 	for unlocked in unlocked_doors:
 		if unlocked:
 			unlock_door(door)
@@ -49,3 +50,14 @@ func generate_god_seed():
 func play_level(level: String, spawn_pos: Vector2):
 	get_parent().play_level(level, spawn_pos)
 
+
+func spawn_real_forsen():
+	$Interactables/RealForsen.queue_free()
+	var real = RealForsen.instance()
+	real.position = Vector2(3750, -2176)
+	call_deferred("add_child", real)
+
+
+func _on_AsylumToCredits_play_credits():
+	get_parent().stats[5] = true
+	get_parent().play_level("credits", Vector2.ZERO)

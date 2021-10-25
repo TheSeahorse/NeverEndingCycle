@@ -1,0 +1,475 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Resources/Graphics/Other/UI/credits_background.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Graphics/Levels/Boshy/Tilemap/BoshyBoss1.tres" type="TileSet" id=2]
+[ext_resource path="res://Resources/Sound/HaruYoKoi.wav" type="AudioStream" id=3]
+[ext_resource path="res://Resources/Menues/Fonts/Tourmaline-Bold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Resources/Graphics/Other/UI/black_background.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Levels/Credits.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+outline_size = 3
+font_data = ExtResource( 4 )
+
+[node name="Credits" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="Black" type="Sprite" parent="."]
+scale = Vector2( 4.8, 4.8 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Completed" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 2.4, 2.4 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="CreditsText" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 11.0
+margin_top = 1080.0
+margin_right = 1909.0
+margin_bottom = 5446.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label10" type="Label" parent="CreditsText"]
+margin_right = 1898.0
+margin_bottom = 207.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "never ending cycle
+
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CreditsText"]
+margin_top = 211.0
+margin_right = 1898.0
+margin_bottom = 418.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "A Game BY alexander lahti
+
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CreditsText"]
+margin_top = 422.0
+margin_right = 1898.0
+margin_bottom = 699.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "subscribe to me on youtube @the seahorse for
+videos about the creation of this game
+and future games
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="CreditsText"]
+margin_top = 703.0
+margin_right = 1898.0
+margin_bottom = 980.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "twitter @alexanderlahti
+
+twitch chat (i don't steam): @seahorseg
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="CreditsText"]
+margin_top = 984.0
+margin_right = 1898.0
+margin_bottom = 1191.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "MUSIC: (you can find the full playlist
+on my youtube channel)
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label23" type="Label" parent="CreditsText"]
+margin_top = 1195.0
+margin_right = 1898.0
+margin_bottom = 1542.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "main themes:
+
+same three stones - entexoi
+haru yo koi - yumi matsutoya
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="CreditsText"]
+margin_top = 1546.0
+margin_right = 1898.0
+margin_bottom = 1683.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Asylum:
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label6" type="Label" parent="CreditsText"]
+margin_top = 1687.0
+margin_right = 1898.0
+margin_bottom = 1754.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Funeral march - Chopin"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label7" type="Label" parent="CreditsText"]
+margin_top = 1758.0
+margin_right = 1898.0
+margin_bottom = 1825.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "local forecast - kevin macleod"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label8" type="Label" parent="CreditsText"]
+margin_top = 1829.0
+margin_right = 1898.0
+margin_bottom = 1896.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Don't doubt - DJ FGT"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label9" type="Label" parent="CreditsText"]
+margin_top = 1900.0
+margin_right = 1898.0
+margin_bottom = 1967.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "jockstrap + spoon story - Clint stevens"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label11" type="Label" parent="CreditsText"]
+margin_top = 1971.0
+margin_right = 1898.0
+margin_bottom = 2108.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "old forsen, we miss you - yung trihard
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label12" type="Label" parent="CreditsText"]
+margin_top = 2112.0
+margin_right = 1898.0
+margin_bottom = 2249.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "jump king:
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label13" type="Label" parent="CreditsText"]
+margin_top = 2253.0
+margin_right = 1898.0
+margin_bottom = 2320.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "The bog - jump king gotb ost"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label14" type="Label" parent="CreditsText"]
+margin_top = 2324.0
+margin_right = 1898.0
+margin_bottom = 2391.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "james conrad miracle shot - disc golf worlds 2021"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label15" type="Label" parent="CreditsText"]
+margin_top = 2395.0
+margin_right = 1898.0
+margin_bottom = 2462.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "horse sounds - some random youtube video lule"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label16" type="Label" parent="CreditsText"]
+margin_top = 2466.0
+margin_right = 1898.0
+margin_bottom = 2533.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "when the imposter is snus - karabast"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label17" type="Label" parent="CreditsText"]
+margin_top = 2537.0
+margin_right = 1898.0
+margin_bottom = 2604.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "du gamla du fria - swedish national anthem"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label18" type="Label" parent="CreditsText"]
+margin_top = 2608.0
+margin_right = 1898.0
+margin_bottom = 2745.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "heavenly choir - jump king BOA ost
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label19" type="Label" parent="CreditsText"]
+margin_top = 2749.0
+margin_right = 1898.0
+margin_bottom = 2886.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "minecraft:
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label20" type="Label" parent="CreditsText"]
+margin_top = 2890.0
+margin_right = 1898.0
+margin_bottom = 2957.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "strike the earth! - shovel knight ost"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label21" type="Label" parent="CreditsText"]
+margin_top = 2961.0
+margin_right = 1898.0
+margin_bottom = 3028.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "forset funk - super meat boy ost"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label22" type="Label" parent="CreditsText"]
+margin_top = 3032.0
+margin_right = 1898.0
+margin_bottom = 3169.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "day - terraria ost
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label24" type="Label" parent="CreditsText"]
+margin_top = 3173.0
+margin_right = 1898.0
+margin_bottom = 3310.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "i wanna be the boshy:
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label25" type="Label" parent="CreditsText"]
+margin_top = 3314.0
+margin_right = 1898.0
+margin_bottom = 3381.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "surge syntkalas - christian"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label26" type="Label" parent="CreditsText"]
+margin_top = 3385.0
+margin_right = 1898.0
+margin_bottom = 3452.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "other song - christian"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label27" type="Label" parent="CreditsText"]
+margin_top = 3456.0
+margin_right = 1898.0
+margin_bottom = 3593.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "you face scamaz - my edit (original: smashiesmash)
+final boss solgryn - iwbtb ost"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label28" type="Label" parent="CreditsText"]
+margin_top = 3597.0
+margin_right = 1898.0
+margin_bottom = 3804.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "
+consider dropping me a -10 if you enjoyed the game
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label29" type="Label" parent="CreditsText"]
+margin_top = 3808.0
+margin_right = 1898.0
+margin_bottom = 4435.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "please don't take this game down
+@mojang
+@nexile
+@blizzard
+@innersloth
+@jesper erlandsen
+
+supa copyright infringement lule
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label30" type="Label" parent="CreditsText"]
+margin_top = 4439.0
+margin_right = 1898.0
+margin_bottom = 4506.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "THank you for playing my game!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+collision_layer = 2
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 65535, 2, 0, 30, 2, 0, 131071, 2, 0, 65566, 2, 0, 196607, 2, 0, 131102, 2, 0, 262143, 2, 0, 196638, 2, 0, 327679, 2, 0, 262174, 2, 0, 393215, 2, 0, 327710, 2, 0, 458751, 2, 0, 393246, 2, 0, 524287, 2, 0, 458782, 2, 0, 589823, 2, 0, 524318, 2, 0, 655359, 2, 0, 589854, 2, 0, 720895, 2, 0, 655390, 2, 0, 786431, 2, 0, 720926, 2, 0, 851967, 2, 0, 786462, 2, 0, 917503, 2, 0, 851998, 2, 0, 983039, 2, 0, 917534, 2, 0, 1048575, 2, 0, 983070, 2, 0, 1114111, 2, 0, 1048576, 1, 0, 1048577, 1, 0, 1048578, 1, 0, 1048579, 1, 0, 1048580, 1, 0, 1048581, 1, 0, 1048582, 1, 0, 1048583, 1, 0, 1048584, 1, 0, 1048585, 1, 0, 1048586, 1, 0, 1048587, 1, 0, 1048588, 1, 0, 1048589, 1, 0, 1048590, 1, 0, 1048591, 1, 0, 1048592, 1, 0, 1048593, 1, 0, 1048594, 1, 0, 1048595, 1, 0, 1048596, 1, 0, 1048597, 1, 0, 1048598, 1, 0, 1048599, 1, 0, 1048600, 1, 0, 1048601, 1, 0, 1048602, 1, 0, 1048603, 1, 0, 1048604, 1, 0, 1048605, 1, 0, 1048606, 2, 0, 1179647, 2, 0, 1114112, 1, 0, 1114113, 1, 0, 1114114, 1, 0, 1114115, 1, 0, 1114116, 1, 0, 1114117, 1, 0, 1114118, 1, 0, 1114119, 1, 0, 1114120, 1, 0, 1114121, 1, 0, 1114122, 1, 0, 1114123, 1, 0, 1114124, 1, 0, 1114125, 1, 0, 1114126, 1, 0, 1114127, 1, 0, 1114128, 1, 0, 1114129, 1, 0, 1114130, 1, 0, 1114131, 1, 0, 1114132, 1, 0, 1114133, 1, 0, 1114134, 1, 0, 1114135, 1, 0, 1114136, 1, 0, 1114137, 1, 0, 1114138, 1, 0, 1114139, 1, 0, 1114140, 1, 0, 1114141, 1, 0, 1114142, 2, 0 )
+
+[node name="HaruYoKoi" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -5.0
+
+[node name="Tween" type="Tween" parent="."]

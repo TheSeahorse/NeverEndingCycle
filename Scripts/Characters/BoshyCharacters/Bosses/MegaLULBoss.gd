@@ -12,7 +12,7 @@ signal phase_two
 var start_pos: Vector2
 var move_direction = Vector2(0,-1)
 var speed = 100
-var health = 2
+var health = 100
 var rng: RandomNumberGenerator
 var started = false
 var hard = false
@@ -29,7 +29,7 @@ func _ready():
 func _process(_delta):
 	if !started:
 		return
-	if !hard and health < 61:
+	if !hard and health < 51:
 		hard_mode()
 		hard = true
 	if health < 1:

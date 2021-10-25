@@ -12,7 +12,6 @@ var defeated = false
 func _ready():
 	rng = RandomNumberGenerator.new()
 	rng.randomize()
-	print("boshymap ready")
 
 
 func _on_AlienFallTimer_timeout():
@@ -42,7 +41,8 @@ func spawn_alien(alien):
 
 #called from game when dialog is finished
 func start_boss_fight():
-	$Music.play()
+	var song = rng.randi_range(1,2)
+	get_node("Song" + str(song)).play()
 	$AlienFallTimer.start()
 	$Path2D/PathFollow2D/MegaLULBoss.start_boss_fight()
 
@@ -55,7 +55,8 @@ func phase_two_enabled():
 
 func boss_defeated():
 	defeated = true
-	$Music.stop()
+	$Song1.stop()
+	$Song2.stop()
 	for child in $Enemies.get_children():
 		child.call_deferred("queue_free")
 	get_parent().get_player().boss_defeated(1)

@@ -2,6 +2,7 @@ extends Node2D
 
 const MainMenu = preload("res://Scripts/Menues/MainMenu.tscn")
 const Asylum = preload("res://Scripts/Levels/Asylum.tscn")
+const Credits = preload("res://Scripts/Levels/Credits.tscn")
 const JumpKing = preload("res://Scripts/Levels/JumpKing.tscn")
 const MinecraftLevel = preload("res://Scripts/Levels/Minecraft/MinecraftLevel.tscn")
 const BoshyBoss1 = preload("res://Scripts/Levels/BoshyBoss1.tscn")
@@ -19,10 +20,12 @@ var god_seed
 var next_song = 0
 var stopping_music = false
 
-var stats = [0, 0, [false,false,false,false,false,false], false, [false,false,false]] #[Egs, given egs, unlocked_doors, beaten_minecraft_record, beaten_boshy_bosses]
+#[Egs, given egs, unlocked_doors, beaten_minecraft_record, beaten_boshy_bosses, beat_game, solgryn_intro]
+var stats
 
 
 func _ready():
+	load_game()
 	$Music/SameThreeStones.play()
 	menu = MainMenu.instance()
 	add_child(menu)
@@ -41,8 +44,6 @@ func _input(event):
 			add_child(menu)
 			stop_all_music()
 			$Music/SameThreeStones.play()
-		else:
-			quit_game()
 
 
 func generate_god_seed():
@@ -74,6 +75,8 @@ func play_level(level: String, spawn_pos: Vector2):
 			play_minecraft(spawn_pos)
 		"boshy":
 			play_boshy()
+		"credits":
+			play_credits()
 
 
 func play_asylum(spawn_pos: Vector2):
@@ -113,8 +116,19 @@ func play_minecraft(spawn_pos: Vector2):
 	playlist_play_next(false)
 
 
+func play_credits():
+	current_level = Credits.instance()
+	call_deferred("add_child", current_level)
+	player = load("res://Scripts/Characters/MainCharacters/Hero.tscn").instance()
+	player.set_position(Vector2(1600, 1000))
+	call_deferred("add_child", player)
+	current_level.set_player(player)
+	camera = load("res://Scripts/Other/Cameras/BoshyCamera.tscn").instance()
+	call_deferred("add_child", camera)
+	camera.make_current()
+
+
 func play_boshy():
-	print("inside boshy")
 	if !stats[4][0]:
 		current_level = BoshyBoss1.instance()
 	elif !stats[4][1]:
@@ -153,16 +167,12 @@ func boshy_died():
 
 func free_old_level():
 	if is_instance_valid(current_level):
-		print("level freed")
 		current_level.queue_free()
 	if is_instance_valid(camera):
-		print("camera freed")
 		camera.queue_free()
 	if is_instance_valid(player):
-		print("player freed")
 		player.queue_free()
 	if is_instance_valid(menu):
-		print("menu freed")
 		menu.queue_free()
 
 
@@ -187,23 +197,28 @@ func playlist_play_next(finished: bool):
 
 func unlock_door(number: int):
 	stats[2][number-1] = true
+	save_game()
 
 
 func beat_minecraft_record():
 	stats[3] = true
+	save_game()
 
 
 func beat_boshy_boss(number: int):
 	stats[4][number-1] = true
+	save_game()
 
 
 func add_stats(stat: int, amount: int):
 	stats[stat] += amount
+	save_game()
 
 
 func reset_jump_king_stats():
 	stats[0] = 0
 	stats[1] = 0
+	save_game()
 
 
 func get_stats() -> int:
@@ -224,5 +239,39 @@ func get_player() -> KinematicBody2D:
 		return null
 
 
+#[Egs, given egs, unlocked_doors, beaten_minecraft_record, beaten_boshy_bosses, beat_game]
+func save_game():
+	var save_data = {
+		"egs" : stats[0],
+		"given_egs" : stats[1],
+		"unlocked_doors" : stats[2],
+		"beat_minecraft" : stats[3],
+		"beaten_boshy_bosses" : stats[4],
+		"beat_game" : stats[5],
+		"solgryn_intro": stats[6]
+	}
+	var save_game = File.new()
+	save_game.open("user://never_ending_cycle.save", File.WRITE)
+	save_game.store_line(to_json(save_data))
+	save_game.close()
+
+
+func load_game():
+	var load_game = File.new()
+	if not load_game.file_exists("user://never_ending_cycle.save"):
+		stats = [0, 0, [false,false,false,false,false,false], false, [false,false,false], false, false]
+	else:
+		load_game.open("user://never_ending_cycle.save", File.READ)
+		var save_state = parse_json(load_game.get_line())
+		load_game.close()
+		stats = [save_state.egs,save_state.given_egs,save_state.unlocked_doors,save_state.beat_minecraft,save_state.beaten_boshy_bosses,save_state.beat_game, save_state.solgryn_intro]
+
+
+func delete_save():
+	stats = [0, 0, [false,false,false,false,false,false], false, [false,false,false], false, false]
+	save_game()
+
+
 func quit_game():
+	save_game()
 	get_tree().quit()

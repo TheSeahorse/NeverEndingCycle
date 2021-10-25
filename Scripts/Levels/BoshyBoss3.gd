@@ -3,7 +3,7 @@ extends Node2D
 const Solgryn = preload("res://Scripts/Characters/BoshyCharacters/Bosses/Solgryn.tscn")
 const BlueBeam = preload("res://Scripts/Characters/BoshyCharacters/Projectiles/BlueBeam.tscn")
 
-var big_boshy_first = true
+var big_boshy_first = true #intro playing
 var defeated = false
 var solgryn
 var player
@@ -11,8 +11,15 @@ var beams_spawned = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var spawn_time
+	if get_parent().stats[6]:
+		spawn_time = 5
+	else:
+		spawn_time = 25
+		get_parent().stats[6] = true
+		get_parent().save_game()
 	$Solgryn.play()
-	$BigBoshy/Tween.interpolate_property($BigBoshy, "position", null, Vector2(960,810), 5, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
+	$BigBoshy/Tween.interpolate_property($BigBoshy, "position", null, Vector2(960,810), spawn_time, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
 	$BigBoshy/Tween.start()
 
 
@@ -39,6 +46,7 @@ func summon_solgryn():
 	solgryn.connect("get_player", self, "give_solgryn_player")
 	solgryn.connect("spawn_blue_beams", self, "spawn_blue_beams")
 	solgryn.connect("single_ball_spawned", self, "top_path_start")
+	solgryn.connect("final_position", self, "solgryn_final_position")
 	$StartPath/PathFollow2D.call_deferred("add_child", solgryn)
 	solgryn.set_path($StartPath/PathFollow2D)
 
@@ -49,6 +57,13 @@ func top_path_start():
 	solgryn.set_path($TopPath/PathFollow2D)
 	solgryn.start_on_top()
 	$HorsePath/PathFollow2D/Horse.start()
+
+
+func solgryn_final_position():
+	$TopPath/PathFollow2D.remove_child(solgryn)
+	solgryn.position = $FinalPosition.position
+	call_deferred("add_child", solgryn)
+	solgryn.shoot_final()
 
 
 func solgryn_defeated():

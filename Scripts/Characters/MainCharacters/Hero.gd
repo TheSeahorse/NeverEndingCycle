@@ -22,7 +22,7 @@ var dont_show_interaction_sprite = false
 
 func _ready():
 	player_stats = get_parent().stats
-	if self.position == Vector2(6000, -220):
+	if !player_stats[2][1] and self.position == Vector2(6000, -220):
 		dont_show_interaction_sprite = true
 		next_dialog = "ended_stream"
 		play_dialog()
@@ -38,7 +38,6 @@ func _physics_process(_delta):
 
 
 func _process(_delta):
-	#print("jumps: " + str(jumps))
 	animate_player()
 
 
@@ -132,6 +131,8 @@ func decide_player_flip(direction: Vector2):
 func play_dialog():
 	if is_instance_valid(dialog_area):
 		next_dialog = dialog_area.get_next_dialog(self)
+	if next_dialog == "ugandan_key":
+		dont_show_interaction_sprite = true
 	$InteractSprite.hide()
 	PLAYER_STATE = P_FROZEN
 	var dialog = Dialogic.start(next_dialog)
@@ -169,6 +170,13 @@ func dialog_answer(answer: String):
 			level.open_hidden_door(2)
 		"fors_crown":
 			dialog_area.equip_crown()
+		"open_exit":
+			var level = get_parent().get_level()
+			level.unlock_door(6)
+			dont_show_interaction_sprite = true
+		"ugandan_key":
+			get_parent().get_level().spawn_real_forsen()
+			get_parent().unlock_door(6)
 
 
 func _on_FloorDetector_body_entered(body):
@@ -200,6 +208,10 @@ func _on_InteractionDetector_area_exited(_area):
 
 
 func _on_CollectibleDetector_area_entered(area):
+	if area is RealForsenEnd:
+		dont_show_interaction_sprite = true
+		next_dialog = "real_forsen"
+		play_dialog()
 	if area is DoorKey:
 		dont_show_interaction_sprite = true
 		var door = area.pickup_key()
@@ -209,6 +221,3 @@ func _on_CollectibleDetector_area_entered(area):
 		area.queue_free()
 		play_dialog()
 
-
-func _on_CollectibleDetector_area_exited(_area):
-	pass # Replace with function body.

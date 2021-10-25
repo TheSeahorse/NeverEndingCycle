@@ -40,7 +40,6 @@ func _physics_process(_delta):
 
 
 func _process(_delta):
-	print(PLAYER_STATE)
 	if Input.get_action_strength("jump") > 0:
 		holding_jump = true
 	else:
@@ -55,7 +54,6 @@ func _input(event):
 
 # [stat to be added, amount to be added]
 func add_stats(stat, amount):
-	print("stats added: " + str(amount))
 	get_parent().add_stats(stat, amount)
 
 
@@ -88,6 +86,7 @@ func dialog_answer(answer: String):
 			dialog_area.remove_crown()
 			add_stats(1, 9)
 		"hobo_eg":
+			$eg_pickup.play()
 			add_stats(0, 1)
 			dialog_area.hobo_poof()
 			$InteractSprite.hide()
@@ -190,7 +189,6 @@ func decide_player_state():
 					jump_dir = -1
 				else:
 					jump_dir = 0
-					print("this shouldnt be possible")
 				PLAYER_STATE = P_WALKOFF
 			else:
 				PLAYER_STATE = P_FALLING
@@ -250,7 +248,6 @@ func among_us_costume(status: bool):
 
 func _on_WallDetector_body_entered(body):
 	if on_wall == false and not on_floor:
-		print("crash")
 		player_crash(true)
 	on_wall = true
 	walls.append(body)
@@ -275,17 +272,8 @@ func _on_FloorDetector_body_exited(body):
 		on_floor = false
 
 
-func _on_PrintTimer_timeout():
-	#print("PLAYER_STATE: " + str(PLAYER_STATE))
-	#print("Velocity: " + str(velocity))
-	#print("ON_FLOOR: " + str(on_floor))
-	#print("ON_WALL: " + str(on_wall))
-	pass
-
-
 func _on_RoofDetector_body_entered(body):
 	if on_roof == false and not on_floor:
-		print("roof_crash")
 		player_crash(false)
 	on_roof = true
 	roofs.append(body)
@@ -304,6 +292,7 @@ func _on_InteractionDetector_area_entered(area):
 		$InteractSprite.show()
 	elif area.get_collision_layer_bit(3):
 		if area is Eg:
+			$eg_pickup.play()
 			add_stats(0,1)
 			area.collected()
 

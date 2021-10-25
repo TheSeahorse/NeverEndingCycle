@@ -14,7 +14,7 @@ var rng: RandomNumberGenerator
 var speed = 0
 var pain_speed = 600
 var control_speed = 250
-var health = 1
+var health = 80
 var hard_mode = false
 var pain_time = 4
 var pain_separation = 0.4
@@ -29,7 +29,7 @@ func _ready():
 
 
 func _process(_delta):
-	if health < 51 and !hard_mode:
+	if health < 41 and !hard_mode:
 		start_hard_mode()
 	if health < 1:
 		emit_signal("defeated")
