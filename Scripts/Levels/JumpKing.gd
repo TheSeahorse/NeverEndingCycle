@@ -2,7 +2,7 @@ extends Node2D
 
 
 func _ready():
-	var egs_collected = get_parent().stats[0] + get_parent().stats[1]
+	var egs_collected = get_parent().stats[0]
 	if egs_collected == 0:
 		return
 	elif egs_collected > 10:

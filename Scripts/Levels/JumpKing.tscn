@@ -220,6 +220,7 @@ position = Vector2( 2, -68 )
 [node name="Bog" type="AudioStreamPlayer2D" parent="Music"]
 position = Vector2( 960, -540 )
 stream = ExtResource( 30 )
+volume_db = 5.0
 autoplay = true
 max_distance = 1500.0
 attenuation = 2.0
@@ -234,26 +235,41 @@ attenuation = 2.0
 [node name="Stable" type="AudioStreamPlayer2D" parent="Music"]
 position = Vector2( 960, -4600 )
 stream = ExtResource( 34 )
-volume_db = 10.0
+volume_db = 15.0
 autoplay = true
 max_distance = 1500.0
 
 [node name="KindaSnus" type="AudioStreamPlayer2D" parent="Music"]
-position = Vector2( 1800, -7200 )
+position = Vector2( 960, -7200 )
 stream = ExtResource( 35 )
 autoplay = true
-max_distance = 1500.0
+max_distance = 1000.0
+
+[node name="KindaSnus2" type="AudioStreamPlayer2D" parent="Music"]
+position = Vector2( 2880, -7200 )
+stream = ExtResource( 35 )
+autoplay = true
+max_distance = 1000.0
 
 [node name="DuGamla" type="AudioStreamPlayer2D" parent="Music"]
 position = Vector2( 960, -10300 )
 stream = ExtResource( 31 )
+volume_db = 3.0
 autoplay = true
-max_distance = 1200.0
-attenuation = 2.0
+max_distance = 1400.0
+attenuation = 2.5
+
+[node name="DuGamla2" type="AudioStreamPlayer2D" parent="Music"]
+position = Vector2( -960, -10300 )
+stream = ExtResource( 31 )
+volume_db = -15.0
+autoplay = true
+max_distance = 900.0
 
 [node name="HeavenlyChoir" type="AudioStreamPlayer2D" parent="Music"]
 position = Vector2( 960, -13500 )
 stream = ExtResource( 32 )
+volume_db = 3.0
 autoplay = true
 max_distance = 1800.0
 attenuation = 2.0

@@ -174,10 +174,11 @@ __meta__ = {
 [node name="Label8" type="Label" parent="CreditsText"]
 margin_top = 1829.0
 margin_right = 1898.0
-margin_bottom = 1896.0
+margin_bottom = 1966.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-text = "Don't doubt - DJ FGT"
+text = "Don't doubt - DJ FGT
+Sneaky snitch - Kevin macleod"
 align = 1
 valign = 1
 __meta__ = {
@@ -185,9 +186,9 @@ __meta__ = {
 }
 
 [node name="Label9" type="Label" parent="CreditsText"]
-margin_top = 1900.0
+margin_top = 1970.0
 margin_right = 1898.0
-margin_bottom = 1967.0
+margin_bottom = 2037.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "jockstrap + spoon story - Clint stevens"
@@ -198,9 +199,9 @@ __meta__ = {
 }
 
 [node name="Label11" type="Label" parent="CreditsText"]
-margin_top = 1971.0
+margin_top = 2041.0
 margin_right = 1898.0
-margin_bottom = 2108.0
+margin_bottom = 2178.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "old forsen, we miss you - yung trihard
@@ -212,9 +213,9 @@ __meta__ = {
 }
 
 [node name="Label12" type="Label" parent="CreditsText"]
-margin_top = 2112.0
+margin_top = 2182.0
 margin_right = 1898.0
-margin_bottom = 2249.0
+margin_bottom = 2319.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "jump king:
@@ -226,9 +227,9 @@ __meta__ = {
 }
 
 [node name="Label13" type="Label" parent="CreditsText"]
-margin_top = 2253.0
+margin_top = 2323.0
 margin_right = 1898.0
-margin_bottom = 2320.0
+margin_bottom = 2390.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "The bog - jump king gotb ost"
@@ -239,9 +240,9 @@ __meta__ = {
 }
 
 [node name="Label14" type="Label" parent="CreditsText"]
-margin_top = 2324.0
+margin_top = 2394.0
 margin_right = 1898.0
-margin_bottom = 2391.0
+margin_bottom = 2461.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "james conrad miracle shot - disc golf worlds 2021"
@@ -252,9 +253,9 @@ __meta__ = {
 }
 
 [node name="Label15" type="Label" parent="CreditsText"]
-margin_top = 2395.0
+margin_top = 2465.0
 margin_right = 1898.0
-margin_bottom = 2462.0
+margin_bottom = 2532.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "horse sounds - some random youtube video lule"
@@ -265,9 +266,9 @@ __meta__ = {
 }
 
 [node name="Label16" type="Label" parent="CreditsText"]
-margin_top = 2466.0
+margin_top = 2536.0
 margin_right = 1898.0
-margin_bottom = 2533.0
+margin_bottom = 2603.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "when the imposter is snus - karabast"
@@ -278,9 +279,9 @@ __meta__ = {
 }
 
 [node name="Label17" type="Label" parent="CreditsText"]
-margin_top = 2537.0
+margin_top = 2607.0
 margin_right = 1898.0
-margin_bottom = 2604.0
+margin_bottom = 2674.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "du gamla du fria - swedish national anthem"
@@ -291,9 +292,9 @@ __meta__ = {
 }
 
 [node name="Label18" type="Label" parent="CreditsText"]
-margin_top = 2608.0
+margin_top = 2678.0
 margin_right = 1898.0
-margin_bottom = 2745.0
+margin_bottom = 2815.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "heavenly choir - jump king BOA ost
@@ -305,9 +306,9 @@ __meta__ = {
 }
 
 [node name="Label19" type="Label" parent="CreditsText"]
-margin_top = 2749.0
+margin_top = 2819.0
 margin_right = 1898.0
-margin_bottom = 2886.0
+margin_bottom = 2956.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "minecraft:
@@ -319,9 +320,9 @@ __meta__ = {
 }
 
 [node name="Label20" type="Label" parent="CreditsText"]
-margin_top = 2890.0
+margin_top = 2960.0
 margin_right = 1898.0
-margin_bottom = 2957.0
+margin_bottom = 3027.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "strike the earth! - shovel knight ost"
@@ -332,9 +333,9 @@ __meta__ = {
 }
 
 [node name="Label21" type="Label" parent="CreditsText"]
-margin_top = 2961.0
+margin_top = 3031.0
 margin_right = 1898.0
-margin_bottom = 3028.0
+margin_bottom = 3098.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "forset funk - super meat boy ost"
@@ -345,9 +346,9 @@ __meta__ = {
 }
 
 [node name="Label22" type="Label" parent="CreditsText"]
-margin_top = 3032.0
+margin_top = 3102.0
 margin_right = 1898.0
-margin_bottom = 3169.0
+margin_bottom = 3239.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "day - terraria ost
@@ -359,9 +360,9 @@ __meta__ = {
 }
 
 [node name="Label24" type="Label" parent="CreditsText"]
-margin_top = 3173.0
+margin_top = 3243.0
 margin_right = 1898.0
-margin_bottom = 3310.0
+margin_bottom = 3380.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "i wanna be the boshy:
@@ -373,12 +374,12 @@ __meta__ = {
 }
 
 [node name="Label25" type="Label" parent="CreditsText"]
-margin_top = 3314.0
+margin_top = 3384.0
 margin_right = 1898.0
-margin_bottom = 3381.0
+margin_bottom = 3451.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-text = "surge syntkalas - christian"
+text = "surge syntkalas - christian k"
 align = 1
 valign = 1
 __meta__ = {
@@ -386,12 +387,12 @@ __meta__ = {
 }
 
 [node name="Label26" type="Label" parent="CreditsText"]
-margin_top = 3385.0
+margin_top = 3455.0
 margin_right = 1898.0
-margin_bottom = 3452.0
+margin_bottom = 3522.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-text = "other song - christian"
+text = "megalul vs forsensmug - christian k"
 align = 1
 valign = 1
 __meta__ = {
@@ -399,9 +400,9 @@ __meta__ = {
 }
 
 [node name="Label27" type="Label" parent="CreditsText"]
-margin_top = 3456.0
+margin_top = 3526.0
 margin_right = 1898.0
-margin_bottom = 3593.0
+margin_bottom = 3663.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "you face scamaz - my edit (original: smashiesmash)
@@ -413,9 +414,9 @@ __meta__ = {
 }
 
 [node name="Label28" type="Label" parent="CreditsText"]
-margin_top = 3597.0
+margin_top = 3667.0
 margin_right = 1898.0
-margin_bottom = 3804.0
+margin_bottom = 3874.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "
@@ -428,9 +429,9 @@ __meta__ = {
 }
 
 [node name="Label29" type="Label" parent="CreditsText"]
-margin_top = 3808.0
+margin_top = 3878.0
 margin_right = 1898.0
-margin_bottom = 4435.0
+margin_bottom = 4505.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "please don't take this game down
@@ -449,9 +450,9 @@ __meta__ = {
 }
 
 [node name="Label30" type="Label" parent="CreditsText"]
-margin_top = 4439.0
+margin_top = 4509.0
 margin_right = 1898.0
-margin_bottom = 4506.0
+margin_bottom = 4576.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "THank you for playing my game!"

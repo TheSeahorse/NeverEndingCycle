@@ -130,7 +130,8 @@ _global_script_class_icons={
 
 config/name="Never Ending Cycle"
 run/main_scene="res://Scripts/Game.tscn"
-config/icon="res://icon.png"
+config/icon="res://Resources/Graphics/Other/UI/forsenInsane.png"
+config/windows_native_icon="res://Resources/Graphics/Other/UI/forsenInsane.ico"
 
 [autoload]
 

@@ -944,14 +944,14 @@ RAND_WAIT = 0.8
 position = Vector2( 4408, -1918 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 129 )
-frame = 122
+frame = 60
 playing = true
 
 [node name="AlienDance" type="AnimatedSprite" parent="CosmeticSprites"]
 position = Vector2( 5308, -1779 )
 scale = Vector2( 2.5, 2.5 )
 frames = SubResource( 198 )
-frame = 15
+frame = 13
 playing = true
 
 [node name="Kitchen" type="Sprite" parent="CosmeticSprites"]
@@ -997,10 +997,12 @@ texture = ExtResource( 40 )
 
 [node name="LULW" parent="CosmeticSprites" instance=ExtResource( 43 )]
 position = Vector2( 1307, -256 )
+frame = 0
 play = "lulw"
 
 [node name="LULE" parent="CosmeticSprites" instance=ExtResource( 43 )]
 position = Vector2( 2067, -256 )
+frame = 0
 play = "lule"
 
 [node name="HouseOfLuL" type="Sprite" parent="CosmeticSprites"]
@@ -1115,24 +1117,24 @@ position = Vector2( 2368, -2656 )
 scale = Vector2( 1.8, 0.7 )
 
 [node name="Fog4" parent="Fogs/Maze" instance=ExtResource( 14 )]
-position = Vector2( 2560, -3392 )
-scale = Vector2( 1.2, 1.4 )
+position = Vector2( 2528, -3392 )
+scale = Vector2( 1.3, 1.4 )
 
 [node name="Fog5" parent="Fogs/Maze" instance=ExtResource( 14 )]
-position = Vector2( 1248, -3264 )
-scale = Vector2( 1.3, 1 )
+position = Vector2( 1248, -3296 )
+scale = Vector2( 1.3, 0.9 )
 
 [node name="Fog6" parent="Fogs/Maze" instance=ExtResource( 14 )]
-position = Vector2( 1920, -3232 )
-scale = Vector2( 0.6, 1.1 )
+position = Vector2( 1888, -3264 )
+scale = Vector2( 0.5, 1 )
 
 [node name="Fog7" parent="Fogs/Maze" instance=ExtResource( 14 )]
 position = Vector2( 1472, -3744 )
-scale = Vector2( 2.2, 0.3 )
+scale = Vector2( 2, 0.3 )
 
 [node name="Fog8" parent="Fogs/Maze" instance=ExtResource( 14 )]
-position = Vector2( 224, -3744 )
-scale = Vector2( 1.7, 0.3 )
+position = Vector2( 256, -3744 )
+scale = Vector2( 1.8, 0.3 )
 
 [node name="Fog9" parent="Fogs/Maze" instance=ExtResource( 14 )]
 position = Vector2( -704, -3616 )
@@ -1150,20 +1152,24 @@ scale = Vector2( 1.4, 0.8 )
 position = Vector2( 448, -2752 )
 
 [node name="Fog14" parent="Fogs/Maze" instance=ExtResource( 14 )]
-position = Vector2( -1408, -3264 )
-scale = Vector2( 0.8, 0.6 )
+position = Vector2( -1408, -3296 )
+scale = Vector2( 0.8, 0.5 )
 
 [node name="Fog15" parent="Fogs/Maze" instance=ExtResource( 14 )]
-position = Vector2( -1408, -2720 )
-scale = Vector2( 0.8, 0.9 )
+position = Vector2( -1408, -2752 )
+scale = Vector2( 0.8, 1 )
 
 [node name="Fog16" parent="Fogs/Maze" instance=ExtResource( 14 )]
 position = Vector2( -512, -2752 )
 scale = Vector2( 1.8, 1 )
 
 [node name="Fog17" parent="Fogs/Maze" instance=ExtResource( 14 )]
-position = Vector2( -704, -3232 )
-scale = Vector2( 1.2, 0.5 )
+position = Vector2( -864, -3232 )
+scale = Vector2( 0.7, 0.3 )
+
+[node name="Fog21" parent="Fogs/Maze" instance=ExtResource( 14 )]
+position = Vector2( -448, -3232 )
+scale = Vector2( 0.4, 0.5 )
 
 [node name="Fog18" parent="Fogs/Maze" instance=ExtResource( 14 )]
 position = Vector2( -960, -2272 )
@@ -1181,13 +1187,13 @@ scale = Vector2( 1.6, 0.7 )
 position = Vector2( 1952, -2272 )
 scale = Vector2( 2.5, 0.3 )
 
-[node name="Fog1" parent="Fogs/Maze" instance=ExtResource( 14 )]
-position = Vector2( 640, -3008 )
-scale = Vector2( 7.2, 2.6 )
-
 [node name="Fog20" parent="Fogs/Maze" instance=ExtResource( 14 )]
 position = Vector2( -2656, -3936 )
 scale = Vector2( 2.7, 1.3 )
+
+[node name="Fog1" parent="Fogs/Maze" instance=ExtResource( 14 )]
+position = Vector2( 640, -3008 )
+scale = Vector2( 7.2, 2.6 )
 
 [node name="Fog3" parent="Fogs" instance=ExtResource( 14 )]
 position = Vector2( 4896, -928 )
