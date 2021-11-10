@@ -1,0 +1,87 @@
+{
+	"events": [
+		{
+			"emit_signal": "open_exit",
+			"event_id": "dialogic_040"
+		},
+		{
+			"action": "join",
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "Default Left",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "Wow it worked!"
+		},
+		{
+			"action": "join",
+			"character": "character-1632890267.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "default left",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1632890267.json",
+			"event_id": "dialogic_001",
+			"portrait": "default left",
+			"text": "[color=red][b][shake rate=30 level=15]SEBASTIAN, WHAT ARE YOU DOING!?[/shake][/b][/color]"
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default",
+			"text": "I'm breaking free and there is [b]NOTHING[/b] you can do about it!"
+		},
+		{
+			"character": "character-1632890267.json",
+			"event_id": "dialogic_001",
+			"portrait": "default left",
+			"text": "[color=red][b][shake rate=30 level=15]DON'T YOU DARE TAKE ONE STEP OUTSIDE![/shake][/b][/color]"
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default",
+			"text": "Just watch."
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default",
+			"text": "Bit.."
+		},
+		{
+			"character": "character-1632890267.json",
+			"event_id": "dialogic_001",
+			"portrait": "default left",
+			"text": "[color=red][b][shake rate=30 level=15]SEBASTIAN!!![/shake][/b][/color]"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1635068007.json",
+		"name": "break_free"
+	}
+}

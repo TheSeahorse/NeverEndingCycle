@@ -1,0 +1,20 @@
+{
+	"color": "#ffd7c08f",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1632850317.json",
+	"mirror_portraits": false,
+	"name": "MegaLUL",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": -10,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://Resources/Graphics/Characters/LUL/MegaLUL.png"
+		}
+	],
+	"scale": 300
+}

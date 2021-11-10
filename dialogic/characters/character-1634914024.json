@@ -1,0 +1,20 @@
+{
+	"color": "#ff9d3454",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1634914024.json",
+	"mirror_portraits": false,
+	"name": "Scamaz",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": -20,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://Resources/Graphics/Characters/Boshy/amaz_head.png"
+		}
+	],
+	"scale": 150
+}

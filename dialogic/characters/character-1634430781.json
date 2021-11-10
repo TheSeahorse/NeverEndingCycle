@@ -1,0 +1,20 @@
+{
+	"color": "#ff5b1008",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1634430781.json",
+	"mirror_portraits": false,
+	"name": "OMEGALUL",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": -20,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://Resources/Graphics/Characters/Asylum/LUL/OMEGALUL.png"
+		}
+	],
+	"scale": 300
+}

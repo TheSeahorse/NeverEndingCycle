@@ -1,0 +1,20 @@
+{
+	"color": "#ff25670a",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1634604855.json",
+	"mirror_portraits": false,
+	"name": "MEGALUL",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": -20,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://Resources/Graphics/Characters/Asylum/MEGALUL.png"
+		}
+	],
+	"scale": 300
+}

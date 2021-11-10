@@ -1,0 +1,50 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[i]You start digging for something in the trash.[/i]"
+		},
+		{
+			"action": "join",
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Why am I digging through trash, this is disgusting!"
+		},
+		{
+			"action": "leaveall",
+			"character": "[All]",
+			"event_id": "dialogic_003"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[i]You find nothing but empty soda cans, pizza boxes and one or two crusty old socks.[/i]"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1634604662.json",
+		"name": "trash"
+	}
+}

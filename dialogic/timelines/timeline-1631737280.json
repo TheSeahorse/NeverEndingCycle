@@ -1,0 +1,29 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1631573319.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1631573319.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "wft?! yuo brek gem, ned to restort, lidl gem delopr (translation: something went wrong, restart the game)"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1631737280.json",
+		"name": "okayeg_broken"
+	}
+}

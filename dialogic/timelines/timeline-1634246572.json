@@ -1,0 +1,91 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "[i]Do you want to hear the tutorial?[/i]"
+		},
+		{
+			"choice": "No",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		},
+		{
+			"choice": "Yes",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"action": "join",
+			"character": "character-1633572716.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1633572716.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "As I said before, they changed minecraft a lot since you last played so I'll teach you the basics, the order in which you collect speedrun items is still the same though."
+		},
+		{
+			"character": "character-1633572716.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[i]Mouse only[/i]. Click and hold anywhere on the map to make a CD connection with me. Release and I will give you a quick boost in the direction you're going."
+		},
+		{
+			"character": "character-1633572716.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I don't want the speedrun. com mods writing more essays so I'll only stay two seconds before fading away, [b]BUT[/b] you can have two copies of me on the map at the same time."
+		},
+		{
+			"character": "character-1633572716.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "If you go too far out of view it's game over, unlucky. Time to beat is 20:37.346."
+		},
+		{
+			"event_id": "dialogic_023",
+			"wait_seconds": 5
+		},
+		{
+			"character": "character-1633572716.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh the timer is already ticking, we should get going, good luck!"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1634246572.json",
+		"name": "tutorial"
+	}
+}

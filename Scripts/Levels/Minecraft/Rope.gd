@@ -10,7 +10,6 @@ var detached = false
 
 onready var rope_start_piece = $RopeEndPiece
 
-
 func _ready():
 	$FadeTween.interpolate_property($RopeEndPiece, "modulate", null, Color(1,1,1,0), 2, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$FadeTween.start()

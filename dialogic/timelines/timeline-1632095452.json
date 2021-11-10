@@ -1,0 +1,123 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1632093421.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1632093421.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Do you want some advice?"
+		},
+		{
+			"action": "join",
+			"character": "character-1631573251.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"choice": "Yes",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1632093421.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "After climbing the highest tower, be a man and reach for Gods hand."
+		},
+		{
+			"character": "character-1632093421.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Do you want more advice?"
+		},
+		{
+			"choice": "Yes",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1632093421.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "If you run into a shady individual, do NOT accept whatever he is trying to sell you."
+		},
+		{
+			"character": "character-1632093421.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I got no more advice for you, bye!"
+		},
+		{
+			"choice": "No",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1632093421.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Bye!"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "No",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1632093421.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Bye!"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1632095452.json",
+		"name": "advice_hobo"
+	}
+}

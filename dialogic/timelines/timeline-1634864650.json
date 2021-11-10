@@ -1,0 +1,81 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1634914024.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1634914024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "No more please, you win! I yield!"
+		},
+		{
+			"action": "join",
+			"character": "character-1634692176.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1634692176.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[color=yellow][b][shake rate=30 level=15]Where is the key?![/shake][/b][/color]"
+		},
+		{
+			"character": "character-1634914024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Take it easy! I left it at the table where I eat my breakfast, you can go and get it yourself."
+		},
+		{
+			"character": "character-1634692176.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "So I should be able to just go and take it?"
+		},
+		{
+			"character": "character-1634914024.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yeah, I didn't clean up though so there might still be some dishes and a box of oatmeal left."
+		},
+		{
+			"character": "character-1634692176.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oatmeal?"
+		},
+		{
+			"emit_signal": "defeated_scamaz",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1634864650.json",
+		"name": "boss_defeated_2"
+	}
+}

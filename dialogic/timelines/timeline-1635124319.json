@@ -1,0 +1,77 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1634604855.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1634604855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I miss MegaLUL..."
+		},
+		{
+			"action": "join",
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yeah about that..."
+		},
+		{
+			"character": "character-1634604855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "What? Do you know where he is?"
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "..."
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Nevermind..."
+		},
+		{
+			"character": "character-1634604855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh... ok..."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1635124319.json",
+		"name": "megalul_dead"
+	}
+}

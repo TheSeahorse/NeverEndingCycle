@@ -1,0 +1,83 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1634604855.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1634604855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Welcome to the bo... I mean welcome to me and MegaLUL's room!"
+		},
+		{
+			"action": "join",
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default",
+			"text": "Hi, are you the [b][color=red]SUPA WARRIA[/color][b]?"
+		},
+		{
+			"character": "character-1634604855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "No, I think you might be looking for the guy next door. "
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh ok, thanks!"
+		},
+		{
+			"character": "character-1634604855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "By the way, have you seen MegaLUL? He's supposed to be home by now, I'm getting worried."
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I think he's still looking for aliens at the rave."
+		},
+		{
+			"character": "character-1634604855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[shake rate=30 level=15][color=green]Oh he's gonna get it when he gets home![/color][/shake] I'm stuck here doing all the chores while he's out partying, typical!"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1634604901.json",
+		"name": "have_you_seen_megalul"
+	}
+}

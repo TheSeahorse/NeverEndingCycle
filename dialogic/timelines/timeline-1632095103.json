@@ -1,0 +1,79 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1632093421.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1632093421.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Do you want some advice?"
+		},
+		{
+			"action": "join",
+			"character": "character-1631573251.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"choice": "Yes",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1632093421.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I hear there is someone looking for something in the kitchen, you should go and talk to him."
+		},
+		{
+			"choice": "No",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "character-1632093421.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Bye!"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1632095103.json",
+		"name": "advice_okayeg"
+	}
+}

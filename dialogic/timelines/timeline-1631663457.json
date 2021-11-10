@@ -1,0 +1,51 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1631662374.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1631662374.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hello, welcome to the Bog!"
+		},
+		{
+			"character": "character-1631662374.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I hear there is a princess up top, but I wouldn't know for sure, I never made it up there."
+		},
+		{
+			"character": "character-1631662374.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You can use [color=#00FFFF][b]Spacebar[/b][/color] to jump, the longer you hold the farther you'll go. But be warned, once you're in the air you'll be unable to affect your movement, just like irl!"
+		},
+		{
+			"character": "character-1631662374.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Good luck! [i] Tip: If you jump towards a wall while standing next to it, you'll slide up against it instead of crashing into it (like a mirror in real Jump King). Bug = feature LULE [/i]"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1631663457.json",
+		"name": "jumpking_bug_feature"
+	}
+}

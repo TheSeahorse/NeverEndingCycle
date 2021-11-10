@@ -1,0 +1,120 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "[i]Do you want to hear the tutorial?[/i]"
+		},
+		{
+			"choice": "No",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"emit_signal": "start_boss_fight",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0
+		},
+		{
+			"choice": "Yes",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"action": "join",
+			"character": "character-1634692176.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "character-1634692176.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Where am I?"
+		},
+		{
+			"action": "join",
+			"character": "character-1634692371.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1634692371.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "BWAHAHAHAHAHA! This is my favourite stargazing spot!"
+		},
+		{
+			"character": "character-1634692176.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Is this it? Did I escape the asylum?"
+		},
+		{
+			"character": "character-1634692371.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "BWAHAHAHAHAHA! You're not even close! My \"friend\" has the key, but to get to him you'll have to get past me!"
+		},
+		{
+			"action": "leaveall",
+			"character": "[All]",
+			"event_id": "dialogic_003"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Jump with [b][color=aqua]Z[/color][/b], shoot with [b][color=aqua]X[/color][/b] and move with the arrow keys."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[i]You have two jumps, there can only be five bullets on the screen at the same time, all projectiles block bullets and and you die in one hit. Good luck![/i]"
+		},
+		{
+			"emit_signal": "start_boss_fight",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1634692256.json",
+		"name": "boshy_tutorial"
+	}
+}

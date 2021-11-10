@@ -1,0 +1,101 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1635079140.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1635079140.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I see you found my hammer."
+		},
+		{
+			"action": "join",
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "Default Left",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "..."
+		},
+		{
+			"character": "character-1635079140.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Are you going to escape?"
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "I think so."
+		},
+		{
+			"character": "character-1635079140.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "..."
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "Do you want to come with me?"
+		},
+		{
+			"character": "character-1635079140.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "No, it wouldn't be right. I have to atone for my sins."
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "..."
+		},
+		{
+			"character": "character-1635079140.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Good luck out there, if you ever run in to a girl called Nani, tell her I'm sorry."
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "I will, godspeed."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1635079185.json",
+		"name": "real_forsen"
+	}
+}

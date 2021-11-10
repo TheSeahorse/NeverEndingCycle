@@ -944,14 +944,14 @@ RAND_WAIT = 0.8
 position = Vector2( 4408, -1918 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 129 )
-frame = 60
+frame = 125
 playing = true
 
 [node name="AlienDance" type="AnimatedSprite" parent="CosmeticSprites"]
 position = Vector2( 5308, -1779 )
 scale = Vector2( 2.5, 2.5 )
 frames = SubResource( 198 )
-frame = 13
+frame = 62
 playing = true
 
 [node name="Kitchen" type="Sprite" parent="CosmeticSprites"]
@@ -1109,6 +1109,7 @@ position = Vector2( 6135, -2303 )
 texture = ExtResource( 71 )
 
 [node name="Fogs" type="Node2D" parent="."]
+visible = false
 
 [node name="Maze" type="Node2D" parent="Fogs"]
 
@@ -1349,7 +1350,7 @@ position = Vector2( -1472, -3349 )
 [node name="Doors" type="Node2D" parent="."]
 
 [node name="AsylumDoor1" parent="Doors" instance=ExtResource( 27 )]
-position = Vector2( 3008, -128 )
+position = Vector2( 3012, 156 )
 
 [node name="AsylumDoor2" parent="Doors" instance=ExtResource( 27 )]
 position = Vector2( 3456, -128 )

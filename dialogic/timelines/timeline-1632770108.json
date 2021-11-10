@@ -1,0 +1,51 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "Default Left",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "Hello Peppah, hello Nina."
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "I just finished todays stream, I can spend time with you guys now."
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "Oh, you want to rest some more? No problem, I can come back later."
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "Love you guys, bye!"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1632770108.json",
+		"name": "nina_finished_stream"
+	}
+}

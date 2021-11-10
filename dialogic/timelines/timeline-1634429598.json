@@ -1,0 +1,77 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1634429607.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1634429607.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "HALO!"
+		},
+		{
+			"action": "join",
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hello, do you know the way out of here?"
+		},
+		{
+			"character": "character-1634429607.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "HE HE HE, do you want to find the way?"
+		},
+		{
+			"character": "character-1634429607.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "There might be a [b][color=#FF0000]SUPA WARRIA[/color][/b] in the other room that can help you."
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh ok, thanks!"
+		},
+		{
+			"character": "character-1634429607.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[i][s]If you understand this communique, you have been defeated, and you must post identical communique in chatroom, never ending cycle.[/s][/i]"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1634429598.json",
+		"name": "ugandan_warria"
+	}
+}

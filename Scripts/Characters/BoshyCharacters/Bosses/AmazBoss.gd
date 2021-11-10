@@ -69,6 +69,12 @@ func spawn_pain(phi: float):
 	emit_signal("spawn_projectile", pain)
 
 
+func _on_PainTimer_timeout():
+	for i in range(-6,6):
+		spawn_pain(pain_separation*i)
+	$PainTimer.start(pain_time + rng.randf_range(0.0,pain_time/2))
+
+
 func spawn_control():
 	var control = MindControl.instance()
 	control.player = player
@@ -82,10 +88,7 @@ func _on_Hurtbox_area_entered(_area):
 	$Health.value = health
 
 
-func _on_PainTimer_timeout():
-	for i in range(-6,6):
-		spawn_pain(pain_separation*i)
-	$PainTimer.start(pain_time + rng.randf_range(0.0,pain_time/2))
+
 
 
 func _on_MindControlTimer_timeout():

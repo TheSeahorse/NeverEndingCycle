@@ -1,0 +1,20 @@
+{
+	"color": "#ffffffff",
+	"description": "Main Character",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1631573251.json",
+	"mirror_portraits": false,
+	"name": "Clueless",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://Resources/Graphics/Characters/Clueless/clueless_head.png"
+		}
+	],
+	"scale": 500
+}

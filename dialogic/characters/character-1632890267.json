@@ -1,0 +1,24 @@
+{
+	"color": "#ff39aac8",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1632890267.json",
+	"mirror_portraits": false,
+	"name": "Nurse",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": -10,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://Resources/Graphics/Characters/Asylum/nurse_head.png"
+		},
+		{
+			"name": "default left",
+			"path": "res://Resources/Graphics/Characters/Asylum/nurse_head_left.png"
+		}
+	],
+	"scale": 450
+}

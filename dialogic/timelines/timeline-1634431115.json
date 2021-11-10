@@ -1,0 +1,153 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1634430855.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1634430855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Frozen bags melting, am I right guys?"
+		},
+		{
+			"action": "join",
+			"character": "character-1634430808.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1634430808.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "LUL So funny!"
+		},
+		{
+			"character": "character-1634430855.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Also, fuck those \"LULE\", \"LULW\", normies down there, real OGs use LuL!"
+		},
+		{
+			"character": "character-1634430808.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Good one!"
+		},
+		{
+			"action": "join",
+			"character": "character-1634430781.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1634430781.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "WHO uses \"LUL\"? Gtfo of here!"
+		},
+		{
+			"action": "leaveall",
+			"character": "character-1634430808.json",
+			"event_id": "dialogic_003"
+		},
+		{
+			"action": "join",
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Eh, I hope I'm not interrupting anything."
+		},
+		{
+			"character": "character-1634430781.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "WHO are you!?"
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Have you guys seen a [b][color=#FF0000]SUPA WARRIA[/color][/b] around here?"
+		},
+		{
+			"action": "leaveall",
+			"character": "character-1634430855.json",
+			"event_id": "dialogic_003"
+		},
+		{
+			"action": "join",
+			"character": "character-1634431580.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1634431580.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "WHO IS HE TALKING TO?"
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Nevermind, you guys are insane, I get why you're locked in here."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1634431115.json",
+		"name": "old_lul"
+	}
+}

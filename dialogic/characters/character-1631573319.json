@@ -1,0 +1,24 @@
+{
+	"color": "#ff10a62e",
+	"description": "Gib eg",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1631573319.json",
+	"mirror_portraits": true,
+	"name": "Okayeg",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": -30,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://Resources/Graphics/Characters/JumpKing/okayeg_crown.png"
+		},
+		{
+			"name": "okayeg_no_crown",
+			"path": "res://Resources/Graphics/Characters/JumpKing/okayeg_no_crown.png"
+		}
+	],
+	"scale": 300
+}

@@ -1,0 +1,99 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1634692371.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1634692371.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "BWAHAHAHAHA! Well done! No one has ever defeated me before! "
+		},
+		{
+			"character": "character-1634692371.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I guess I have no choice but to let you pass, but let me warn you, my \"friend\" is very strong."
+		},
+		{
+			"character": "character-1634692371.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "If you want to beat him you might wanna use a secret technique I've learned."
+		},
+		{
+			"action": "join",
+			"character": "character-1634692176.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1634692176.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "And what's that?"
+		},
+		{
+			"character": "character-1634692371.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You can use a bucket of water to prevent fall damage."
+		},
+		{
+			"character": "character-1634692176.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "??? I don't even have a bucket of water."
+		},
+		{
+			"character": "character-1634692371.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Well you're out of luck then, the only other technique I know is that you can also use [b][color=aqua]S[/color][/b] to shoot, alternating between keys can be faster than just tapping one."
+		},
+		{
+			"character": "character-1634692176.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Now [b][color=yellow]that's[/color][/b] something I can use. Now get out of my way!"
+		},
+		{
+			"character": "character-1634692371.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Very well, as you wish."
+		},
+		{
+			"emit_signal": "defeated_megalul",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1634782613.json",
+		"name": "boss_defeated_1"
+	}
+}

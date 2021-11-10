@@ -1,0 +1,66 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1634692176.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1634692176.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[color=yellow][b][shake rate=30 level=15]WHAT THE FUCK WAS THAT?![/shake][/b][/color]"
+		},
+		{
+			"character": "character-1634692176.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I never knew a box of cereal could be so vicious."
+		},
+		{
+			"character": "character-1634692176.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Here is the key at least, let's get out of this place."
+		},
+		{
+			"action": "leaveall",
+			"character": "[All]",
+			"event_id": "dialogic_003"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[i]You found a key.[/i]"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[i]Cell five has been unlocked.[/i]"
+		},
+		{
+			"emit_signal": "unlock_door_5",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1634969160.json",
+		"name": "boss_defeated_3"
+	}
+}

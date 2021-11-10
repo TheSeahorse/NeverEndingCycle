@@ -1,0 +1,79 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1631573319.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1631573319.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "okayeg_no_crown",
+			"question": "yuo hab mor eg?"
+		},
+		{
+			"action": "join",
+			"character": "character-1631573251.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"choice": "Yes",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1631573319.json",
+			"event_id": "dialogic_001",
+			"portrait": "okayeg_no_crown",
+			"text": "wft?! yuo lie! go awey!"
+		},
+		{
+			"choice": "No",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1631573319.json",
+			"event_id": "dialogic_001",
+			"portrait": "okayeg_no_crown",
+			"text": "go awey!"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1631736796.json",
+		"name": "okayeg_given_all_egs"
+	}
+}

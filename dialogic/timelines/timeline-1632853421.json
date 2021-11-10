@@ -1,0 +1,76 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1632851640.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1632851640.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "The 2024 United States of America presidential election will be the greatest election in the history of elections."
+		},
+		{
+			"character": "character-1632851640.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Make sure to vote for me, Donald Trump, to toss Sleepy Joe Biden out."
+		},
+		{
+			"action": "join",
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I heard Joe Biden only has two years left to live though."
+		},
+		{
+			"character": "character-1632851640.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "False news media at it again, that man is a reptile and will never die."
+		},
+		{
+			"action": "leaveall",
+			"character": "[All]",
+			"event_id": "dialogic_003"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[i]Advice from dev: Don't actually vote for Trump.[/i]"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1632853421.json",
+		"name": "donald_table"
+	}
+}

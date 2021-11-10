@@ -1,0 +1,123 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1633572716.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1633572716.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Looks like someone beat your time."
+		},
+		{
+			"action": "join",
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "Default Left",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "Yeah, unlucky..."
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "But I don't think I can beat him now, it's been so long since I last played."
+		},
+		{
+			"character": "character-1633572716.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh, don't worry bro, they changed the game a bunch since you last played."
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "But still, I was so lucky last time, I don't think I'll ever get a run like that again."
+		},
+		{
+			"character": "character-1633572716.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "hmm..."
+		},
+		{
+			"event_id": "dialogic_023",
+			"wait_seconds": 1
+		},
+		{
+			"character": "character-1633572716.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I have a drea.. err... I mean idea!"
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "I'm listening."
+		},
+		{
+			"character": "character-1633572716.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "What if I [i]\"help\"[/i] you get the record?"
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "A two player run? But that's not allowed!"
+		},
+		{
+			"character": "character-1633572716.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Nobody has to find out, I'll be as transparent as possible."
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "Ok fine, but if we get caught, I'm blaming you."
+		},
+		{
+			"character": "character-1633572716.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Nice! I'll meet you there, just go through the roof to start playing."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1633572758.json",
+		"name": "minecraft_dream"
+	}
+}

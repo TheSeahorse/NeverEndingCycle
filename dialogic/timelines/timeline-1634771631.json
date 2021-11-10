@@ -1,0 +1,71 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "Default Left",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "Hello, do you know how to get out this place?"
+		},
+		{
+			"action": "join",
+			"character": "character-1634771646.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1634771646.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Of course! Get to the exit of this huge maze I built and you'll get your freedom."
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "Wow really!? But how will I get through such a huge maze?"
+		},
+		{
+			"character": "character-1634771646.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Have you noticed how you can keep jumping even after hitting a ceiling? I would never make a maze that would exploit that so this should be easy for you."
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "Oh great, thanks!"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1634771631.json",
+		"name": "maze_intro"
+	}
+}

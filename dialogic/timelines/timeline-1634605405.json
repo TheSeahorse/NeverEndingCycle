@@ -1,0 +1,111 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "Default Left",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "Hello, you look like a [b][color=#FF0000]SUPA WARRIA[/color][/b], do you know the way?"
+		},
+		{
+			"action": "join",
+			"character": "character-1634605365.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1634605365.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hello brotha! I kno da wae!"
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "Really!?"
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "Finally! I've been waiting for someone to show me the way for so long! Where is it?"
+		},
+		{
+			"character": "character-1634605365.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I press button for you. "
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": " [b][color=red]click[/color][/b] [i]- a hidden door has been opened[/i]"
+		},
+		{
+			"character": "character-1634605365.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Open da wae for you!"
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "Great, how do I get there?"
+		},
+		{
+			"character": "character-1634605365.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Da wae is open for you, you need to find da wae!"
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default Left",
+			"text": "I don't understand.."
+		},
+		{
+			"character": "character-1634605365.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Da wae is open for you, you need to find da wae!"
+		},
+		{
+			"emit_signal": "open_da_wey",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1634605405.json",
+		"name": "i_know_da_wey"
+	}
+}

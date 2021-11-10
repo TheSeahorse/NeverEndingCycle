@@ -1,0 +1,20 @@
+{
+	"color": "#ff593815",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1634429607.json",
+	"mirror_portraits": false,
+	"name": "ZULUL",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": -20,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://Resources/Graphics/Characters/Asylum/LUL/zulul.png"
+		}
+	],
+	"scale": 300
+}

@@ -1,0 +1,134 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I got your crown..."
+		},
+		{
+			"action": "join",
+			"character": "character-1632855775.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1632855775.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Gimme that!"
+		},
+		{
+			"emit_signal": "fors_crown",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_023",
+			"wait_seconds": 0.5
+		},
+		{
+			"character": "character-1632855775.json",
+			"event_id": "dialogic_001",
+			"portrait": "Crown",
+			"text": "I'M KING OF THE ASYLUM!!!!"
+		},
+		{
+			"event_id": "dialogic_023",
+			"wait_seconds": 1
+		},
+		{
+			"character": "character-1632855775.json",
+			"event_id": "dialogic_001",
+			"portrait": "Crown",
+			"text": "Oh you're still here, what do you want?"
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You told me you had some info for me?"
+		},
+		{
+			"character": "character-1632855775.json",
+			"event_id": "dialogic_001",
+			"portrait": "Crown",
+			"text": "Oh right..."
+		},
+		{
+			"character": "character-1632855775.json",
+			"event_id": "dialogic_001",
+			"portrait": "Crown",
+			"text": "I'm sorry, I lied."
+		},
+		{
+			"character": "character-1632769881.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[b][shake rate=20 level=25]WHAT!?[/shake][/b]"
+		},
+		{
+			"character": "character-1632855775.json",
+			"event_id": "dialogic_001",
+			"portrait": "Crown",
+			"text": "Woah woah, take it easy man."
+		},
+		{
+			"character": "character-1632855775.json",
+			"event_id": "dialogic_001",
+			"portrait": "Crown",
+			"text": "Here, you can have this key. Maybe someone in cell 4 knows how to get outside."
+		},
+		{
+			"action": "leaveall",
+			"character": "[All]",
+			"event_id": "dialogic_003"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[i]You found a key.[/i]"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[i]Cell four has been unlocked.[/i]"
+		},
+		{
+			"emit_signal": "open_four",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1633049248.json",
+		"name": "real_forsen_key"
+	}
+}

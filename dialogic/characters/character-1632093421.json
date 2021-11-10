@@ -1,0 +1,20 @@
+{
+	"color": "#ffa74d1b",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1632093421.json",
+	"mirror_portraits": false,
+	"name": "Advice Friend",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": -50,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://Resources/Graphics/Characters/JumpKing/shy_ronnie_head.png"
+		}
+	],
+	"scale": 150
+}

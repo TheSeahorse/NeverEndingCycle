@@ -1,0 +1,20 @@
+{
+	"color": "#ff4365b3",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1631662374.json",
+	"mirror_portraits": false,
+	"name": "Jump King",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://Resources/Graphics/Characters/JumpKing/jump_king_left.png"
+		}
+	],
+	"scale": 300
+}

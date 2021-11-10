@@ -1,0 +1,147 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1631741465.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1631741465.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[i]Psst[/i]"
+		},
+		{
+			"action": "join",
+			"character": "character-1631573251.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1631573251.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hello"
+		},
+		{
+			"character": "character-1631741465.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Wanna buy some snus?"
+		},
+		{
+			"choice": "Yes",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1631741465.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Bro, you don't have any riksdaler, I don't have time for you, [shake rate=30 level=15]go away![/shake]"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		},
+		{
+			"choice": "What is \"snus\"?",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "character-1631741465.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "It's the most amazing drug ever made! But my imaginary girlfriend told me to stop doing it so I'm selling it all, do you want any?"
+		},
+		{
+			"choice": "Yes",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1631573251.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Bro, you don't have any riksdaler, I don't have time for you, [shake rate=30 level15]go away![/shake]"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		},
+		{
+			"choice": "No",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "character-1631741465.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "So what the fuck do you want then?"
+		},
+		{
+			"character": "character-1631573251.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I don't remember..."
+		},
+		{
+			"character": "character-1631741465.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I'll tell you what, take this egg and get outta here. I don't have time for this shit, need to get back home, my imaginary girlfriend promised to [color=#FFC0CB][b]play[/b][/color] with me."
+		},
+		{
+			"emit_signal": "hobo_eg",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2.5",
+		"file": "timeline-1631741497.json",
+		"name": "hobo_sell_egg"
+	}
+}
